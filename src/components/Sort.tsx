@@ -34,7 +34,8 @@ export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {
   const theme = useTheme()
   const [selectedSort, setSelectedSort] = React.useState(value.sortProperty)
 
-  const handleChange = event => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleChange = (event:any)=> {
     const selectedValue = event.target.value
 
     if (selectedValue) {
@@ -44,7 +45,6 @@ export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {
       )
       if (selectedSortItem) {
         dispatch(setSort(selectedSortItem))
-
         if (selectedSortItem.sortProperty === SortPropertyEnum.IS_NEW) {
           sortList.sort((a, b) => {
             if (a.isNew && !b.isNew) return -1
