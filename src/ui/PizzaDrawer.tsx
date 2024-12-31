@@ -132,12 +132,15 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
             (status === 'loading' ? (
               <div className='mt-[20px]'>{skeletons}</div>
             ) : (
-              <div id='reviews' className='bg-[#f6f6f9] pl-[10px] pr-[10px] mt-[15px] rounded-[12px]'>
+              <div
+                id='reviews'
+                className='bg-[#f6f6f9] pl-[10px] pr-[10px] mt-[15px] rounded-[12px]'
+              >
                 <div className='font-[700] sm:flex-col flex sm:items-start items-center justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
-                  <div className='flex items-center gap-[5px] text-[22px]'>
-                    <p className='hidden sm:flex '>Отзывы</p>{' '}
-                    <MessageCircle className='sm:hidden' /> (
-                    {pizza?.reviews?.length})
+                  <div className='flex items-center gap-[3px] text-[20px]'>
+                    <p className='hidden sm:flex'>Отзывы</p>{' '}
+                    <MessageCircle className='sm:hidden' />
+                    <p className='font-[550]'>({pizza?.reviews?.length})</p>
                   </div>
                   <div className='flex items-center justify-between gap-[15px]'>
                     <button
@@ -146,7 +149,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       }
                       className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black]  dark:text-white hover:text-white duration-300 px-[20px] sm:px-[10px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.ALL
-                          ? 'bg-black dark:bg-[#343946] text-white'
+                          ? 'bg-black dark:bg-[#1b243a] text-white'
                           : ''
                       }`}
                     >
@@ -158,7 +161,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       }
                       className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black] dark:text-white hover:text-white duration-300 px-[35px] sm:px-[15px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.RECOMMEND
-                          ? 'bg-black dark:bg-[#343946] text-white'
+                          ? 'bg-black dark:bg-[#1b243a] text-white'
                           : ''
                       }`}
                     >
@@ -172,7 +175,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       }
                       className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black]  dark:text-white hover:text-white duration-300 px-[35px] sm:px-[15px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.NOT_RECOMMEND
-                          ? 'bg-black dark:bg-[#343946] text-white'
+                          ? 'bg-black dark:bg-[#1b243a] text-white'
                           : ''
                       }`}
                     >
@@ -196,7 +199,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                           className='w-[40px] h-[40px] rounded-[50%] border-2 border-[#e9e9e9]'
                         />
                         <div className='flex flex-col'>
-                          <p className='text-[16px] w-[470px] sm:w-full flex items-center justify-between font-[600] text-[gray]'>
+                          <p className='text-[16px] w-[470px] sm:w-full flex dark:text-mainTextColor items-center justify-between font-[600] text-[gray]'>
                             {review.name}
                             <Rating
                               name='simple-uncontrolled'
@@ -205,10 +208,10 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                               sx={{ fontSize: '19px' }}
                             />
                           </p>
-                          <p className='text-[14px] text-[#333] leading-[1.5]'>
+                          <p className='text-[14px] text-[#333] dark:text-white leading-[1.5]'>
                             {review.comment}
                           </p>
-                          <p className='text-[12px] text-[gray] mt-[5px]'>
+                          <p className='text-[12px] dark:text-mainTextColor text-[gray] mt-[5px]'>
                             {review.date}
                           </p>
                         </div>

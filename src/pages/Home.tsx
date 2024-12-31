@@ -80,7 +80,7 @@ const Home: React.FC = () => {
           </p>
         </div>
       ) : (
-        <div className='grid grid-cols-4 pb-[20px] mb-[-20px] sm:grid-cols-1 gap-6'>
+        <div className='grid grid-cols-4 sm:grid-cols-1 md:grid-cols-3 mb-[-20px] gap-6'>
           {status === 'loading' ? skeletons : pizzas}
         </div>
       )}
