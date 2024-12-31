@@ -147,7 +147,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       onClick={() =>
                         dispatch(setCommentFilter(CommentFilterEnum.ALL))
                       }
-                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black]  dark:text-white hover:text-white duration-300 px-[20px] sm:px-[10px] rounded-[12px] bg-[#f6f6f9] ${
+                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black]  dark:text-white hover:text-white duration-300 px-[20px] sm:px-[6px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.ALL
                           ? 'bg-black dark:bg-[#1b243a] text-white'
                           : ''
@@ -159,7 +159,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       onClick={() =>
                         dispatch(setCommentFilter(CommentFilterEnum.RECOMMEND))
                       }
-                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black] dark:text-white hover:text-white duration-300 px-[35px] sm:px-[15px] rounded-[12px] bg-[#f6f6f9] ${
+                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black] dark:text-white hover:text-white duration-300 px-[35px] sm:px-[8px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.RECOMMEND
                           ? 'bg-black dark:bg-[#1b243a] text-white'
                           : ''
@@ -173,7 +173,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                           setCommentFilter(CommentFilterEnum.NOT_RECOMMEND)
                         )
                       }
-                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black]  dark:text-white hover:text-white duration-300 px-[35px] sm:px-[15px] rounded-[12px] bg-[#f6f6f9] ${
+                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black]  dark:text-white hover:text-white duration-300 px-[35px] sm:px-[8px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.NOT_RECOMMEND
                           ? 'bg-black dark:bg-[#1b243a] text-white'
                           : ''
@@ -219,7 +219,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                     ))
                   ) : (
                     <div className='flex justify-center items-center h-[100px]'>
-                      <p className='text-[16px] sm:text-[14px] text-gray-600 text-center'>
+                      <p className='text-[16px] dark:text-mainTextColor sm:text-[14px] text-gray-600 text-center'>
                         Нет отзывов для выбранного фильтра.
                       </p>
                     </div>
