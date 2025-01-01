@@ -149,7 +149,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       }
                       className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-mainTextColor hover:text-white duration-300 px-[20px] sm:px-[8px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.ALL
-                          ? 'bg-black dark:bg-[#151d47] dark:text-mainTextColor text-white'
+                          ? 'bg-black dark:bg-[white] dark:text-[#585858] text-white'
                           : ''
                       }`}
                     >
@@ -161,7 +161,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       }
                       className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-mainTextColor hover:text-white duration-300 px-[35px] sm:px-[12px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.RECOMMEND
-                          ? 'bg-black dark:bg-[#151d47] dark:text-mainTextColor text-white'
+                          ? 'bg-black dark:bg-[white] dark:text-[#585858] text-white'
                           : ''
                       }`}
                     >
@@ -175,7 +175,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       }
                       className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-mainTextColor hover:text-white duration-300 px-[35px] sm:px-[12px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.NOT_RECOMMEND
-                          ? 'bg-black dark:bg-[#151d47] dark:text-mainTextColor text-white'
+                          ? 'bg-black dark:bg-[white] dark:text-[#585858] text-white'
                           : ''
                       }`}
                     >
@@ -196,7 +196,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                         <img
                           src={review.profilePhoto}
                           alt={review.name}
-                          className='w-[40px] h-[40px] rounded-[50%] border-2 border-[#e9e9e9]'
+                          className='w-[40px] h-[40px] rounded-[50%] border-2 dark:border-[gray] border-[#e9e9e9]'
                         />
                         <div className='flex flex-col'>
                           <p className='text-[16px] w-[470px] sm:w-full flex items-center justify-between font-[600] text-[gray]'>
