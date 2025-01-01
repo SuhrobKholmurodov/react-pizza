@@ -113,7 +113,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
             >
               <Eye className='w-[20px] h-[20px]' />
             </div>
-            <div className='transition-opacity border border-gray-200 hover:border-gray-300 duration-300 delay-300 dark:hover:border-[#c0bfbf] group-hover:opacity-100 rounded-md p-1'>
+            <div className='transition-opacity hover:cursor-pointer border border-gray-200 hover:border-gray-300 duration-300 delay-300 dark:hover:border-[#c0bfbf] group-hover:opacity-100 rounded-md p-1'>
               <Heart className='text-black dark:text-mainTextColor dark:hover:text-[red] w-[20px] h-[20px] hover:text-[red]' />
             </div>
           </div>

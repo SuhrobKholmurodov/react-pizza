@@ -3,7 +3,6 @@ import ContentLoader from 'react-content-loader'
 export const Skeleton = () => (
   <div className='flex flex-col items-center'>
     <ContentLoader
-      className='pizza-block'
       speed={2}
       width={280}
       height={500}

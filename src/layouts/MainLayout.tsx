@@ -10,7 +10,7 @@ const MainLayout: React.FC = () => {
       <div
         className={` ${
           location.pathname === '/cart' ? 'mt-[0]' : 'pt-[130px] sm:mt-[90px]'
-        } sm:mb-[23%] mb-[6%]`}
+        } sm:mb-[23%] pb-[8%]`}
       >
         <Outlet />
       </div>

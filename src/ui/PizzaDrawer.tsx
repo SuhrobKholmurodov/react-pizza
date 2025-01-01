@@ -76,9 +76,9 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
 
   return (
     <Drawer anchor='right' open={open} onClose={onClose}>
-      <Box className='w-[600px] sm:w-[100%] bg-[#f6f6f9] dark:bg-[#1b1b1f] min-h-screen'>
-        <div className='pl-[10px] pr-[10px] *:dark:bg-[rgb(101,117,133)] flex flex-col'>
-          <div className='flex sm:fixed sm:top-0  sm:left-[10px] sm:right-[10px] sm:z-10 bg-white p-[16px] border-t-0 rounded-b-[12px] justify-between items-center'>
+      <Box className='w-[600px] sm:w-[100%] dark:bg-[#2a2c35] bg-[#f6f6f9] min-h-screen'>
+        <div className='pl-[10px] pr-[10px] flex  flex-col'>
+          <div className='flex sm:fixed sm:top-0 dark:bg-[#1b1b1f] dark:text-mainTextColor sm:left-[10px] sm:right-[10px] sm:z-10 bg-white p-[16px] border-t-0 rounded-b-[12px] justify-between items-center'>
             <p className='font-[700] text-[26px] sm:text-[20px]'>
               {pizza.title}
             </p>
@@ -87,7 +87,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
               className='hover:cursor-pointer hover:text-[gray]'
             />
           </div>
-          <div className='grid sm:mt-[70px] mt-[15px] bg-white rounded-[12px] p-[5px] gap-[20px] sm:grid-cols-1 grid-cols-2'>
+          <div className='grid sm:mt-[70px] mt-[15px] dark:bg-[#1b1b1f] dark:text-mainTextColor bg-white rounded-[12px] p-[5px] gap-[20px] sm:grid-cols-1 grid-cols-2'>
             <div className='flex justify-center'>
               <img
                 src={pizza.imageUrl}
@@ -134,10 +134,10 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
             ) : (
               <div
                 id='reviews'
-                className='bg-[#f6f6f9] pl-[10px] pr-[10px] mt-[15px] rounded-[12px]'
+                className='bg-[#f6f6f9] dark:bg-[#1b1b1f] pb-[12px] mt-[15px] rounded-[12px]'
               >
-                <div className='font-[700] sm:flex-col flex sm:items-start items-center justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
-                  <div className='flex items-center gap-[3px] text-[20px]'>
+                <div className='font-[700] sm:flex-col flex sm:items-start items-center dark:bg-[#1b1b1f] justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
+                  <div className='flex items-center dark:text-mainTextColor gap-[3px] text-[20px]'>
                     <p className='hidden sm:flex'>Отзывы</p>{' '}
                     <MessageCircle className='sm:hidden' />
                     <p className='font-[550]'>({pizza?.reviews?.length})</p>
@@ -147,9 +147,9 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       onClick={() =>
                         dispatch(setCommentFilter(CommentFilterEnum.ALL))
                       }
-                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black]  dark:text-white hover:text-white duration-300 px-[20px] sm:px-[6px] rounded-[12px] bg-[#f6f6f9] ${
+                      className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-mainTextColor hover:text-white duration-300 px-[20px] sm:px-[8px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.ALL
-                          ? 'bg-black dark:bg-[#1b243a] text-white'
+                          ? 'bg-black dark:bg-[#151d47] dark:text-mainTextColor text-white'
                           : ''
                       }`}
                     >
@@ -159,9 +159,9 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       onClick={() =>
                         dispatch(setCommentFilter(CommentFilterEnum.RECOMMEND))
                       }
-                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black] dark:text-white hover:text-white duration-300 px-[35px] sm:px-[8px] rounded-[12px] bg-[#f6f6f9] ${
+                      className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-mainTextColor hover:text-white duration-300 px-[35px] sm:px-[12px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.RECOMMEND
-                          ? 'bg-black dark:bg-[#1b243a] text-white'
+                          ? 'bg-black dark:bg-[#151d47] dark:text-mainTextColor text-white'
                           : ''
                       }`}
                     >
@@ -173,9 +173,9 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                           setCommentFilter(CommentFilterEnum.NOT_RECOMMEND)
                         )
                       }
-                      className={`py-[7px] dark:bg-gray-500 text-[15px] sm:text-[14px] hover:bg-[black]  dark:text-white hover:text-white duration-300 px-[35px] sm:px-[8px] rounded-[12px] bg-[#f6f6f9] ${
+                      className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-mainTextColor hover:text-white duration-300 px-[35px] sm:px-[12px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.NOT_RECOMMEND
-                          ? 'bg-black dark:bg-[#1b243a] text-white'
+                          ? 'bg-black dark:bg-[#151d47] dark:text-mainTextColor text-white'
                           : ''
                       }`}
                     >
@@ -184,7 +184,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                   </div>
                 </div>
                 <ul
-                  className='list-disc pl-[20px] pr-[20px] mt-[10px] sm:pb-[70px] overflow-y-auto max-h-[230px]'
+                  className='list-disc pl-[20px] rounded-[12px] pr-[20px] mt-[10px] sm:pb-[70px] overflow-y-auto max-h-[230px]'
                   style={{
                     scrollbarWidth: 'none',
                     msOverflowStyle: 'none'
@@ -199,7 +199,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                           className='w-[40px] h-[40px] rounded-[50%] border-2 border-[#e9e9e9]'
                         />
                         <div className='flex flex-col'>
-                          <p className='text-[16px] w-[470px] sm:w-full flex dark:text-mainTextColor items-center justify-between font-[600] text-[gray]'>
+                          <p className='text-[16px] w-[470px] sm:w-full flex items-center justify-between font-[600] text-[gray]'>
                             {review.name}
                             <Rating
                               name='simple-uncontrolled'
@@ -208,10 +208,10 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                               sx={{ fontSize: '19px' }}
                             />
                           </p>
-                          <p className='text-[14px] text-[#333] dark:text-white leading-[1.5]'>
+                          <p className='text-[14px] dark:text-mainTextColor text-[#333] leading-[1.5]'>
                             {review.comment}
                           </p>
-                          <p className='text-[12px] dark:text-mainTextColor text-[gray] mt-[5px]'>
+                          <p className='text-[12px] text-[gray] mt-[5px]'>
                             {review.date}
                           </p>
                         </div>
@@ -219,7 +219,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                     ))
                   ) : (
                     <div className='flex justify-center items-center h-[100px]'>
-                      <p className='text-[16px] dark:text-mainTextColor sm:text-[14px] text-gray-600 text-center'>
+                      <p className='text-[16px] sm:text-[14px] text-gray-600 text-center'>
                         Нет отзывов для выбранного фильтра.
                       </p>
                     </div>
@@ -227,7 +227,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                 </ul>
               </div>
             ))}
-          <div className='flex bg-white p-[14px] fixed bottom-0 sm:w-full sm:bottom-[0%] border-t-0 rounded-t-[12px] mt-auto'>
+          <div className='flex bg-white dark:bg-[#1b1b1f] p-[14px] fixed bottom-0 sm:w-full sm:bottom-[0%] border-t-0 rounded-t-[12px] mt-auto'>
             <button
               onClick={onAddToCart}
               className='bg-orange-500 w-[550px] sm:w-[95%] text-white py-[10px] rounded-[8px] hover:bg-orange-400 transition duration-300'
