@@ -76,7 +76,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
 
   return (
     <Drawer anchor='right' open={open} onClose={onClose}>
-      <Box className='w-[600px] sm:w-[100%] dark:bg-[#2a2c35] bg-[#f6f6f9] min-h-screen'>
+      <Box className='w-[600px] sm:w-[100%] dark:bg-[#2a2c35] bg-[#f6f6f9] h-[100vh] sm:h-auto'>
         <div className='pl-[10px] pr-[10px] flex  flex-col'>
           <div className='flex sm:fixed sm:top-0 dark:bg-[#1b1b1f] dark:text-mainTextColor sm:left-[10px] sm:right-[10px] sm:z-10 bg-white p-[16px] border-t-0 rounded-b-[12px] justify-between items-center'>
             <p className='font-[700] text-[26px] sm:text-[20px]'>
@@ -87,7 +87,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
               className='hover:cursor-pointer hover:text-[gray]'
             />
           </div>
-          <div className='grid sm:mt-[70px] mt-[15px] dark:bg-[#1b1b1f] dark:text-mainTextColor bg-white rounded-[12px] p-[5px] gap-[20px] sm:grid-cols-1 grid-cols-2'>
+          <div className='grid sm:mt-[70px] mt-[15px] dark:bg-[#1b1b1f] dark:text-mainTextColor bg-white rounded-[12px] sm:p-[10px] p-[5px] gap-[20px] sm:grid-cols-1 grid-cols-2'>
             <div className='flex justify-center'>
               <img
                 src={pizza.imageUrl}
@@ -136,7 +136,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                 id='reviews'
                 className='bg-[#f6f6f9] dark:bg-[#1b1b1f] pb-[12px] mt-[15px] rounded-[12px]'
               >
-                <div className='font-[700] sm:flex-col flex sm:items-start items-center dark:bg-[#1b1b1f] justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
+                <div className='font-[700] sm:dark:mt-[-10px] sm:flex-col flex sm:items-start items-center dark:bg-[#1b1b1f] justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
                   <div className='flex items-center dark:text-mainTextColor gap-[3px] text-[20px]'>
                     <p className='hidden sm:flex'>Отзывы</p>{' '}
                     <MessageCircle className='sm:hidden' />
@@ -147,7 +147,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                       onClick={() =>
                         dispatch(setCommentFilter(CommentFilterEnum.ALL))
                       }
-                      className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-[#585858] hover:text-white duration-300 px-[20px] sm:px-[8px] rounded-[12px] bg-[#f6f6f9] ${
+                      className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-[#585858] hover:text-white duration-300 px-[20px] sm:px-[15px] rounded-[12px] bg-[#f6f6f9] ${
                         currentFilter === CommentFilterEnum.ALL
                           ? 'bg-black dark:bg-[white] dark:text-[#585858] text-white'
                           : ''
@@ -219,7 +219,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                     ))
                   ) : (
                     <div className='flex justify-center items-center h-[100px]'>
-                      <p className='text-[16px] sm:text-[14px] text-gray-600 text-center'>
+                      <p className='text-[16px] sm:text-[15px] text-gray-600 text-center'>
                         Нет отзывов для выбранного фильтра.
                       </p>
                     </div>

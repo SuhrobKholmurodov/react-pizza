@@ -9,8 +9,8 @@ const MainLayout: React.FC = () => {
       <Header />
       <div
         className={` ${
-          location.pathname === '/cart' ? 'mt-[0]' : 'pt-[130px] sm:mt-[90px]'
-        } sm:mb-[23%] pb-[8%]`}
+          location.pathname === '/cart' ? 'mt-[0]' : 'pt-[130px] sm:mt-[-40px]'
+        } sm:pb-[30%] pb-[8%]`}
       >
         <Outlet />
       </div>

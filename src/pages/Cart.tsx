@@ -18,7 +18,7 @@ const Cart: React.FC = () => {
   return (
     <div>
       <CartHeader />
-      <div className='sm:mb-[57%] mt-[80px]'>
+      <div className='sm:mb-[26%] mt-[80px]'>
         {items.map(item => (
           <CartItem key={item.id} {...item} />
         ))}
