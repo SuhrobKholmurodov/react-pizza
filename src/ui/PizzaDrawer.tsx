@@ -205,7 +205,16 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                               name='simple-uncontrolled'
                               readOnly
                               value={review.rating}
-                              sx={{ fontSize: '19px' }}
+                              sx={{
+                                fontSize: '19px',
+                                '& .MuiRating-iconEmpty': {
+                                  color: document.body.classList.contains(
+                                    'dark-mode'
+                                  )
+                                    ? '#fff'
+                                    : 'grey'
+                                }
+                              }}
                             />
                           </p>
                           <p className='text-[14px] dark:text-mainTextColor text-[#333] leading-[1.5]'>
