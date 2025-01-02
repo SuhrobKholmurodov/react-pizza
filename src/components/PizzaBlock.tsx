@@ -57,6 +57,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
   const cartItem = useSelector(selectCartItemById(id))
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
+  console.log('active', activeSize)
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const addedCount = cartItem ? cartItem.count : 0
@@ -173,8 +174,10 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
           <div className='flex items-center gap-[5px] flex-row-reverse min-h-[30px]'>
             {discountPrices && discountPrices[activeSize] !== null ? (
               <>
-                <div className='text-[16px] font-semibold line-through text-[grey]'>
-                  {prices[activeSize]} $
+                <div className='relative text-[16px] font-[200] text-[grey]'>
+                  <span className="relative before:content-[''] before:absolute before:top-[45%] before:bg-[gray] before:opacity-70 before:w-[110%] before:h-[0.1em] before:left-[-5%] before:rounded-[0.1em] before:transform before:rotate-[-15deg]">
+                    {prices[activeSize]} $
+                  </span>
                 </div>
                 <div className='text-[20px] font-[750] dark:text-mainTextColor'>
                   {discountPrices[activeSize]}$
