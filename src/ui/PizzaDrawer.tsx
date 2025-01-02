@@ -99,16 +99,21 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
               <div className='flex items-start justify-between'>
                 <div className='flex flex-col'>
                   <p>
-                    {pizza.discountPrices && pizza.discountPrices.length > 0 ? (
+                    {pizza.discountPrices &&
+                    pizza.discountPrices.some(price => price !== null) ? (
                       <>
                         <span>Цены без скидки: {pizza.prices.join(', ')}$</span>
                         <br />
                         <span>
-                          Цены со скидкой: {pizza.discountPrices.join(', ')}$
+                          Цены со скидкой:{' '}
+                          {pizza.discountPrices
+                            .filter(price => price !== null)
+                            .join(', ')}
+                          $
                         </span>
                       </>
                     ) : (
-                      <>Цена: {pizza.prices.join(', ')}$</>
+                      <>Цены: {pizza.prices.join(', ')}$</>
                     )}
                   </p>
                 </div>

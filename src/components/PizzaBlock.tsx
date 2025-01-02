@@ -67,8 +67,8 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
       title,
       prices,
       imageUrl,
-      type: typeNames[activeType], 
-      size: activeSize, 
+      type: typeNames[activeType],
+      size: activeSize,
       count: 0,
       sizes
     }
@@ -78,7 +78,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
       duration: 2000
     })
   }
-  
+
   const onClickMinus = () => {
     dispatch(minusItem(id))
   }
@@ -170,8 +170,8 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
       </div>
       <div className='flex justify-between items-start mt-4 py-2'>
         <div className='flex flex-col items-start'>
-          <div className='flex items-center gap-[5px] flex-row-reverse'>
-            {discountPrices ? (
+          <div className='flex items-center gap-[5px] flex-row-reverse min-h-[30px]'>
+            {discountPrices && discountPrices[activeSize] !== null ? (
               <>
                 <div className='text-[16px] font-semibold line-through text-[grey]'>
                   {prices[activeSize]} $
@@ -186,7 +186,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
               </div>
             )}
           </div>
-          {discountPrices ? (
+          {discountPrices && discountPrices[activeSize] !== null ? (
             <div className='text-sm text-green-500 font-[500]'>
               вы сэкономите:{' '}
               {Math.round(
@@ -197,12 +197,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
               %
             </div>
           ) : (
-            <div
-              className='text-sm text-green-500 font-[500]'
-              style={{ visibility: 'hidden' }}
-            >
-              вы сэкономите: 0%
-            </div>
+            <div className='invisible text-sm'>-</div>
           )}
         </div>
 
