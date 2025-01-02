@@ -16,9 +16,9 @@ const Cart: React.FC = () => {
   }
 
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen'>
       <CartHeader />
-      <div className={`sm:mb-${items.length <= 2 ? '10%' : '30%'} mt-[80px]`}>
+      <div className='sm:mb-[30%] mt-[70px]'>
         {items.map(item => (
           <CartItem key={item.id} {...item} />
         ))}
