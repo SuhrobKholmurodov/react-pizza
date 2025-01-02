@@ -11,7 +11,7 @@ export const CustomPagination: React.FC<PaginationProps> = ({
   currentPage,
   onChangePage
 }) => (
-  <Stack spacing={2}>
+  <Stack spacing={1}>
     <Pagination
       count={3}
       page={currentPage}
