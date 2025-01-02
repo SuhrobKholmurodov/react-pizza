@@ -8,7 +8,7 @@ import CartHeader from './CartHeader'
 export const CartEmpty: React.FC = () => (
   <div>
     <CartHeader />
-    <div className='flex text-center items-center  mt-[5%] sm:mt-0 gap-[20px] flex-col'>
+    <div className='flex text-center items-center dark:text-mainTextColor pt-[7%] sm:mt-0 gap-[20px] flex-col'>
       <h2 className='text-[40px] sm:text-[30px] sm:mt-[100px] font-[600]'>
         Корзина пустая <span>😕</span>
       </h2>

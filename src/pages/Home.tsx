@@ -108,12 +108,12 @@ const Home: React.FC = () => {
         <div className='hidden sm:flex border-2 rounded-[50px] sm:px-[15px] px-[25px] border-[grey]'>
           <Link to='/cart' className='flex py-[12px] gap-[10px]'>
             <span className='font-[600]'>
-              {totalPrice.toFixed(2)} <span className='font-[800]'>$</span>
+              {totalPrice} <span className='font-[800]'>$</span>
             </span>
             <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-black'>
             </div>
             <div className='flex gap-[3px] items-center'>
-              <ShoppingCart />
+              <ShoppingCart className='sm:text-[12px]'/>
               <span className='font-[500] sm:font-[400]'>{totalCount}</span>
             </div>
           </Link>
