@@ -102,19 +102,19 @@ export const CartItem: React.FC<CartItemProps> = ({
             cursor: count === 1 ? 'not-allowed' : 'pointer'
           }}
         >
-          <CircleMinus style={{ color: count === 1 ? '#cccbcb' : 'gray' }} />
+          <CircleMinus style={{ color: count === 1 ? '#e2e2e2' : 'gray' }} />
         </button>
 
         <span className='text-lg dark:text-mainTextColor font-semibold'>
           {count}
         </span>
         <button onClick={onClickPlus}>
-          <CirclePlus />
+          <CirclePlus style={{ color: 'gray' }} />
         </button>
       </div>
 
       <div className='flex items-center dark:text-mainTextColor gap-[15px]'>
-        <span className='text-lg font-semibold'>{totalPrice.toFixed(2)} ₽</span>
+        <span className='text-lg font-semibold'>{totalPrice}₽</span>
         <button
           onClick={handleOpenDialog}
           className='w-8 h-8 flex items-center justify-center'

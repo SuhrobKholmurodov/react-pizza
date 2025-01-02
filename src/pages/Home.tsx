@@ -100,20 +100,19 @@ const Home: React.FC = () => {
           </p>
         </div>
       ) : (
-        <div className='grid grid-cols-4 sm:grid-cols-1 md:grid-cols-3 mb-[10px] gap-6'>
+        <div className='grid grid-cols-4 sm:grid-cols-1 md:grid-cols-3 mb-[-20px] sm:mb-[-5px] gap-6'>
           {status === 'loading' ? skeletons : pizzas}
         </div>
       )}
-      <div className='px-[5%] dark:text-mainTextColor sm:pl-[3%] fixed left-0 right-0 sm:flex-row-reverse bottom-0 dark:bg-[#1b1b1f] dark:border-t-[black] p-4 border-t bg-gray-100 flex justify-between items-center'>
+      <div className='px-[5%] dark:text-mainTextColor sm:pl-[3%] fixed left-0 right-0 sm:flex-row-reverse bottom-0 dark:bg-[#1b1b1f] dark:border-t-[black] p-4 border-t bg-gray-100 flex justify-center sm:justify-between items-center'>
         <div className='hidden sm:flex border-2 rounded-[50px] sm:px-[15px] px-[25px] border-[grey]'>
           <Link to='/cart' className='flex py-[12px] gap-[10px]'>
             <span className='font-[600]'>
               {totalPrice} <span className='font-[800]'>$</span>
             </span>
-            <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-black'>
-            </div>
+            <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-black'></div>
             <div className='flex gap-[3px] items-center'>
-              <ShoppingCart className='sm:text-[12px]'/>
+              <ShoppingCart className='sm:text-[12px]' />
               <span className='font-[500] sm:font-[400]'>{totalCount}</span>
             </div>
           </Link>
