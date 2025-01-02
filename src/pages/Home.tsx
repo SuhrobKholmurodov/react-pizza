@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
+import { ShoppingCart } from 'lucide-react'
 import {
   Categories,
   Sort,
@@ -11,6 +13,7 @@ import {
 import { useAppDispatch } from '../redux/store'
 import { selectFilter } from '../redux/filter/selectors'
 import { selectPizzaData } from '../redux/pizza/selectors'
+import { selectCart } from '../redux/cart/selectors'
 import { setCategoryId, setCurrentPage } from '../redux/filter/slice'
 import { fetchPizzas } from '../redux/pizza/asyncActions'
 
@@ -19,6 +22,12 @@ const Home: React.FC = () => {
   const { items, status } = useSelector(selectPizzaData)
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter)
+  const { items: cartItems, totalPrice } = useSelector(selectCart)
+
+  const totalCount = cartItems.reduce(
+    (sum: number, item) => sum + item.count,
+    0
+  )
 
   const onChangeCategory = useCallback(
     (idx: number) => {
@@ -30,6 +39,7 @@ const Home: React.FC = () => {
   const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page))
   }
+
   const getPizzas = useCallback(async () => {
     const sortBy = sort.sortProperty.replace('-', '')
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc'
@@ -90,11 +100,24 @@ const Home: React.FC = () => {
           </p>
         </div>
       ) : (
-        <div className='grid grid-cols-4 sm:grid-cols-1 md:grid-cols-3 mb-[-20px] gap-6'>
+        <div className='grid grid-cols-4 sm:grid-cols-1 md:grid-cols-3 mb-[10px] gap-6'>
           {status === 'loading' ? skeletons : pizzas}
         </div>
       )}
-      <div className='px-[5%] fixed left-0 right-0 bottom-0 dark:bg-[#1b1b1f] dark:border-t-[black] p-4 border-t bg-gray-100 flex justify-center'>
+      <div className='px-[5%] dark:text-mainTextColor sm:pl-[3%] fixed left-0 right-0 sm:flex-row-reverse bottom-0 dark:bg-[#1b1b1f] dark:border-t-[black] p-4 border-t bg-gray-100 flex justify-between items-center'>
+        <div className='hidden sm:flex border-2 rounded-[50px] sm:px-[15px] px-[25px] border-[grey]'>
+          <Link to='/cart' className='flex py-[12px] gap-[10px]'>
+            <span className='font-[600]'>
+              {totalPrice.toFixed(2)} <span className='font-[800]'>$</span>
+            </span>
+            <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-black'>
+            </div>
+            <div className='flex gap-[3px] items-center'>
+              <ShoppingCart />
+              <span className='font-[500] sm:font-[400]'>{totalCount}</span>
+            </div>
+          </Link>
+        </div>
         <CustomPagination
           currentPage={currentPage}
           onChangePage={onChangePage}
