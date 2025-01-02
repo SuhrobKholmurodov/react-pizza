@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { toast, Toaster } from 'react-hot-toast'
-
 import { addItem, minusItem, removeItem } from '../redux/cart/slice'
 import { CartItem as CartItemType } from '../redux/cart/types'
 import { Trash2, CirclePlus, CircleMinus } from 'lucide-react'
@@ -13,9 +12,10 @@ type CartItemProps = {
   title: string
   type: string
   size: number
-  price: number
+  prices: number[]
   count: number
   imageUrl: string
+  sizes: number[]
 }
 
 export const CartItem: React.FC<CartItemProps> = ({
@@ -23,9 +23,10 @@ export const CartItem: React.FC<CartItemProps> = ({
   title,
   type,
   size,
-  price,
+  prices,
   count,
-  imageUrl
+  imageUrl,
+  sizes
 }) => {
   const dispatch = useDispatch()
   const [openDialog, setOpenDialog] = useState(false)
@@ -33,13 +34,21 @@ export const CartItem: React.FC<CartItemProps> = ({
   const onClickPlus = () => {
     dispatch(
       addItem({
-        id
+        id,
+        title,
+        prices,
+        imageUrl,
+        type,
+        size,
+        count
       } as CartItemType)
     )
   }
 
   const onClickMinus = () => {
-    dispatch(minusItem(id))
+    if (count > 1) {
+      dispatch(minusItem(id))
+    }
   }
 
   const handleOpenDialog = () => {
@@ -58,6 +67,9 @@ export const CartItem: React.FC<CartItemProps> = ({
       duration: 2000
     })
   }
+
+  const price = prices[size]
+  const totalPrice = (price !== undefined ? price : 0) * count
 
   return (
     <div className='flex items-center gap-4 p-4 border-b border-gray-300'>
@@ -78,13 +90,13 @@ export const CartItem: React.FC<CartItemProps> = ({
       <div className='flex-1 dark:text-mainTextColor'>
         <h3 className='text-lg sm:text-[14px] font-semibold'>{title}</h3>
         <p className='text-sm text-gray-500'>
-          {type}, {size} см.
+          {type}, {sizes[size]} см.
         </p>
       </div>
       <div className='flex dark:text-mainTextColor sm:flex-col-reverse items-center gap-2'>
         <button
-        className='dark:text-mainTextColor'
-          onClick={count > 1 ? onClickMinus : undefined}
+          className='dark:text-mainTextColor'
+          onClick={onClickMinus}
           disabled={count === 1}
           style={{
             cursor: count === 1 ? 'not-allowed' : 'pointer'
@@ -93,14 +105,16 @@ export const CartItem: React.FC<CartItemProps> = ({
           <CircleMinus style={{ color: count === 1 ? '#cccbcb' : 'gray' }} />
         </button>
 
-        <span className='text-lg dark:text-mainTextColor font-semibold'>{count}</span>
+        <span className='text-lg dark:text-mainTextColor font-semibold'>
+          {count}
+        </span>
         <button onClick={onClickPlus}>
           <CirclePlus />
         </button>
       </div>
 
       <div className='flex items-center dark:text-mainTextColor gap-[15px]'>
-        <span className='text-lg font-semibold'>{price * count} ₽</span>
+        <span className='text-lg font-semibold'>{totalPrice.toFixed(2)} ₽</span>
         <button
           onClick={handleOpenDialog}
           className='w-8 h-8 flex items-center justify-center'

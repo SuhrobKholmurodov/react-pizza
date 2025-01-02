@@ -12,8 +12,8 @@ import { selectCommentFilter } from '../redux/commentFilter/selectors'
 type PizzaType = {
   id: string
   title: string
-  price: number
-  discountPrice?: number
+  prices: number[]
+  discountPrices?: number[]
   imageUrl: string
   ingredients: string[]
   spicyLevel: number
@@ -99,14 +99,16 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
               <div className='flex items-start justify-between'>
                 <div className='flex flex-col'>
                   <p>
-                    {pizza.discountPrice ? (
+                    {pizza.discountPrices && pizza.discountPrices.length > 0 ? (
                       <>
-                        <span>Цена без скидки: {pizza.price}$</span>
+                        <span>Цены без скидки: {pizza.prices.join(', ')}$</span>
                         <br />
-                        <span>Цена со скидкой: {pizza.discountPrice}$</span>
+                        <span>
+                          Цены со скидкой: {pizza.discountPrices.join(', ')}$
+                        </span>
                       </>
                     ) : (
-                      <>Цена: {pizza.price}$</>
+                      <>Цена: {pizza.prices.join(', ')}$</>
                     )}
                   </p>
                 </div>
@@ -114,7 +116,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                   open={tooltipOpen}
                   onClose={handleTooltipClose}
                   pizza={pizza}
-                ></ProductInfoTooltip>
+                />
               </div>
 
               <div className='flex flex-wrap'>
@@ -236,7 +238,7 @@ export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
                 </ul>
               </div>
             ))}
-          <div className='flex bg-white dark:bg-[#1b1b1f] p-[14px] fixed bottom-0 sm:w-full sm:bottom-[0%] border-t-0 rounded-t-[12px] mt-auto'>
+          <div className='flex bg-white dark:bg-[#1b1b1f] p-[15px] fixed bottom-0 sm:w-full sm:bottom-[0%] border-t-0 rounded-t-[12px] mt-auto'>
             <button
               onClick={onAddToCart}
               className='bg-orange-500 w-[550px] sm:w-[95%] text-white py-[10px] rounded-[8px] hover:bg-orange-400 transition duration-300'

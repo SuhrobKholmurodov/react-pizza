@@ -15,7 +15,7 @@ export const CartEmpty: React.FC = () => (
       <p className='text-[#a6a5a5] text-[20px] font-[500]'>
         Вероятней всего, вы не заказывали ещё пиццу.
         <br className='sm:hidden' />
-        Для того, чтобы заказать пиццу, перейди на главную страницу.
+        Для того, чтобы заказать пиццу, перейдите на главную страницу.
       </p>
       <img
         src={cartEmptyImg}

@@ -4,14 +4,14 @@ import { useSelector } from 'react-redux'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { selectCart } from '../redux/cart/selectors'
 import { CartItem, CartEmpty } from '../components'
-import CartHeader from '../components/CartHeader';
+import CartHeader from '../components/CartHeader'
 
 const Cart: React.FC = () => {
   const { totalPrice, items } = useSelector(selectCart)
+
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)
 
-
-  if (!totalPrice) {
+  if (items.length === 0) {
     return <CartEmpty />
   }
 
@@ -30,7 +30,7 @@ const Cart: React.FC = () => {
               Всего пицц: <b className='text-lg'>{totalCount} шт.</b>
             </span>
             <span className='text-sm font-medium dark:text-mainTextColor text-gray-700'>
-              Сумма заказа: <b className='text-lg'>{totalPrice} ₽</b>
+              Сумма заказа: <b className='text-lg'>{totalPrice.toFixed(2)} ₽</b>
             </span>
           </div>
 
@@ -47,7 +47,7 @@ const Cart: React.FC = () => {
             </button>
           </div>
         </div>
-      </div>{' '}
+      </div>
     </div>
   )
 }

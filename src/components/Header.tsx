@@ -38,9 +38,7 @@ export const Header: React.FC = () => {
                   alt='Pizza Logo'
                 />
                 <div className='sm:hidden dark:text-mainTextColor'>
-                  <h1 className='text-[25px] font-[700]'>
-                    Pizza house
-                  </h1>
+                  <h1 className='text-[25px] font-[700]'>Pizza house</h1>
                   <p className='text-[18px] font-[600]'>
                     Пицца, которая покорит ваше сердце
                   </p>
@@ -58,9 +56,12 @@ export const Header: React.FC = () => {
                     {location.pathname !== '/cart' && (
                       <Link to='/cart' className='flex py-[12px] gap-[10px]'>
                         <span className='font-[600]'>
-                          {totalPrice} <span className='font-[800]'>$</span>
+                          {totalPrice.toFixed(2)}{' '}
+                          <span className='font-[800]'>$</span>
                         </span>
-                        <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-[black]'>|</div>
+                        <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-black'>
+                          |
+                        </div>
                         <div className='flex gap-[3px] items-center'>
                           <ShoppingCart />
                           <span className='font-[500]'>{totalCount}</span>

@@ -20,8 +20,8 @@ const typeNames = ['тонкое', 'традиционное']
 type PizzaBlockProps = {
   id: string
   title: string
-  price: number
-  discountPrice?: number
+  prices: number[]
+  discountPrices?: number[]
   reviews: ReviewItemProps[]
   ingredients: string[]
   deliveryTime: number
@@ -39,8 +39,8 @@ type PizzaBlockProps = {
 export const PizzaBlock: React.FC<PizzaBlockProps> = ({
   id,
   title,
-  price,
-  discountPrice,
+  prices,
+  discountPrices,
   ingredients,
   reviews,
   deliveryTime,
@@ -65,11 +65,12 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
     const item: CartItem = {
       id,
       title,
-      price,
+      prices,
       imageUrl,
-      type: typeNames[activeType],
-      size: sizes[activeSize],
-      count: 0
+      type: typeNames[activeType], 
+      size: activeSize, 
+      count: 0,
+      sizes
     }
     dispatch(addItem(item))
     toast.success(`${title} добавлена в корзину!`, {
@@ -77,6 +78,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
       duration: 2000
     })
   }
+  
   const onClickMinus = () => {
     dispatch(minusItem(id))
   }
@@ -118,7 +120,9 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
             </div>
           </div>
         </div>
-        <h4 className='text-lg font-semibold dark:text-mainTextColor mt-2 text-center'>{title}</h4>
+        <h4 className='text-lg font-semibold dark:text-mainTextColor mt-2 text-center'>
+          {title}
+        </h4>
       </div>
       <div className='mt-3 rounded-md p-[5px] dark:text-[#e3e1e1] dark:bg-[#202127] bg-[#f5f6f7]'>
         <div className='flex flex-col gap-[10px] w-full'>
@@ -148,7 +152,9 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
                 key={size}
                 onClick={() => setActiveSize(i)}
                 className={`text-center py-2 rounded-md cursor-pointer flex-1 transition-all duration-300 ${
-                  activeSize === i ? 'bg-[#ebedf0] dark:bg-[#2a2c35] dark:text-mainTextColor text-black' : 'bg-gray-150'
+                  activeSize === i
+                    ? 'bg-[#ebedf0] dark:bg-[#2a2c35] dark:text-mainTextColor text-black'
+                    : 'bg-gray-150'
                 }`}
               >
                 <div className='inline-flex items-center justify-center gap-1'>
@@ -165,29 +171,37 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
       <div className='flex justify-between items-start mt-4 py-2'>
         <div className='flex flex-col items-start'>
           <div className='flex items-center gap-[5px] flex-row-reverse'>
-            {discountPrice !== null ? (
+            {discountPrices ? (
               <>
                 <div className='text-[16px] font-semibold line-through text-[grey]'>
-                  {price} $
+                  {prices[activeSize]} $
                 </div>
-                <div className='text-[20px] font-[750] dark:text-mainTextColor'>{discountPrice}$</div>
+                <div className='text-[20px] font-[750] dark:text-mainTextColor'>
+                  {discountPrices[activeSize]}$
+                </div>
               </>
             ) : (
-              <div className='text-[20px] font-[750] dark:text-mainTextColor'>{price} $</div>
+              <div className='text-[20px] font-[750] dark:text-mainTextColor'>
+                {prices[activeSize]} $
+              </div>
             )}
           </div>
-          {discountPrice !== null ? (
+          {discountPrices ? (
             <div className='text-sm text-green-500 font-[500]'>
               вы сэкономите:{' '}
-              {Math.round(((price - (discountPrice ?? 1)) / price) * 100)}%
+              {Math.round(
+                ((prices[activeSize] - discountPrices[activeSize]) /
+                  prices[activeSize]) *
+                  100
+              )}
+              %
             </div>
           ) : (
             <div
               className='text-sm text-green-500 font-[500]'
               style={{ visibility: 'hidden' }}
             >
-              вы сэкономите:{' '}
-              {Math.round(((price - discountPrice) / price) * 100)}%
+              вы сэкономите: 0%
             </div>
           )}
         </div>
@@ -242,9 +256,9 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
         pizza={{
           id,
           title,
-          price,
+          prices,
           moreDetails,
-          discountPrice,
+          discountPrices,
           imageUrl,
           ingredients,
           reviews,

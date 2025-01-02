@@ -11,8 +11,8 @@ export type ReviewItemProps = {
 export type Pizza = {
   id: string;
   title: string;
-  price: number;
-  discountPrice: number;
+  prices: number[];
+  discountPrices: number[];
   reviews: ReviewItemProps[];
   deliveryTime: number;
   onPromotion: boolean;
