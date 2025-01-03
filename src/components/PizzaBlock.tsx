@@ -8,6 +8,7 @@ import {
   Check,
   MinusIcon
 } from 'lucide-react'
+import StarIcon from '@mui/icons-material/Star'
 import { toast, Toaster } from 'react-hot-toast'
 import { selectCartItemById } from '../redux/cart/selectors'
 import { CartItem } from '../redux/cart/types'
@@ -86,7 +87,15 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
 
   const handleDrawerOpen = () => setDrawerOpen(true)
   const handleDrawerClose = () => setDrawerOpen(false)
-
+  const averageRating =
+    reviews.length > 0
+      ? (
+          reviews.reduce((acc, review) => acc + review.rating, 0) /
+          reviews.length
+        )
+          .toFixed(1)
+          .replace(/\.0$/, '')
+      : 0
   return (
     <div className='p-4 hover:shadow-xl transition-shadow group rounded-lg dark:hover:shadow-black hover:shadow-[#f1f0f0] duration-300 ease-in-out relative'>
       <div>
@@ -190,14 +199,16 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
             )}
           </div>
           {discountPrices && discountPrices[activeSize] !== null ? (
-            <div className='text-sm text-green-500 font-[500]'>
-              вы сэкономите:{' '}
-              {Math.round(
-                ((prices[activeSize] - discountPrices[activeSize]) /
-                  prices[activeSize]) *
-                  100
-              )}
-              %
+            <div className='flex justify-between items-center w-full'>
+              <div className='text-sm text-green-500 font-[500]'>
+                вы сэкономите:{' '}
+                {Math.round(
+                  ((prices[activeSize] - discountPrices[activeSize]) /
+                    prices[activeSize]) *
+                    100
+                )}
+                %
+              </div>
             </div>
           ) : (
             <div className='invisible text-sm'>-</div>
@@ -206,23 +217,31 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
 
         <div
           onClick={handleDrawerOpen}
-          className='flex hover:cursor-pointer hover:text-gray-400 items-center gap-[4px] text-gray-500 font-bold'
+          className='flex flex-col hover:cursor-pointer hover:text-gray-400 items-end gap-[4px] text-gray-500 font-bold'
         >
-          {reviews.length > 0 && (
-            <>
-              <MessageCircle />
-              <p>{reviews.length}</p>
-              <p>
-                {reviews.length % 10 === 1 && reviews.length % 100 !== 11
-                  ? 'отзыв'
-                  : reviews.length % 10 >= 2 &&
-                    reviews.length % 10 <= 4 &&
-                    (reviews.length % 100 < 10 || reviews.length % 100 >= 20)
-                  ? 'отзыва'
-                  : 'отзывов'}
-              </p>
-            </>
-          )}
+          <div className='flex hover:cursor-pointer hover:text-gray-400 items-center gap-[4px] text-gray-500 font-bold'>
+            {reviews.length > 0 && (
+              <>
+                <MessageCircle />
+                <p>{reviews.length}</p>
+                <p>
+                  {reviews.length % 10 === 1 && reviews.length % 100 !== 11
+                    ? 'отзыв'
+                    : reviews.length % 10 >= 2 &&
+                      reviews.length % 10 <= 4 &&
+                      (reviews.length % 100 < 10 || reviews.length % 100 >= 20)
+                    ? 'отзыва'
+                    : 'отзывов'}
+                </p>
+              </>
+            )}
+          </div>
+          <div className='dark:text-mainTextColor  text-black flex gap-[3px] items-center'>
+            <p className='mt-[-3px]'>
+              <StarIcon className='text-[orange]' sx={{ fontSize: '16px' }} />
+            </p>
+            <p className='font-[500]'>{averageRating}</p>
+          </div>
         </div>
       </div>
 
