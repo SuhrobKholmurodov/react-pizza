@@ -35,7 +35,7 @@ export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {
   const [selectedSort, setSelectedSort] = React.useState(value.sortProperty)
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChange = (event:any)=> {
+  const handleChange = (event: any) => {
     const selectedValue = event.target.value
 
     if (selectedValue) {
@@ -89,7 +89,7 @@ export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {
             <MenuItem
               key={obj.sortProperty}
               value={obj.sortProperty}
-              className='dark:bg-[#161618] dark:text-mainTextColor'
+              className='dark:bg-[#161618] hover:dark:bg-[#333746] hover:dark:text-[#838282] dark:text-mainTextColor'
               style={{
                 fontWeight:
                   selectedSort === obj.sortProperty
