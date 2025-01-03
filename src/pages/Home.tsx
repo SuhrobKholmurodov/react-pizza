@@ -78,6 +78,10 @@ const Home: React.FC = () => {
   const skeletons = [...new Array(4)].map((_, index) => (
     <Skeleton key={index} />
   ))
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
 
   return (
     <div>
