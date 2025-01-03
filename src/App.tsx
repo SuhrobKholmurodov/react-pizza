@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import MainLayout from './layouts/MainLayout';
-const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
+// const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
