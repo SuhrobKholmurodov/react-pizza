@@ -12,6 +12,7 @@ import Select from '@mui/material/Select'
 type SortItem = {
   name: string
   sortProperty: SortPropertyEnum
+  reviewsCnt?: number
   isNew?: boolean
 }
 
@@ -20,6 +21,14 @@ const sortList: SortItem[] = [
   { name: 'Не популярные', sortProperty: SortPropertyEnum.RATING_ASC },
   { name: 'Сначала дешевые', sortProperty: SortPropertyEnum.PRICE_DESC },
   { name: 'Сначала дорогие', sortProperty: SortPropertyEnum.PRICE_ASC },
+  {
+    name: 'По количеству отзывов (от большего)',
+    sortProperty: SortPropertyEnum.REVIEWS_CNT_DESC
+  },
+  {
+    name: 'По количеству отзывов (от меньшего)',
+    sortProperty: SortPropertyEnum.REVIEWS_CNT_ASC
+  },
   { name: 'Новинки', sortProperty: SortPropertyEnum.IS_NEW },
   { name: 'Я-А', sortProperty: SortPropertyEnum.TITLE_DESC },
   { name: 'А-Я', sortProperty: SortPropertyEnum.TITLE_ASC }
@@ -50,6 +59,22 @@ export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {
             if (a.isNew && !b.isNew) return -1
             if (!a.isNew && b.isNew) return 1
             return 0
+          })
+        } else if (
+          selectedSortItem.sortProperty === SortPropertyEnum.REVIEWS_CNT_DESC ||
+          selectedSortItem.sortProperty === SortPropertyEnum.REVIEWS_CNT_ASC
+        ) {
+          sortList.sort((a, b) => {
+            console.log('a', a, 'b', b)
+            const reviewsCntA = a.reviewsCnt ?? 0
+            const reviewsCntB = b.reviewsCnt ?? 0
+            if (
+              selectedSortItem.sortProperty ===
+              SortPropertyEnum.REVIEWS_CNT_DESC
+            ) {
+              return reviewsCntB - reviewsCntA
+            }
+            return reviewsCntA - reviewsCntB
           })
         }
       }

@@ -5,17 +5,19 @@ export enum SortPropertyEnum {
   TITLE_ASC = '-title',
   PRICE_DESC = 'price',
   PRICE_ASC = '-price',
-  IS_NEW = 'isNew'  
+  IS_NEW = 'isNew',
+  REVIEWS_CNT_DESC = 'reviews',
+  REVIEWS_CNT_ASC = '-reviews'
 }
 
 export type Sort = {
-  name: string;
-  sortProperty: SortPropertyEnum;
-};
+  name: string
+  sortProperty: SortPropertyEnum
+}
 
 export interface FilterSliceState {
-  searchValue: string;
-  categoryId: number;
-  currentPage: number;
-  sort: Sort;
+  searchValue: string
+  categoryId: number
+  currentPage: number
+  sort: Sort
 }
