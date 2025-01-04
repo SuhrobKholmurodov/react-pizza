@@ -24,12 +24,18 @@ const DialogDelete: React.FC<DialogDeleteProps> = ({
 }) => {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{title}</DialogTitle>
-      <DialogContent>
+      <DialogTitle className='dark:bg-[#272730] dark:text-white'>
+        {title}
+      </DialogTitle>
+      <DialogContent className='dark:bg-[#272730] dark:text-white'>
         <p>{message}</p>
       </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose} sx={{ color: '#FF5722' }}>
+      <DialogActions className='dark:bg-[#272730]'>
+        <Button
+          onClick={onClose}
+          sx={{ color: '#FF5722' }}
+          className='dark:hover:bg-gray-700 dark:text-white'
+        >
           Отменить
         </Button>
         <Button
@@ -37,6 +43,7 @@ const DialogDelete: React.FC<DialogDeleteProps> = ({
           sx={{ backgroundColor: '#FF5722', color: 'white' }}
           variant='contained'
           autoFocus
+          className='dark:bg-gray-800 dark:hover:bg-gray-700'
         >
           Подтвердить
         </Button>
