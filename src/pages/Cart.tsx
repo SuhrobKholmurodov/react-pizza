@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { selectCart } from '../redux/cart/selectors'
 import { CartItem, CartEmpty } from '../components'
 import CartHeader from '../components/CartHeader'
+import PaymentModal from '../ui/PaymentModal'
 
 const Cart: React.FC = () => {
   const { totalPrice, items } = useSelector(selectCart)
 
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)
-
+  const [openModal, setOpenModal] = useState(false)
+  const handleOpenModal = () => setOpenModal(true)
+  const handleCloseModal = () => setOpenModal(false)
   if (items.length === 0) {
     return <CartEmpty />
   }
-
   return (
     <div className='min-h-screen'>
       <CartHeader />
@@ -42,12 +44,16 @@ const Cart: React.FC = () => {
               <ArrowBackIcon fontSize='medium' />
               <span className='sm:text-[16px]'>Вернуться назад</span>
             </Link>
-            <button className='bg-orange-500 text-white px-6 sm:px-2 sm:py-2 sm:text-[16px] py-3 rounded-md hover:bg-orange-600 text-lg'>
-              Оплатить сейчас
+            <button
+              onClick={handleOpenModal}
+              className='bg-orange-500 text-white px-6 sm:px-2 sm:py-2 sm:text-[16px] py-3 rounded-md hover:bg-orange-600 text-lg'
+            >
+              Заказать доставку
             </button>
           </div>
         </div>
       </div>
+      <PaymentModal open={openModal} onClose={handleCloseModal} />
     </div>
   )
 }
