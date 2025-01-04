@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { toast, Toaster } from 'react-hot-toast'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { selectCart } from '../redux/cart/selectors'
 import { CartItem, CartEmpty } from '../components'
@@ -14,12 +15,21 @@ const Cart: React.FC = () => {
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => setOpenModal(true)
   const handleCloseModal = () => setOpenModal(false)
+
+  const handleToast = () => {
+    toast.success('Ваш заказ принят в обработку!', {
+      position: 'top-center',
+      duration: 5000
+    })
+  }
+
   if (items.length === 0) {
     return <CartEmpty />
   }
   return (
     <div className='min-h-screen'>
       <CartHeader />
+      <Toaster />
       <div className='sm:mb-[30%] mt-[70px]'>
         {items.map(item => (
           <CartItem key={item.id} {...item} />
@@ -53,7 +63,11 @@ const Cart: React.FC = () => {
           </div>
         </div>
       </div>
-      <PaymentModal open={openModal} onClose={handleCloseModal} />
+      <PaymentModal
+        open={openModal}
+        onClose={handleCloseModal}
+        handleSubmit={handleToast}
+      />
     </div>
   )
 }

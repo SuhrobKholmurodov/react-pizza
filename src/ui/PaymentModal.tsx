@@ -5,17 +5,25 @@ import InputMask from 'react-input-mask'
 interface PaymentModalProps {
   open: boolean
   onClose: () => void
+  handleSubmit: () => void
 }
-const PaymentModal: React.FC<PaymentModalProps> = ({ open, onClose }) => {
+const PaymentModal: React.FC<PaymentModalProps> = ({
+  open,
+  onClose,
+  handleSubmit
+}) => {
   const [phoneNumber, setPhoneNumber] = useState<string>('+992 ')
+
   useEffect(() => {
     if (!open) {
-      setPhoneNumber('+992 ') 
+      setPhoneNumber('+992 ')
     }
   }, [open])
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhoneNumber(e.target.value)
   }
+
   return (
     <Modal open={open} onClose={onClose}>
       <Box
@@ -71,7 +79,10 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ open, onClose }) => {
             variant='contained'
             fullWidth
             sx={{ backgroundColor: '#FF8F00' }}
-            onClick={onClose}
+            onClick={() => {
+              onClose()
+              handleSubmit()
+            }}
             className='dark:bg-[#FF6F00] dark:hover:bg-[#FF8F00] hover:bg-orange-600'
           >
             Заказать доставку
