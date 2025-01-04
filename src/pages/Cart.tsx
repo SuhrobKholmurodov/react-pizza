@@ -19,7 +19,7 @@ const Cart: React.FC = () => {
   const handleToast = () => {
     toast.success('Ваш заказ принят в обработку!', {
       position: 'top-center',
-      duration: 5000
+      duration: 3000
     })
   }
 
@@ -46,7 +46,7 @@ const Cart: React.FC = () => {
             </span>
           </div>
 
-          <div className='flex items-center gap-6'>
+          <div className='flex items-center justify-between w-full'>
             <Link
               to='/'
               className='flex items-center gap-2 text-blue-500 hover:text-blue-700 text-lg'

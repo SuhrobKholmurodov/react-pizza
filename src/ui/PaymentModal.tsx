@@ -36,7 +36,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
           borderRadius: '8px',
           padding: '20px',
           boxShadow: 24,
-          width: '400px'
+          width: '340px'
         }}
         className='dark:bg-[#2e2e34] bg-white'
       >
