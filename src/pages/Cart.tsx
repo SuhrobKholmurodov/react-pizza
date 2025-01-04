@@ -46,13 +46,14 @@ const Cart: React.FC = () => {
             </span>
           </div>
 
-          <div className='flex items-center justify-between w-full'>
+          <div className='flex items-center justify-between gap-6 sm:w-full'>
             <Link
               to='/'
-              className='flex items-center gap-2 text-blue-500 hover:text-blue-700 text-lg'
+              className='flex items-center gap-1 text-blue-500 hover:text-blue-700 text-lg'
             >
               <ArrowBackIcon fontSize='medium' />
-              <span className='sm:text-[16px]'>Вернуться назад</span>
+              <span className='sm:text-[16px] sm:hidden'>Вернуться назад</span>
+              <span className='sm:text-[16px] hidden sm:flex'>Назад</span>
             </Link>
             <button
               onClick={handleOpenModal}
