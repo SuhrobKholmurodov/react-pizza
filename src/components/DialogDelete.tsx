@@ -14,7 +14,7 @@ type DialogDeleteProps = {
   message: string
 }
 
-const DialogDelete = ({
+export const DialogDelete = ({
   open,
   onClose,
   onConfirm,
@@ -50,5 +50,3 @@ const DialogDelete = ({
     </Dialog>
   )
 }
-
-export default DialogDelete

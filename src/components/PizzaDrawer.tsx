@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Drawer, Box } from '@mui/material'
 import Rating from '@mui/material/Rating'
 import { MessageCircle, X } from 'lucide-react'
-import { CommentSkeleteon } from '../components/CommentSkeleteon'
-import ProductInfoTooltip from './ProductInfoTooltip'
 import { CommentFilterEnum } from '../redux/commentFilter/types'
 import { setCommentFilter } from '../redux/commentFilter/slice'
 import { selectCommentFilter } from '../redux/commentFilter/selectors'
+import { CommentSkeleteon } from './CommentSkeleteon'
+import { ProductInfoTooltip } from './ProductInfoTooltip'
 
 type PizzaType = {
   id: string

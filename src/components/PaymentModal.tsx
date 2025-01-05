@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { Modal, Box, Button, TextField, Typography } from '@mui/material'
+import { Modal, Box, Button, Typography } from '@mui/material'
 import InputMask from 'react-input-mask'
-
 interface PaymentModalProps {
   open: boolean
   onClose: () => void
   handleSubmit: () => void
 }
-const PaymentModal = ({ open, onClose, handleSubmit }: PaymentModalProps) => {
+
+export const PaymentModal = ({
+  open,
+  onClose,
+  handleSubmit
+}: PaymentModalProps) => {
   const [phoneNumber, setPhoneNumber] = useState<string>('+992 ')
 
   useEffect(() => {
@@ -32,7 +36,7 @@ const PaymentModal = ({ open, onClose, handleSubmit }: PaymentModalProps) => {
           borderRadius: '8px',
           padding: '20px',
           boxShadow: 24,
-          width: '340px'
+          width: '330px'
         }}
         className='dark:bg-[#2e2e34] bg-white'
       >
@@ -50,26 +54,21 @@ const PaymentModal = ({ open, onClose, handleSubmit }: PaymentModalProps) => {
           value={phoneNumber}
           onChange={handlePhoneChange}
         >
-          {(inputProps: number[]) => (
-            <TextField
+          {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
+            <input
               {...inputProps}
-              label='Номер телефона'
-              variant='outlined'
-              fullWidth
-              margin='normal'
-              className='dark:bg-[#1b1b1f] dark:text-white'
+              className='w-full p-2 mb-[15px] border border-gray-300 rounded-md dark:bg-[#1b1b1f] dark:text-white dark:border-gray-600'
+              placeholder='+992 999 999 999'
             />
           )}
         </InputMask>
-
-        <TextField
-          label='Владелец карты'
-          variant='outlined'
-          fullWidth
-          margin='normal'
-          className='dark:bg-[#1b1b1f] dark:text-white'
+        <input
+          aria-label='Владелец карты'
+          placeholder='Владелец карты'
+          className='w-full p-2 border border-gray-300 rounded-md dark:bg-[#1b1b1f] dark:text-white dark:border-gray-600'
         />
-
+        <br />
+        <br />
         <div className='flex justify-center mt-4'>
           <Button
             variant='contained'
@@ -88,5 +87,3 @@ const PaymentModal = ({ open, onClose, handleSubmit }: PaymentModalProps) => {
     </Modal>
   )
 }
-
-export default PaymentModal

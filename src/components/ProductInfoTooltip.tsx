@@ -10,7 +10,7 @@ const spicyLevels = [
   'Очень остро'
 ]
 
-type ProductInfoDialogProps = {
+type ProductInfoTooltipProps = {
   open: boolean
   onClose: () => void
   pizza: {
@@ -21,7 +21,7 @@ type ProductInfoDialogProps = {
   }
 }
 
-const ProductInfoDialog = ({ onClose, pizza }: ProductInfoDialogProps) => {
+export const ProductInfoTooltip = ({ onClose, pizza }: ProductInfoTooltipProps) => {
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
 
   const handleTooltipClose = () => {
@@ -77,5 +77,3 @@ const ProductInfoDialog = ({ onClose, pizza }: ProductInfoDialogProps) => {
     </Grid>
   )
 }
-
-export default ProductInfoDialog

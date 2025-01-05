@@ -3,12 +3,10 @@ import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { ShoppingCart } from 'lucide-react'
 import Tooltip from '@mui/material/Tooltip'
-
 import { Search } from './Search'
 import { selectCart } from '../redux/cart/selectors'
-
-import Switcher from './Switcher'
 import MainLogo from '../assets/img/logo_main.png'
+import { Switcher } from './Switcher'
 
 export const Header = () => {
   const { items, totalPrice } = useSelector(selectCart)

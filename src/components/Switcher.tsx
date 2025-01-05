@@ -3,7 +3,7 @@ import { Sun, Moon } from 'lucide-react'
 import useDarkSide from '../hooks/useDarkSide'
 import { Tooltip } from '@mui/material'
 
-export default function Switcher () {
+export const Switcher = () => {
   const [colorTheme, setTheme] = useDarkSide()
   const [darkSide, setDarkSide] = useState<boolean>(
     colorTheme === 'light' ? true : false
