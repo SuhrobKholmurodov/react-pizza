@@ -15,7 +15,7 @@ export const Categories = React.memo(
   ({ value, onChangeCategory }: CategoriesProps) => {
     return (
       <div className='relative max-w-full overflow-x-auto'>
-        <ul className='flex space-x-4 list-none p-2'>
+        <ul className='flex space-x-4 list-none py-2 px-2'>
           {categories.map((categoryName, i) => (
             <li
               key={i}
