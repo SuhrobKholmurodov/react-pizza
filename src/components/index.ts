@@ -2,8 +2,6 @@ export * from './Skeleton';
 export * from './PizzaBlock';
 export * from './Header';
 export * from './Categories';
-export * from './Cart/CartItem';
-export * from './Cart/CartEmpty';
 export * from './Search';
 export * from './Pagination';
 export * from './NotFoundBlock';

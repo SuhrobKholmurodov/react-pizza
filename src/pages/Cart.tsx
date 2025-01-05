@@ -4,9 +4,8 @@ import { useSelector } from 'react-redux'
 import { toast, Toaster } from 'react-hot-toast'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { selectCart } from '../redux/cart/selectors'
-import { CartItem, CartEmpty } from '../components'
-import CartHeader from '../components/Cart/CartHeader'
 import PaymentModal from '../ui/PaymentModal'
+import { CartEmpty, CartItem, CartHeader } from '../components/Cart'
 
 const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
