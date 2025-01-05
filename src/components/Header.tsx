@@ -10,7 +10,7 @@ import { selectCart } from '../redux/cart/selectors'
 import Switcher from './Switcher'
 import MainLogo from '../assets/img/logo_main.png'
 
-export const Header: React.FC = () => {
+export const Header = () => {
   const { items, totalPrice } = useSelector(selectCart)
   const location = useLocation()
   const isMounted = React.useRef(false)

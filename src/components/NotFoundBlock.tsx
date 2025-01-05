@@ -1,7 +1,4 @@
-import React from 'react';
-
-
-export const NotFoundBlock: React.FC = () => {
+export const NotFoundBlock = () => {
   return (
     <div className='p-[100px] max-w-[750px] mx-auto text-center'>
       <h1>

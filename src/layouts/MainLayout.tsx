@@ -1,8 +1,7 @@
-import React from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Header } from '../components/Header'
 
-const MainLayout: React.FC = () => {
+const MainLayout = () => {
   const location = useLocation()
   return (
     <div>

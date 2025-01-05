@@ -6,7 +6,7 @@ import { setSearchValue } from '../redux/filter/slice'
 import CloseIcon from '@mui/icons-material/Close'
 import SearchIcon from '@mui/icons-material/Search'
 
-export const Search: React.FC = () => {
+export const Search = () => {
   const dispatch = useDispatch()
   const [value, setValue] = React.useState<string>('')
   const inputRef = React.useRef<HTMLInputElement>(null)

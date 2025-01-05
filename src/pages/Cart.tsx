@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { toast, Toaster } from 'react-hot-toast'
@@ -8,7 +8,7 @@ import { CartItem, CartEmpty } from '../components'
 import CartHeader from '../components/CartHeader'
 import PaymentModal from '../ui/PaymentModal'
 
-const Cart: React.FC = () => {
+const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
 
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)

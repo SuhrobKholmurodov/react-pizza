@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
@@ -17,7 +17,7 @@ import { selectCart } from '../redux/cart/selectors'
 import { setCategoryId, setCurrentPage } from '../redux/filter/slice'
 import { fetchPizzas } from '../redux/pizza/asyncActions'
 
-const Home: React.FC = () => {
+const Home = () => {
   const dispatch = useAppDispatch()
   const { items, status } = useSelector(selectPizzaData)
   const { categoryId, sort, currentPage, searchValue } =
@@ -78,7 +78,7 @@ const Home: React.FC = () => {
   const skeletons = [...new Array(4)].map((_, index) => (
     <Skeleton key={index} />
   ))
-  
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])

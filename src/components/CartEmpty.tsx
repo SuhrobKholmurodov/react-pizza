@@ -1,11 +1,10 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 import cartEmptyImg from '../assets/img/empty-cart.png'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import CartHeader from './CartHeader'
 
-export const CartEmpty: React.FC = () => (
+export const CartEmpty = () => (
   <div>
     <CartHeader />
     <div className='flex text-center items-center dark:text-mainTextColor pt-[7%] sm:mt-0 gap-[20px] flex-col'>
