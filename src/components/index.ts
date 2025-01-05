@@ -6,3 +6,4 @@ export * from './Search';
 export * from './Pagination';
 export * from './NotFoundBlock';
 export * from './Sort';
+export * from './Loader';

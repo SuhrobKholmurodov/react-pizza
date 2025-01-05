@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { Loader } from 'lucide-react'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import MainLayout from './layouts/MainLayout'
@@ -14,7 +15,7 @@ function App () {
           <Route
             path='cart'
             element={
-              <Suspense fallback={<div>Идёт загрузка корзины...</div>}>
+              <Suspense fallback={<Loader />}>
                 <Cart />
               </Suspense>
             }
@@ -22,7 +23,7 @@ function App () {
           <Route
             path='*'
             element={
-              <Suspense fallback={<div>Идёт загрузка...</div>}>
+              <Suspense fallback={<Loader />}>
                 <NotFound />
               </Suspense>
             }
