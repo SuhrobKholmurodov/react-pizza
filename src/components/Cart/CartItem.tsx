@@ -5,7 +5,7 @@ import { toast, Toaster } from 'react-hot-toast'
 import { addItem, minusItem, removeItem } from '../../redux/cart/slice'
 import { CartItem as CartItemType } from '../../redux/cart/types'
 import { Trash2, CirclePlus, CircleMinus } from 'lucide-react'
-import DialogDelete from '../../ui/DialogDelete'
+import DialogDelete from '../DialogDelete'
 
 type CartItemProps = {
   id: string

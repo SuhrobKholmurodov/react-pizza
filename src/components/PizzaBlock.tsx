@@ -14,7 +14,7 @@ import { selectCartItemById } from '../redux/cart/selectors'
 import { CartItem } from '../redux/cart/types'
 import { ReviewItemProps } from '../redux/pizza/types'
 import { addItem, minusItem } from '../redux/cart/slice'
-import { PizzaDrawer } from '../ui/PizzaDrawer'
+import { PizzaDrawer } from './PizzaDrawer'
 
 const typeNames = ['тонкое', 'традиционное']
 

@@ -3,7 +3,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { useDispatch } from 'react-redux'
 import { clearItems } from '../../redux/cart/slice'
-import DialogDelete from '../../ui/DialogDelete'
+import DialogDelete from '../DialogDelete'
 
 export const CartHeader = () => {
   const dispatch = useDispatch()
