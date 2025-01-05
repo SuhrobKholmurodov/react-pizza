@@ -215,8 +215,6 @@ export const Sort = React.memo(({ value }: SortPopupProps) => {
     {
       name: 'Новинки',
       sortProperty: SortPropertyEnum.IS_NEW,
-      reviewsCnt: 0,
-      isNew: true
     },
     {
       name: 'Я-А',
