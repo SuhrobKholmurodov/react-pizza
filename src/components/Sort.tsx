@@ -87,7 +87,7 @@ export const Sort = React.memo(({ value }: SortPopupProps) => {
     <div>
       <FormControl
         sx={{ m: 1, width: 330 }}
-        className='dark:bg-[#161618] dark:text-mainTextColor'
+        className='dark:bg-gray-700 dark:text-mainTextColor'
       >
         <InputLabel id='sort-select-label' className='dark:text-mainTextColor'>
           Сортировать
@@ -108,13 +108,13 @@ export const Sort = React.memo(({ value }: SortPopupProps) => {
               color: theme.palette.primary.main
             }
           }}
-          className='dark:bg-[#161618] dark:text-mainTextColor'
+          className='dark:bg-gray-700 dark:text-mainTextColor'
         >
           {sortList.map(obj => (
             <MenuItem
               key={obj.sortProperty}
               value={obj.sortProperty}
-              className='dark:bg-[#161618] hover:dark:bg-[#333746] hover:dark:text-[#838282] dark:text-mainTextColor'
+              className='dark:bg-gray-700 hover:dark:bg-[#333746] hover:dark:text-[#838282] dark:text-gray-500'
               style={{
                 fontWeight:
                   selectedSort === obj.sortProperty

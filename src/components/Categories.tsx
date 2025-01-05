@@ -24,7 +24,7 @@ export const Categories = React.memo(
                 px-4 py-2 text-center flex items-center justify-center
                 ${
                   value === i
-                    ? 'bg-black dark:bg-[#333746] text-white'
+                    ? 'bg-black dark:bg-gray-700 text-white'
                     : 'bg-gray-200 dark:text-mainTextColor dark:bg-[#202127] hover:text-white hover:dark:bg-[#252a34] hover:bg-[#1f1e1e]'
                 }`}
             >

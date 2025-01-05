@@ -36,7 +36,7 @@ const Cart = () => {
       </div>
       <div className='fixed bottom-0 left-0 w-full px-[5%] dark:bg-[#1b1b1f] bg-white p-4 border-t border-gray-300'>
         <div className='flex justify-between sm:flex-col sm:gap-[10px] dark:bg-[#1b1b1f] items-center p-2 bg-white border-gray-300'>
-          <div className='flex items-center gap-6 p-4 sm:flex-col sm:w-full sm:items-start dark:bg-[#2e2e34] sm:gap-2 bg-white border border-gray-300 rounded-lg shadow-sm'>
+          <div className='flex items-center gap-6 p-4 sm:flex-col sm:w-full sm:items-start dark:bg-gray-700 sm:gap-2 bg-white border border-gray-300 rounded-lg shadow-sm'>
             <span className='text-sm font-medium dark:text-mainTextColor text-gray-700'>
               Всего пицц: <b className='text-lg'>{totalCount} шт.</b>
             </span>
