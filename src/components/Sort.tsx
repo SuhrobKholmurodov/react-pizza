@@ -38,7 +38,7 @@ type SortPopupProps = {
   value: SortType
 }
 
-export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {
+export const Sort = React.memo(({ value }: SortPopupProps) => {
   const dispatch = useDispatch()
   const theme = useTheme()
   const [selectedSort, setSelectedSort] = React.useState(value.sortProperty)

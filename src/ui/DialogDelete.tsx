@@ -1,4 +1,3 @@
-import * as React from 'react'
 import {
   Dialog,
   DialogActions,
@@ -15,13 +14,13 @@ type DialogDeleteProps = {
   message: string
 }
 
-const DialogDelete: React.FC<DialogDeleteProps> = ({
+const DialogDelete = ({
   open,
   onClose,
   onConfirm,
   title,
   message
-}) => {
+}: DialogDeleteProps) => {
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle className='dark:bg-[#272730] dark:text-white'>

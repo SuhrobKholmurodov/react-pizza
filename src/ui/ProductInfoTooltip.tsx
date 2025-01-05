@@ -21,10 +21,7 @@ type ProductInfoDialogProps = {
   }
 }
 
-const ProductInfoDialog: React.FC<ProductInfoDialogProps> = ({
-  onClose,
-  pizza
-}) => {
+const ProductInfoDialog = ({ onClose, pizza }: ProductInfoDialogProps) => {
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
 
   const handleTooltipClose = () => {

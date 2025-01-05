@@ -1,10 +1,8 @@
 import React from 'react'
-
 type CategoriesProps = {
   value: number
   onChangeCategory: (idx: number) => void
 }
-
 const categories = [
   'Все',
   'Детям',
@@ -13,9 +11,8 @@ const categories = [
   'Вегетарианская',
   'Сырные'
 ]
-
-export const Categories: React.FC<CategoriesProps> = React.memo(
-  ({ value, onChangeCategory }) => {
+export const Categories = React.memo(
+  ({ value, onChangeCategory }: CategoriesProps) => {
     return (
       <div className='relative max-w-full overflow-x-auto'>
         <ul className='flex space-x-4 list-none p-2'>

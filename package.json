@@ -25,7 +25,6 @@
     "ahooks": "^3.8.4",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
-    "clsx": "^2.1.1",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.469.0",

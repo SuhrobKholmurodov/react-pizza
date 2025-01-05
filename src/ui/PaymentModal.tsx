@@ -7,11 +7,7 @@ interface PaymentModalProps {
   onClose: () => void
   handleSubmit: () => void
 }
-const PaymentModal: React.FC<PaymentModalProps> = ({
-  open,
-  onClose,
-  handleSubmit
-}) => {
+const PaymentModal = ({ open, onClose, handleSubmit }: PaymentModalProps) => {
   const [phoneNumber, setPhoneNumber] = useState<string>('+992 ')
 
   useEffect(() => {

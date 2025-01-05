@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Drawer, Box } from '@mui/material'
 import Rating from '@mui/material/Rating'
@@ -43,13 +43,13 @@ const skeletons = [...new Array(4)].map((_, index) => (
   <CommentSkeleteon key={index} />
 ))
 
-export const PizzaDrawer: React.FC<PizzaDrawerProps> = ({
+export const PizzaDrawer = ({
   open,
   onClose,
   pizza,
   status,
   onAddToCart
-}) => {
+}: PizzaDrawerProps) => {
   const [tooltipOpen, setTooltipOpen] = useState(false)
 
   const handleTooltipClose = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   ShoppingBasket,
@@ -37,7 +37,7 @@ type PizzaBlockProps = {
   calories: number
 }
 
-export const PizzaBlock: React.FC<PizzaBlockProps> = ({
+export const PizzaBlock = ({
   id,
   title,
   prices,
@@ -53,7 +53,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
   spicyLevel,
   preparationTime,
   calories
-}) => {
+}: PizzaBlockProps) => {
   const dispatch = useDispatch()
   const cartItem = useSelector(selectCartItemById(id))
   const [activeType, setActiveType] = useState(0)

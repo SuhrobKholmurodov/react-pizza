@@ -5,7 +5,7 @@ import { toast, Toaster } from 'react-hot-toast'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { selectCart } from '../redux/cart/selectors'
 import { CartItem, CartEmpty } from '../components'
-import CartHeader from '../components/CartHeader'
+import CartHeader from '../components/Cart/CartHeader'
 import PaymentModal from '../ui/PaymentModal'
 
 const Cart = () => {

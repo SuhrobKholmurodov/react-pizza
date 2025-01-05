@@ -1,4 +1,3 @@
-import * as React from 'react'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
 
@@ -7,10 +6,10 @@ type PaginationProps = {
   onChangePage: (page: number) => void
 }
 
-export const CustomPagination: React.FC<PaginationProps> = ({
+export const CustomPagination = ({
   currentPage,
   onChangePage
-}) => (
+}: PaginationProps) => (
   <Stack spacing={1}>
     <Pagination
       count={3}
