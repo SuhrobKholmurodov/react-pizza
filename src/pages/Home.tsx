@@ -8,6 +8,7 @@ import {
   Sort,
   PizzaBlock,
   Skeleton,
+  SwiperPizza,
   CustomPagination
 } from '../components'
 import { useAppDispatch } from '../redux/store'
@@ -85,7 +86,10 @@ const Home = () => {
 
   return (
     <div>
-      <div className='flex items-center sm:gap-[10px] sm:flex-col justify-between'>
+      <div>
+        <SwiperPizza />
+      </div>
+      <div className='flex mt-[20px] items-center sm:gap-[20px] sm:flex-col justify-between'>
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort value={sort} />
       </div>

@@ -56,7 +56,7 @@ const Option = React.forwardRef<HTMLLIElement, OptionProps<SortPropertyEnum>>(
         {...props}
         slotProps={{
           root: ({ selected, highlighted, disabled }) => ({
-            className: `list-none p-3 rounded-lg cursor-default last-of-type:border-b-0 ${getOptionColorClasses(
+            className: `list-none p-2 hover:cursor-pointer rounded-lg cursor-default last-of-type:border-b-0 ${getOptionColorClasses(
               { selected, highlighted, disabled }
             )}`
           })
