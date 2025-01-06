@@ -27,11 +27,11 @@ export const Header = () => {
     <div>
       {location.pathname !== '/cart' && (
         <div className='py-[20px] sm:py-[0px] fixed top-0 left-0 pl-[5%] dark:bg-mainBgColor pr-[5%] right-0 shadow-md bg-white z-50'>
-          <div className='flex items-center justify-between'>
+          <div className='flex h-[70px] items-center justify-between'>
             <Link to='/'>
               <div className='flex gap-[10px]'>
                 <img
-                  className='w-[70px] h-[70px] object-contain'
+                  className='w-[70px] sm:hidden h-[70px] object-contain'
                   src={MainLogo}
                   alt='Pizza Logo'
                 />
