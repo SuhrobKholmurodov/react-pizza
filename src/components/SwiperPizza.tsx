@@ -58,7 +58,7 @@ export const SwiperPizza = () => {
         {promotionalItems.map(el => (
           <SwiperSlide
             key={el.id}
-            className='bg-yellow-50 dark:bg-neutral-900 px-[140px] py-10 shadow-md rounded-lg flex flex-col items-center justify-between gap-6 relative sm:px-4 sm:py-4 sm:gap-2'
+            className='bg-yellow-50 dark:bg-neutral-900 px-[180px] py-10 shadow-md rounded-lg flex flex-col items-center justify-between gap-6 relative sm:px-4 sm:py-4 sm:gap-2'
           >
             <button className='absolute top-[45px] left-4 bg-orange-500 text-white pl-[45px] pr-[20px] py-2 rounded-full font-semibold hover:bg-orange-600 transition duration-300 transform rotate-90 sm:top-6 sm:pl-8 sm:left-[-20px] sm:pr-2 sm:py-[2px] sm:text-xs'>
               On Promotion

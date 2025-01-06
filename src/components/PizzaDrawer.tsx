@@ -78,7 +78,7 @@ export const PizzaDrawer = ({
     <Drawer anchor='right' open={open} onClose={onClose}>
       <Box className='w-[600px] sm:w-[100%] dark:bg-[#2a2c35] bg-[#f6f6f9] h-[100vh] sm:h-auto'>
         <div className='pl-[10px] pr-[10px] flex  flex-col'>
-          <div className='flex sm:fixed sm:top-0 dark:bg-[#1b1b1f] dark:text-mainTextColor sm:left-[10px] sm:right-[10px] sm:z-10 bg-white p-[16px] border-t-0 rounded-b-[12px] justify-between items-center'>
+          <div className='flex sm:fixed sm:top-0 dark:bg-mainBgColor dark:text-mainTextColor sm:left-[10px] sm:right-[10px] sm:z-10 bg-white p-[16px] border-t-0 rounded-b-[12px] justify-between items-center'>
             <p className='font-[700] text-[26px] sm:text-[20px]'>
               {pizza.title}
             </p>
@@ -87,7 +87,7 @@ export const PizzaDrawer = ({
               className='hover:cursor-pointer hover:text-[gray]'
             />
           </div>
-          <div className='grid sm:mt-[70px] mt-[15px] dark:bg-[#1b1b1f] dark:text-mainTextColor bg-white rounded-[12px] sm:p-[10px] p-[5px] gap-[20px] sm:grid-cols-1 grid-cols-2'>
+          <div className='grid sm:mt-[70px] mt-[15px] dark:bg-mainBgColor dark:text-mainTextColor bg-white rounded-[12px] sm:p-[10px] p-[5px] gap-[20px] sm:grid-cols-1 grid-cols-2'>
             <div className='flex justify-center'>
               <img
                 src={pizza.imageUrl}
@@ -141,9 +141,9 @@ export const PizzaDrawer = ({
             ) : (
               <div
                 id='reviews'
-                className='bg-[#f6f6f9] dark:bg-[#1b1b1f] pb-[12px] mt-[15px] rounded-[12px]'
+                className='bg-[#f6f6f9] dark:bg-mainBgColor pb-[12px] mt-[15px] rounded-[12px]'
               >
-                <div className='font-[700] sm:dark:mt-[-10px] sm:flex-col flex sm:items-start items-center dark:bg-[#1b1b1f] justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
+                <div className='font-[700] sm:dark:mt-[-10px] sm:flex-col flex sm:items-start items-center dark:bg-mainBgColor justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
                   <div className='flex items-center dark:text-mainTextColor gap-[3px] text-[20px]'>
                     <p className='hidden sm:flex'>Отзывы</p>{' '}
                     <MessageCircle className='sm:hidden' />
@@ -243,7 +243,7 @@ export const PizzaDrawer = ({
                 </ul>
               </div>
             ))}
-          <div className='flex bg-white dark:bg-[#1b1b1f] p-[15px] fixed bottom-0 sm:w-full sm:bottom-[0%] border-t-0 rounded-t-[12px] mt-auto'>
+          <div className='flex bg-white dark:bg-mainBgColor p-[15px] fixed bottom-0 sm:w-full sm:bottom-[0%] border-t-0 rounded-t-[12px] mt-auto'>
             <button
               onClick={onAddToCart}
               className='bg-orange-500 w-[550px] sm:w-[95%] text-white py-[10px] rounded-[8px] hover:bg-orange-400 transition duration-300'

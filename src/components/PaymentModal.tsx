@@ -57,7 +57,7 @@ export const PaymentModal = ({
           {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
             <input
               {...inputProps}
-              className='w-full p-2 mb-[15px] border border-gray-300 rounded-md dark:bg-[#1b1b1f] dark:text-white dark:border-gray-600'
+              className='w-full p-2 mb-[15px] border border-gray-300 rounded-md dark:bg-mainBgColor dark:text-white dark:border-gray-600'
               placeholder='+992 999 999 999'
             />
           )}
@@ -65,7 +65,7 @@ export const PaymentModal = ({
         <input
           aria-label='Владелец карты'
           placeholder='Владелец карты'
-          className='w-full p-2 border border-gray-300 rounded-md dark:bg-[#1b1b1f] dark:text-white dark:border-gray-600'
+          className='w-full p-2 border border-gray-300 rounded-md dark:bg-mainBgColor dark:text-white dark:border-gray-600'
         />
         <br />
         <br />

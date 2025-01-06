@@ -12,6 +12,8 @@ export default {
     extend: {
       colors: {
         mainTextColor: "rgba(255, 255, 245, 0.86)", 
+        mainBgColor: "#1b1b1f",
+        dialogBgColor: "#272730"
       },
     },
   },

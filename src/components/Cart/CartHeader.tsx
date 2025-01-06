@@ -20,7 +20,7 @@ export const CartHeader = () => {
   }
   return (
     <div>
-      <div className='py-[20px] dark:bg-[#1b1b1f] flex items-center justify-between fixed top-0 left-0 pl-[5%] pr-[5%] right-0 shadow-md bg-white z-50'>
+      <div className='py-[20px] dark:bg-mainBgColor flex items-center justify-between fixed top-0 left-0 pl-[5%] pr-[5%] right-0 shadow-md bg-white z-50'>
         <div className='flex items-center dark:text-mainTextColor'>
           <ShoppingCartIcon sx={{ fontSize: '30px' }} />
           <p className='text-[30px] sm:text-[18px] font-[600]'>Корзина</p>

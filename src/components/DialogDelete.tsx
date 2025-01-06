@@ -23,13 +23,13 @@ export const DialogDelete = ({
 }: DialogDeleteProps) => {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle className='dark:bg-[#272730] dark:text-white'>
+      <DialogTitle className='dark:bg-dialogBgColor dark:text-white'>
         {title}
       </DialogTitle>
-      <DialogContent className='dark:bg-[#272730] dark:text-white'>
+      <DialogContent className='dark:bg-dialogBgColor dark:text-white'>
         <p>{message}</p>
       </DialogContent>
-      <DialogActions className='dark:bg-[#272730]'>
+      <DialogActions className='dark:bg-dialogBgColor'>
         <Button
           onClick={onClose}
           sx={{ color: '#FF5722' }}

@@ -26,7 +26,7 @@ export const Header = () => {
   return (
     <div>
       {location.pathname !== '/cart' && (
-        <div className='py-[20px] sm:py-[0px] fixed top-0 left-0 pl-[5%] dark:bg-[#1b1b1f] pr-[5%] right-0 shadow-md bg-white z-50'>
+        <div className='py-[20px] sm:py-[0px] fixed top-0 left-0 pl-[5%] dark:bg-mainBgColor pr-[5%] right-0 shadow-md bg-white z-50'>
           <div className='flex items-center justify-between'>
             <Link to='/'>
               <div className='flex gap-[10px]'>

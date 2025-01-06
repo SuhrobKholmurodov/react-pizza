@@ -8,7 +8,7 @@ import NotFound from './pages/NotFound'
 
 function App () {
   return (
-    <div className='pl-[5%] dark:bg-[#1b1b1f] pr-[5%]'>
+    <div className='pl-[5%] dark:bg-mainBgColor pr-[5%]'>
       <Routes>
         <Route path='/' element={<MainLayout />}>
           <Route path='' element={<Home />} />
