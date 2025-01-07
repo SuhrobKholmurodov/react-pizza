@@ -50,7 +50,7 @@ export const SwiperPizza = () => {
         pagination={{
           clickable: true
         }}
-        navigation={true}
+        // navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className='mySwiper rounded-lg sm:rounded-[0] shadow-lg relative z-10 w-full'
         slidesPerView={1}

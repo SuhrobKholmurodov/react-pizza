@@ -13,7 +13,13 @@ export type Pizza = {
   title: string;
   prices: number[];
   discountPrices: number[];
+  ingredients: string[];
+  isNew: boolean;
+  moreDetails: string;
   reviews: ReviewItemProps[];
+  spicyLevel: number;
+  preparationTime: number;
+  calories: number;
   deliveryTime: number;
   onPromotion: boolean;
   imageUrl: string;

@@ -8,21 +8,26 @@ import { Search } from './Search'
 import { selectCart } from '../redux/cart/selectors'
 import MainLogo from '../assets/img/logo_main.png'
 import { Switcher } from './Switcher'
+import { selectFavorites } from '../redux/favorites/selectors'
 
 export const Header = () => {
-  const { items, totalPrice } = useSelector(selectCart)
+  const { items: cartItems, totalPrice } = useSelector(selectCart)
+  const { items: favoriteItems } = useSelector(selectFavorites) 
   const location = useLocation()
   const isMounted = React.useRef(false)
 
-  const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)
-
+  const totalCount = cartItems.reduce(
+    (sum: number, item) => sum + item.count,
+    0
+  )
+  const favoriteCount = favoriteItems.length 
   useEffect(() => {
     if (isMounted.current) {
-      const json = JSON.stringify(items)
+      const json = JSON.stringify(cartItems)
       localStorage.setItem('cart', json)
     }
     isMounted.current = true
-  }, [items])
+  }, [cartItems])
 
   return (
     <div>
@@ -48,20 +53,25 @@ export const Header = () => {
             <div className='flex dark:text-mainTextColor items-center gap-[20px]'>
               <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[5px]'>
                 <Switcher />
-                <Tooltip title='favorites' arrow>
-                  <Badge color='error' badgeContent={2}>
-                    <Heart
-                      className='border p-[5px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
-                      size={'42px'}
-                    />
-                  </Badge>
+                <Tooltip title='Favorites' arrow>
+                  <Link to={'/favorites'}>
+                    <Badge color='error' badgeContent={favoriteCount}>
+                      <Heart
+                        className='border p-[5px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
+                        size={'42px'}
+                      />
+                    </Badge>
+                  </Link>
                 </Tooltip>
               </div>
               <div className='flex sm:hidden rounded-lg px-[25px] border'>
                 <Tooltip title='Cart' arrow>
                   <div>
                     {location.pathname !== '/cart' && (
-                      <Link to='/cart' className='flex py-[8px] gap-[10px]'>
+                      <Link
+                        to='/cart'
+                        className='flex items-center py-[8px] gap-[10px]'
+                      >
                         <span className='font-[600]'>
                           {totalPrice.toFixed(2)}{' '}
                           <span className='font-[800]'>$</span>

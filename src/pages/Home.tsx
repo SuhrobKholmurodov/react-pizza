@@ -64,18 +64,7 @@ const Home = () => {
     getPizzas()
   }, [getPizzas])
 
-  const pizzas = items.map(obj => (
-    <PizzaBlock
-      ingredients={[]}
-      isNew={false}
-      moreDetails={''}
-      spicyLevel={0}
-      preparationTime={0}
-      calories={0}
-      key={obj.id}
-      {...obj}
-    />
-  ))
+  const pizzas = items.map(obj => <PizzaBlock key={obj.id} {...obj} />)
   const skeletons = [...new Array(4)].map((_, index) => (
     <Skeleton key={index} />
   ))

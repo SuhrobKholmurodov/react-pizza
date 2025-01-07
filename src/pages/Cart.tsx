@@ -9,7 +9,6 @@ import { PaymentModal } from '../components'
 
 const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
-
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => setOpenModal(true)

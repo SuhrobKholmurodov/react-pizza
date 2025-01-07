@@ -1,20 +1,18 @@
-import  { useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  ShoppingBasket,
-  MessageCircle,
-  Eye,
-  Heart,
-  Check,
-  MinusIcon
-} from 'lucide-react'
+import { ShoppingBasket, MessageCircle, Check, MinusIcon } from 'lucide-react'
 import StarIcon from '@mui/icons-material/Star'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined'
 import { toast, Toaster } from 'react-hot-toast'
 import { selectCartItemById } from '../redux/cart/selectors'
 import { CartItem } from '../redux/cart/types'
-import { ReviewItemProps } from '../redux/pizza/types'
+import { Pizza, ReviewItemProps } from '../redux/pizza/types'
 import { addItem, minusItem } from '../redux/cart/slice'
 import { PizzaDrawer } from './PizzaDrawer'
+import { selectFavoriteItemById } from '../redux/favorites/selectors'
+import { addFavorite, removeFavorite } from '../redux/favorites/slice'
 
 const typeNames = ['тонкое', 'традиционное']
 
@@ -56,13 +54,47 @@ export const PizzaBlock = ({
 }: PizzaBlockProps) => {
   const dispatch = useDispatch()
   const cartItem = useSelector(selectCartItemById(id))
+  const favoriteItem = useSelector(selectFavoriteItemById(id))
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
-  console.log('active', activeSize)
   const [drawerOpen, setDrawerOpen] = useState(false)
 
-  const addedCount = cartItem ? cartItem.count : 0
+  const onClickFavorite = () => {
+    if (favoriteItem) {
+      dispatch(removeFavorite(id))
+      toast.success(`${title} удалена из избранного!`, {
+        position: 'top-center',
+        duration: 2000
+      })
+    } else {
+      const favoriteItem: Pizza = {
+        id,
+        title,
+        prices,
+        discountPrices: discountPrices || [],
+        reviews,
+        deliveryTime,
+        imageUrl,
+        sizes,
+        types,
+        rating: 0,
+        onPromotion: false,
+        ingredients,
+        isNew,
+        moreDetails,
+        spicyLevel,
+        preparationTime,
+        calories
+      }
+      dispatch(addFavorite(favoriteItem))
+      toast.success(`${title} добавлена в избранное!`, {
+        position: 'top-center',
+        duration: 2000
+      })
+    }
+  }
 
+  const addedCount = cartItem ? cartItem.count : 0
   const onClickAdd = () => {
     const item: CartItem = {
       id,
@@ -97,7 +129,7 @@ export const PizzaBlock = ({
           .replace(/\.0$/, '')
       : 0
   return (
-    <div className='p-4 hover:shadow-xl transition-shadow group rounded-lg dark:hover:shadow-black hover:shadow-[#f1f0f0] duration-300 ease-in-out relative'>
+    <div className='p-4 hover:shadow-xl transition-shadow group rounded-lg dark:hover:shadow-black hover:shadow-[#e4e3e3] duration-300 ease-in-out relative'>
       <div>
         <div className='relative flex items-center justify-center'>
           <img
@@ -112,21 +144,28 @@ export const PizzaBlock = ({
             </div>
           )}
           <Toaster />
-          <div
-            className='absolute z-10 top-0 right-[0px] 
-              opacity-0 transform -translate-y-6 
-              group-hover:translate-y-0 gap-[5px] group-hover:opacity-100 
-              flex flex-col-reverse items-center transition-all duration-300 ease-in-out'
-          >
+          <div className='absolute top-0 right-[0px] flex flex-col-reverse items-center gap-[5px]'>
             <div
               onClick={handleDrawerOpen}
-              className='transition-opacity hover:cursor-pointer border border-gray-200 dark:hover:border-[#c0bfbf] hover:border-gray-300 duration-300 delay-200 group-hover:opacity-100
-                  p-1 rounded-md dark:text-mainTextColor dark:hover:text-[#4892f9] hover:text-[#4892f9]'
+              className='hover:cursor-pointer border border-gray-200 dark:border-gray-500 p-[2px] rounded-md dark:text-mainTextColor dark:hover:text-[#4892f9] hover:text-[#4892f9]'
             >
-              <Eye className='w-[20px] h-[20px]' />
+              <RemoveRedEyeOutlinedIcon className='w-[20px] text-[grey] hover:text-[#4892f9] h-[20px]' />
             </div>
-            <div className='transition-opacity hover:cursor-pointer border border-gray-200 hover:border-gray-300 duration-300 delay-300 dark:hover:border-[#c0bfbf] group-hover:opacity-100 rounded-md p-1'>
-              <Heart className='text-black dark:text-mainTextColor dark:hover:text-[red] w-[20px] h-[20px] hover:text-[red]' />
+            <div
+              onClick={onClickFavorite}
+              className='border-gray-200 border duration-300 dark:border-gray-500 p-[2px] hover:cursor-pointer rounded-md dark:hover:border-[#c0bfbf] hover:border-gray-300'
+            >
+              {favoriteItem ? (
+                <FavoriteIcon
+                  sx={{ color: 'rgb(248, 16, 75)' }}
+                  className='w-[20px] h-[20px]'
+                />
+              ) : (
+                <FavoriteBorderIcon
+                  sx={{ color: 'grey' }}
+                  className='w-[20px] hover:text-[red] h-[20px]'
+                />
+              )}
             </div>
           </div>
         </div>

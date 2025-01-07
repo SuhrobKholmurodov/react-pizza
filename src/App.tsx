@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import MainLayout from './layouts/MainLayout'
 import NotFound from './pages/NotFound'
+import Favorites from './pages/Favorites'
 
 function App () {
   return (
@@ -17,6 +18,14 @@ function App () {
             element={
               <Suspense fallback={<Loader />}>
                 <Cart />
+              </Suspense>
+            }
+          />
+          <Route
+            path='favorites'
+            element={
+              <Suspense fallback={<Loader />}>
+                <Favorites />
               </Suspense>
             }
           />
