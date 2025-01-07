@@ -40,7 +40,7 @@ export const Switcher = () => {
             }}
           />
           <Moon
-            size={34}
+            size={35}
             color='#9b9b9b'
             className={`absolute transition-opacity duration-500 ease-in-out ${
               darkSide ? 'opacity-100' : 'opacity-0'

@@ -86,7 +86,7 @@ const Home = () => {
 
   return (
     <div>
-      <div>
+      <div className='sm:-mx-[5%]'>
         <SwiperPizza />
       </div>
       <div className='flex mt-[20px] items-center sm:gap-[20px] sm:flex-col justify-between'>
@@ -113,7 +113,7 @@ const Home = () => {
         </div>
       )}
       <div className='px-[5%] dark:text-mainTextColor sm:pl-[3%] fixed left-0 right-0 sm:flex-row-reverse bottom-0 dark:bg-mainBgColor dark:border-t-[black] p-4 border-t bg-gray-100 flex justify-center sm:justify-between items-center'>
-        <div className='hidden sm:flex border-2 rounded-[50px] sm:px-[15px] px-[25px] border-[grey]'>
+        <div className='hidden sm:flex border dark:border-[#0d0d0d] dark:border-2 rounded-lg sm:px-[15px] px-[25px]'>
           <Link to='/cart' className='flex py-[12px] gap-[10px]'>
             <span className='font-[600]'>
               {totalPrice} <span className='font-[800]'>$</span>

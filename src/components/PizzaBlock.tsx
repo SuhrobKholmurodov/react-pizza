@@ -116,7 +116,7 @@ export const PizzaBlock = ({
             className='absolute z-10 top-0 right-[0px] 
               opacity-0 transform -translate-y-6 
               group-hover:translate-y-0 gap-[5px] group-hover:opacity-100 
-              flex flex-col items-center transition-all duration-300 ease-in-out'
+              flex flex-col-reverse items-center transition-all duration-300 ease-in-out'
           >
             <div
               onClick={handleDrawerOpen}

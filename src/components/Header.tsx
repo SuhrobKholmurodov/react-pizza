@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { ShoppingCart } from 'lucide-react'
+import { Heart, ShoppingCart } from 'lucide-react'
+import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
 import { Search } from './Search'
 import { selectCart } from '../redux/cart/selectors'
@@ -45,14 +46,22 @@ export const Header = () => {
             </Link>
             <Search />
             <div className='flex dark:text-mainTextColor items-center gap-[20px]'>
-              <div>
+              <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[5px]'>
                 <Switcher />
+                <Tooltip title='favorites' arrow>
+                  <Badge color='error' badgeContent={2}>
+                    <Heart
+                      className='border p-[5px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
+                      size={'42px'}
+                    />
+                  </Badge>
+                </Tooltip>
               </div>
-              <div className='flex sm:hidden border-2 rounded-[50px] px-[25px] border-[grey]'>
+              <div className='flex sm:hidden rounded-lg px-[25px] border'>
                 <Tooltip title='Cart' arrow>
                   <div>
                     {location.pathname !== '/cart' && (
-                      <Link to='/cart' className='flex py-[12px] gap-[10px]'>
+                      <Link to='/cart' className='flex py-[8px] gap-[10px]'>
                         <span className='font-[600]'>
                           {totalPrice.toFixed(2)}{' '}
                           <span className='font-[800]'>$</span>
