@@ -29,10 +29,25 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
   const handleConfirmDelete = () => {
     dispatch(removeFavorite(item.id))
     setOpenDialog(false)
-    toast.success(`${item.title} был удален`, {
-      position: 'top-center',
-      duration: 2000
-    })
+    toast.success(
+      <div className='flex items-center'>
+        <h4 className='text-[15px] text-center dark:text-mainTextColor'>
+          {item.title} был удален
+        </h4>
+      </div>,
+      {
+        position: 'top-center',
+        duration: 2000,
+        style: {
+          backgroundColor: document.documentElement.classList.contains('dark')
+            ? '#272730'
+            : '#ffffff',
+          color: document.documentElement.classList.contains('dark')
+            ? '#f5f5f5'
+            : '#000000'
+        }
+      }
+    )
   }
 
   return (

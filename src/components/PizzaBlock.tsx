@@ -62,10 +62,25 @@ export const PizzaBlock = ({
   const onClickFavorite = () => {
     if (favoriteItem) {
       dispatch(removeFavorite(id))
-      toast.success(`${title} удалена из избранного!`, {
-        position: 'top-center',
-        duration: 2000
-      })
+      toast.success(
+        <div className='flex items-center'>
+          <h4 className='text-[15px] text-center dark:text-mainTextColor'>
+            {title} удалена из избранного!
+          </h4>
+        </div>,
+        {
+          position: 'top-center',
+          duration: 2000,
+          style: {
+            backgroundColor: document.documentElement.classList.contains('dark')
+              ? '#272730'
+              : '#ffffff',
+            color: document.documentElement.classList.contains('dark')
+              ? '#f5f5f5'
+              : '#000000'
+          }
+        }
+      )
     } else {
       const favoriteItem: Pizza = {
         id,
@@ -87,10 +102,25 @@ export const PizzaBlock = ({
         calories
       }
       dispatch(addFavorite(favoriteItem))
-      toast.success(`${title} добавлена в избранное!`, {
-        position: 'top-center',
-        duration: 2000
-      })
+      toast.success(
+        <div className='flex items-center'>
+          <h4 className='text-[15px] text-center dark:text-mainTextColor'>
+            {title} добавлена в избранное!
+          </h4>
+        </div>,
+        {
+          position: 'top-center',
+          duration: 2000,
+          style: {
+            backgroundColor: document.documentElement.classList.contains('dark')
+              ? '#272730'
+              : '#ffffff',
+            color: document.documentElement.classList.contains('dark')
+              ? '#f5f5f5'
+              : '#000000'
+          }
+        }
+      )
     }
   }
 
@@ -107,19 +137,49 @@ export const PizzaBlock = ({
       sizes
     }
     dispatch(addItem(item))
-    toast.success(`${title} добавлена в корзину!`, {
-      position: 'top-center',
-      duration: 2000
-    })
+    toast.success(
+      <div className='flex items-center'>
+        <h4 className='text-[15px] text-center dark:text-mainTextColor'>
+          {title} добавлена в корзину!
+        </h4>
+      </div>,
+      {
+        position: 'top-center',
+        duration: 2000,
+        style: {
+          backgroundColor: document.documentElement.classList.contains('dark')
+            ? '#272730'
+            : '#ffffff',
+          color: document.documentElement.classList.contains('dark')
+            ? '#f5f5f5'
+            : '#000000'
+        }
+      }
+    )
   }
 
   const onClickMinus = () => {
-    dispatch(minusItem(id)) 
+    dispatch(minusItem(id))
     if (addedCount === 1) {
-      toast.success(`${title} удалена из корзины!`, {
-        position: 'top-center',
-        duration: 2000
-      })
+      toast.success(
+        <div className='flex items-center'>
+          <h4 className='text-[15px] text-center dark:text-mainTextColor'>
+            {title} удалена из корзины!
+          </h4>
+        </div>,
+        {
+          position: 'top-center',
+          duration: 2000,
+          style: {
+            backgroundColor: document.documentElement.classList.contains('dark')
+              ? '#272730'
+              : '#ffffff',
+            color: document.documentElement.classList.contains('dark')
+              ? '#f5f5f5'
+              : '#000000'
+          }
+        }
+      )
     }
   }
 

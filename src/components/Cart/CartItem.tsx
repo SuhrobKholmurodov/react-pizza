@@ -62,10 +62,25 @@ export const CartItem = ({
   const handleConfirmDelete = () => {
     dispatch(removeItem(id))
     setOpenDialog(false)
-    toast.success(`${title} был удален`, {
-      position: 'top-center',
-      duration: 2000
-    })
+    toast.success(
+      <div className='flex items-center'>
+        <h4 className='text-[15px] text-center dark:text-mainTextColor'>
+          {title} был удален
+        </h4>
+      </div>,
+      {
+        position: 'top-center',
+        duration: 2000,
+        style: {
+          backgroundColor: document.documentElement.classList.contains('dark')
+            ? '#272730'
+            : '#ffffff',
+          color: document.documentElement.classList.contains('dark')
+            ? '#f5f5f5'
+            : '#000000',
+        }
+      }
+    )
   }
 
   const price = prices[size]
