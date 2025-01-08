@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Trash2, ArrowLeft, ShoppingCart } from 'lucide-react'
+import { Trash2, ArrowLeft, ShoppingCart, Home } from 'lucide-react'
 import { selectFavorites } from '../redux/favorites/selectors'
 import { selectCart } from '../redux/cart/selectors'
 import { selectFilter } from '../redux/filter/selectors'
@@ -68,7 +68,14 @@ const Favorites = () => {
           <FavoritesEmpty />
         </div>
       )}
-      <div className='px-[5%] dark:text-mainTextColor sm:pl-[3%] fixed left-0 right-0 sm:flex-row-reverse bottom-0 dark:bg-mainBgColor dark:border-t-[black] p-4 border-t bg-gray-100 flex justify-center sm:justify-between items-center'>
+      <div className='px-[5%] dark:text-mainTextColor sm:pl-[5%] fixed left-0 right-0 sm:flex-row bottom-0 dark:bg-mainBgColor dark:border-t-[black] p-4 border-t bg-gray-100 hidden sm:flex justify-center sm:justify-between items-center'>
+        <Link
+          to='/'
+          className='items-center flex gap-2 text-black dark:text-mainTextColor hover:text-gray-600 dark:hover:text-gray-300 transition duration-300'
+        >
+          <Home size={20} />
+          <span className='font-[500]'>Home</span>
+        </Link>
         <div className='hidden sm:flex border dark:border-[#0d0d0d] dark:border-2 rounded-lg sm:px-[15px] px-[25px]'>
           <Link to='/cart' className='flex py-[12px] gap-[10px]'>
             <span className='font-[600]'>
