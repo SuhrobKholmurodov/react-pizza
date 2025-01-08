@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 export const FavoritesEmpty = () => (
-  <div className='flex text-center min-h-screen  items-center dark:text-mainTextColor pt-[7%] sm:mt-0 gap-[20px] flex-col'>
+  <div className='flex text-center items-center dark:text-mainTextColor pt-[7%] sm:mt-0 gap-[20px] flex-col'>
     <h2 className='text-[40px] sm:text-[30px] sm:mt-[100px] font-[600]'>
       Упс, здесь пусто! <span>😔</span>
     </h2>

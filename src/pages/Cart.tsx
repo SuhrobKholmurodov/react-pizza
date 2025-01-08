@@ -1,8 +1,8 @@
-import  { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { toast, Toaster } from 'react-hot-toast'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { ArrowLeft } from 'lucide-react'
 import { selectCart } from '../redux/cart/selectors'
 import { CartEmpty, CartItem, CartHeader } from '../components/Cart'
 import { PaymentModal } from '../components'
@@ -10,6 +10,7 @@ import { PaymentModal } from '../components'
 const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)
+
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => setOpenModal(true)
   const handleCloseModal = () => setOpenModal(false)
@@ -49,7 +50,7 @@ const Cart = () => {
               to='/'
               className='flex items-center gap-1 text-blue-500 hover:text-blue-700 text-lg'
             >
-              <ArrowBackIcon fontSize='medium' />
+              <ArrowLeft fontSize='medium' />
               <span className='sm:text-[16px] sm:hidden'>Вернуться назад</span>
               <span className='sm:text-[16px] hidden sm:flex'>Назад</span>
             </Link>

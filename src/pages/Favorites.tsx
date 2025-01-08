@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Trash2, ArrowLeft } from 'lucide-react'
 import { selectFavorites } from '../redux/favorites/selectors'
 import { clearFavorites } from '../redux/favorites/slice'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import { Link } from 'react-router-dom'
-import { Trash2 } from 'lucide-react'
 import { FavoritesEmpty, FavoritesItem } from '../components/Favorites'
 import { DialogDelete } from '../components'
 
 const Favorites = () => {
-  const { items } = useSelector(selectFavorites)
   const dispatch = useDispatch()
+  const { items } = useSelector(selectFavorites)
   const [openDialog, setOpenDialog] = useState(false)
+
   const handleOpenDialog = () => {
     setOpenDialog(true)
   }
@@ -27,7 +27,7 @@ const Favorites = () => {
       <div className='flex items-center gap-2 mb-4'>
         <Link to={'/'}>
           <div className='border p-[4px] focus:ring-4 hidden sm:block rounded-lg border-[#2fa4f8]'>
-            <ArrowBackIcon className='cursor-pointer text-2xl' />
+            <ArrowLeft className='cursor-pointer text-2xl' />
           </div>
         </Link>
         <div className='flex mb-2 sm:mb-0 justify-between w-full items-center'>
