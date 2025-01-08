@@ -4,14 +4,18 @@ import { useSelector } from 'react-redux'
 import { toast, Toaster } from 'react-hot-toast'
 import { ArrowLeft } from 'lucide-react'
 import { selectCart } from '../redux/cart/selectors'
-import { CartEmpty, CartItem, CartHeader } from '../components/Cart'
-import { PaymentModal } from '../components'
+import {
+  CartEmpty,
+  CartItem,
+  CartHeader,
+  PaymentModal
+} from '../components/Cart'
 
 const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)
-
   const [openModal, setOpenModal] = useState(false)
+
   const handleOpenModal = () => setOpenModal(true)
   const handleCloseModal = () => setOpenModal(false)
 

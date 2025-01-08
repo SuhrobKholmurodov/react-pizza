@@ -1,11 +1,11 @@
+import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import axios from 'axios'
 import '../index.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 
 interface Pizza {
   id: number

@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux'
-import { removeFavorite } from '../../redux/favorites/slice'
 import { Trash } from 'lucide-react'
 import { useState } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+import { toast, Toaster } from 'react-hot-toast'
+import { removeFavorite } from '../../redux/favorites/slice'
 import { DialogDelete } from '../DialogDelete'
 
 interface FavoritesItemProps {
@@ -17,10 +17,8 @@ interface FavoritesItemProps {
 
 export const FavoritesItem = ({ item }: FavoritesItemProps) => {
   const dispatch = useDispatch()
-  // const handleDelete = () => {
-  //   dispatch(removeFavorite(item.id))
-  // }
   const [openDialog, setOpenDialog] = useState(false)
+
   const handleOpenDialog = () => {
     setOpenDialog(true)
   }
@@ -45,7 +43,10 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
           className='absolute top-2 right-2 text-white rounded-full p-1 transition duration-300'
           aria-label='Delete item'
         >
-          <Trash fontSize='small' className='text-[red] hover:shadow-md rounded-lg' />
+          <Trash
+            fontSize='small'
+            className='text-[red] hover:shadow-md rounded-lg'
+          />
         </button>
         <Toaster />
         <img
