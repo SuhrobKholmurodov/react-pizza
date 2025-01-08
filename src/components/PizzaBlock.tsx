@@ -114,7 +114,13 @@ export const PizzaBlock = ({
   }
 
   const onClickMinus = () => {
-    dispatch(minusItem(id))
+    dispatch(minusItem(id)) 
+    if (addedCount === 1) {
+      toast.success(`${title} удалена из корзины!`, {
+        position: 'top-center',
+        duration: 2000
+      })
+    }
   }
 
   const handleDrawerOpen = () => setDrawerOpen(true)
