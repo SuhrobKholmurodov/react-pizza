@@ -1,12 +1,27 @@
-import { useSelector } from 'react-redux'
+import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { selectFavorites } from '../redux/favorites/selectors'
+import { clearFavorites } from '../redux/favorites/slice'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { Link } from 'react-router-dom'
+import { Trash2 } from 'lucide-react'
 import { FavoritesEmpty, FavoritesItem } from '../components/Favorites'
+import { DialogDelete } from '../components'
 
 const Favorites = () => {
   const { items } = useSelector(selectFavorites)
-
+  const dispatch = useDispatch()
+  const [openDialog, setOpenDialog] = useState(false)
+  const handleOpenDialog = () => {
+    setOpenDialog(true)
+  }
+  const handleCloseDialog = () => {
+    setOpenDialog(false)
+  }
+  const handleConfirmDelete = () => {
+    dispatch(clearFavorites())
+    setOpenDialog(false)
+  }
   return (
     <div className='dark:bg-mainBgColor dark:text-mainTextColor min-h-screen'>
       <div className='flex items-center gap-2 mb-4'>
@@ -15,9 +30,21 @@ const Favorites = () => {
             <ArrowBackIcon className='cursor-pointer text-2xl' />
           </div>
         </Link>
-        <h1 className='text-3xl sm:text-[24px] font-bold text-start'>
-          My Favorites
-        </h1>
+        <div className='flex mb-2 sm:mb-0 justify-between w-full items-center'>
+          <h1 className='text-3xl sm:text-[20px] font-bold text-start'>
+            My Favorites
+          </h1>
+          {items.length > 0 && (
+            <button
+              onClick={handleOpenDialog}
+              className='flex items-center gap-2 text-red-500 hover:text-red-600 transition duration-300'
+              aria-label='Delete all favorites'
+            >
+              <Trash2 size={24} />
+              <span className='text-[18px]'>Delete All</span>
+            </button>
+          )}
+        </div>
       </div>
       {items.length > 0 ? (
         <div className='grid grid-cols-4 sm:grid-cols-1 gap-6'>
@@ -30,6 +57,13 @@ const Favorites = () => {
           <FavoritesEmpty />
         </div>
       )}
+      <DialogDelete
+        open={openDialog}
+        onClose={handleCloseDialog}
+        onConfirm={handleConfirmDelete}
+        title='Удалить все избранное?'
+        message='Вы уверены, что хотите удалить все товары из избранного? Это действие невозможно отменить'
+      />
     </div>
   )
 }

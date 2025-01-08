@@ -1,6 +1,6 @@
 export * from './Categories'
 export * from './CommentSkeleteon'
-export * from './Cart/DialogDelete'
+export * from './DialogDelete'
 export * from './Header'
 export * from './Loader'
 export * from './NotFoundBlock'

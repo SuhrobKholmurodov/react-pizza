@@ -1,3 +1,10 @@
+import { useDispatch } from 'react-redux'
+import { removeFavorite } from '../../redux/favorites/slice'
+import { Trash } from 'lucide-react'
+import { useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
+import { DialogDelete } from '../DialogDelete'
+
 interface FavoritesItemProps {
   item: {
     id: string
@@ -9,9 +16,38 @@ interface FavoritesItemProps {
 }
 
 export const FavoritesItem = ({ item }: FavoritesItemProps) => {
+  const dispatch = useDispatch()
+  // const handleDelete = () => {
+  //   dispatch(removeFavorite(item.id))
+  // }
+  const [openDialog, setOpenDialog] = useState(false)
+  const handleOpenDialog = () => {
+    setOpenDialog(true)
+  }
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false)
+  }
+  const handleConfirmDelete = () => {
+    dispatch(removeFavorite(item.id))
+    setOpenDialog(false)
+    toast.success(`${item.title} был удален`, {
+      position: 'top-center',
+      duration: 2000
+    })
+  }
+
   return (
     <div className='bg-white dark:bg-mainBgColor hover:shadow-lg dark:hover:shadow-black rounded-lg transition-shadow duration-300 ease-in-out'>
       <div className='relative flex items-center justify-center'>
+        <button
+          onClick={handleOpenDialog}
+          className='absolute top-2 right-2 text-white rounded-full p-1 transition duration-300'
+          aria-label='Delete item'
+        >
+          <Trash fontSize='small' className='text-[red] hover:shadow-md rounded-lg' />
+        </button>
+        <Toaster />
         <img
           className='w-[260px] h-auto object-cover rounded-md'
           src={item.imageUrl}
@@ -42,6 +78,13 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
           Просмотр
         </button>
       </div>
+      <DialogDelete
+        open={openDialog}
+        onClose={handleCloseDialog}
+        onConfirm={handleConfirmDelete}
+        title='Удалить товар?'
+        message={`Вы уверены, что хотите удалить ${item.title} из избранное?`}
+      />
     </div>
   )
 }
