@@ -13,7 +13,6 @@ const Favorites = () => {
   const { items: favoriteItems } = useSelector(selectFavorites)
   const { items: cartItems, totalPrice } = useSelector(selectCart)
   const [openDialog, setOpenDialog] = useState(false)
-
   const totalCount = cartItems.reduce((sum, item) => sum + item.count, 0)
 
   const handleOpenDialog = () => {
@@ -62,8 +61,7 @@ const Favorites = () => {
           <FavoritesEmpty />
         </div>
       )}
-
-      <div className='px-[5%] dark:text-mainTextColor sm:pl-[5%] fixed left-0 right-0 sm:flex-row bottom-0 dark:bg-mainBgColor dark:border-t-[black] p-4 border-t bg-gray-100 flex justify-center sm:justify-between items-center'>
+      <div className='px-[5%] dark:text-mainTextColor sm:pl-[5%] fixed left-0 right-0 sm:flex-row bottom-0 dark:bg-mainBgColor dark:border-t-[black] p-4 border-t bg-gray-100 sm:flex hidden justify-center sm:justify-between items-center'>
         <Link
           to='/'
           className='hidden sm:flex items-center gap-2 text-black dark:text-mainTextColor hover:text-gray-600 dark:hover:text-gray-300 transition duration-300'
@@ -85,7 +83,6 @@ const Favorites = () => {
           </Link>
         </div>
       </div>
-
       <DialogDelete
         open={openDialog}
         onClose={handleCloseDialog}
