@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { BackToHomeButton } from '../BackToHomeButton'
 
 export const FavoritesEmpty = () => (
   <div className='flex text-center items-center dark:text-mainTextColor pt-[7%] sm:mt-0 gap-[20px] flex-col'>
@@ -11,12 +10,6 @@ export const FavoritesEmpty = () => (
       <br className='sm:hidden' />
       Начните с главной страницы, чтобы найти что-то особенное!
     </p>
-    <Link
-      to='/'
-      className='py-[14px] flex items-center justify-center gap-[10px] border mt-[20px] bg-[#007bff] text-white hover:bg-[#0056b3] rounded-[50px] w-[230px] mx-auto text-[18px] font-[600]'
-    >
-      <ArrowBackIcon fontSize='medium' />
-      <span>На главную</span>
-    </Link>
+    <BackToHomeButton />
   </div>
 )

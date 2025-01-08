@@ -35,9 +35,11 @@ const Favorites = () => {
           </div>
         </Link>
         <div className='flex mb-2 sm:mb-0 justify-between w-full items-center'>
-          <h1 className='text-3xl sm:text-[20px] font-bold text-start'>
-            My Favorites
-          </h1>
+          {favoriteItems.length > 0 && (
+            <h1 className='text-3xl sm:text-[20px] font-bold text-start'>
+              My Favorites
+            </h1>
+          )}
           {favoriteItems.length > 0 && (
             <button
               onClick={handleOpenDialog}
