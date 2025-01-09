@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Trash2, ArrowLeft, ShoppingCart, Home } from 'lucide-react'
@@ -15,6 +15,10 @@ const Favorites = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
   const { searchValue } = useSelector(selectFilter)
   const [openDialog, setOpenDialog] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const filteredFavorites = favoriteItems.filter(item =>
     item.title.toLowerCase().includes(searchValue.toLowerCase())
