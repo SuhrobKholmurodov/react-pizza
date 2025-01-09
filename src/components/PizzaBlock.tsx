@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ShoppingBasket, MessageCircle, Check, MinusIcon } from 'lucide-react'
-import { Star, FavoriteBorder, Favorite, RemoveRedEyeOutlined } from '@mui/icons-material';
+import {
+  Star,
+  FavoriteBorder,
+  Favorite,
+  RemoveRedEyeOutlined
+} from '@mui/icons-material'
+import NumberFlow from '@number-flow/react'
 import { selectCartItemById } from '../redux/cart/selectors'
 import { Pizza, ReviewItemProps } from '../redux/pizza/types'
 import { CartItem } from '../redux/cart/types'
@@ -113,11 +119,11 @@ export const PizzaBlock = ({
   const averageRating =
     reviews.length > 0
       ? (
-        reviews.reduce((acc, review) => acc + review.rating, 0) /
-        reviews.length
-      )
-        .toFixed(1)
-        .replace(/\.0$/, '')
+          reviews.reduce((acc, review) => acc + review.rating, 0) /
+          reviews.length
+        )
+          .toFixed(1)
+          .replace(/\.0$/, '')
       : 0
   return (
     <div className='p-4 hover:shadow-xl transition-shadow group rounded-lg dark:hover:shadow-black hover:shadow-[#e4e3e3] duration-300 ease-in-out relative'>
@@ -170,10 +176,11 @@ export const PizzaBlock = ({
               <li
                 key={typeId}
                 onClick={() => setActiveType(typeId)}
-                className={`py-2 text-center rounded-md cursor-pointer flex-1 transition-all duration-300 ${types.length === 1 || activeType === typeId
+                className={`py-2 text-center rounded-md cursor-pointer flex-1 transition-all duration-300 ${
+                  types.length === 1 || activeType === typeId
                     ? 'bg-[#ebedf0] dark:bg-[#2a2c35] dark:text-mainTextColor text-black'
                     : 'bg-gray-150'
-                  }`}
+                }`}
               >
                 <div className='inline-flex items-center justify-center gap-1'>
                   {(types.length === 1 || activeType === typeId) && (
@@ -189,10 +196,11 @@ export const PizzaBlock = ({
               <li
                 key={size}
                 onClick={() => setActiveSize(i)}
-                className={`text-center py-2 rounded-md cursor-pointer flex-1 transition-all duration-300 ${activeSize === i
+                className={`text-center py-2 rounded-md cursor-pointer flex-1 transition-all duration-300 ${
+                  activeSize === i
                     ? 'bg-[#ebedf0] dark:bg-[#2a2c35] dark:text-mainTextColor text-black'
                     : 'bg-gray-150'
-                  }`}
+                }`}
               >
                 <div className='inline-flex items-center justify-center gap-1'>
                   {activeSize === i && (
@@ -232,7 +240,7 @@ export const PizzaBlock = ({
                 {Math.round(
                   ((prices[activeSize] - discountPrices[activeSize]) /
                     prices[activeSize]) *
-                  100
+                    100
                 )}
                 %
               </div>
@@ -257,8 +265,8 @@ export const PizzaBlock = ({
                     : reviews.length % 10 >= 2 &&
                       reviews.length % 10 <= 4 &&
                       (reviews.length % 100 < 10 || reviews.length % 100 >= 20)
-                      ? 'отзыва'
-                      : 'отзывов'}
+                    ? 'отзыва'
+                    : 'отзывов'}
                 </p>
               </>
             )}
@@ -290,7 +298,11 @@ export const PizzaBlock = ({
         </button>
         {addedCount > 0 && (
           <button className='flex items-center justify-center px-[16px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'>
-            <p>{addedCount}</p>
+            <NumberFlow
+              value={addedCount}
+              format={{ useGrouping: false }}
+              className='text-white'
+            />
           </button>
         )}
       </div>

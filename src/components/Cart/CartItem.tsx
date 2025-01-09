@@ -6,6 +6,7 @@ import { CartItem as CartItemType } from '../../redux/cart/types'
 import { Trash2, CirclePlus, CircleMinus } from 'lucide-react'
 import { DialogDelete } from '../DialogDelete'
 import { ShowToast } from '../ShowToast'
+import NumberFlow from '@number-flow/react'
 
 type CartItemProps = {
   id: string
@@ -62,7 +63,7 @@ export const CartItem = ({
   const handleConfirmDelete = () => {
     dispatch(removeItem(id))
     setOpenDialog(false)
-    ShowToast({ message: `${title} был удален`})
+    ShowToast({ message: `${title} был удален` })
   }
 
   const price = prices[size]
@@ -102,7 +103,11 @@ export const CartItem = ({
         </button>
 
         <span className='text-lg dark:text-mainTextColor font-semibold'>
-          {count}
+          <NumberFlow
+            value={count}
+            format={{ useGrouping: false }}
+            className='text-black dark:text-mainTextColor'
+          />
         </span>
         <button onClick={onClickPlus}>
           <CirclePlus style={{ color: 'gray' }} />
@@ -110,7 +115,14 @@ export const CartItem = ({
       </div>
 
       <div className='flex items-center dark:text-mainTextColor gap-[15px]'>
-        <span className='text-lg font-semibold'>{totalPrice}₽</span>
+        <span className='text-lg font-semibold'>
+          <NumberFlow
+            value={totalPrice}
+            format={{ useGrouping: false }}
+            className='text-black dark:text-mainTextColor'
+          />
+          <span className='font-[800]'> $</span>
+        </span>
         <button
           onClick={handleOpenDialog}
           className='w-8 h-8 flex items-center justify-center'

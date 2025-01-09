@@ -2,16 +2,17 @@ import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Heart, ShoppingCart } from 'lucide-react'
-import {Badge , Tooltip} from '@mui/material'
+import { Badge, Tooltip } from '@mui/material'
 import { selectCart } from '../redux/cart/selectors'
 import { selectFavorites } from '../redux/favorites/selectors'
 import MainLogo from '../assets/img/logo_main.png'
 import { Switcher } from './Switcher'
 import { SearchInput } from './SearchInput'
+import NumberFlow from '@number-flow/react'
 
 export const Header = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
-  const { items: favoriteItems } = useSelector(selectFavorites) 
+  const { items: favoriteItems } = useSelector(selectFavorites)
   const location = useLocation()
   const isMounted = React.useRef(false)
 
@@ -19,7 +20,7 @@ export const Header = () => {
     (sum: number, item) => sum + item.count,
     0
   )
-  const favoriteCount = favoriteItems.length 
+  const favoriteCount = favoriteItems.length
   useEffect(() => {
     if (isMounted.current) {
       const json = JSON.stringify(cartItems)
@@ -54,7 +55,17 @@ export const Header = () => {
                 <Switcher />
                 <Tooltip title='Favorites' arrow>
                   <Link to={'/favorites'}>
-                    <Badge color='error' badgeContent={favoriteCount}>
+                    <Badge
+                      showZero={false}
+                      color='error'
+                      badgeContent={
+                        <NumberFlow
+                          value={favoriteCount}
+                          format={{ useGrouping: false }}
+                          className='text-black dark:text-mainTextColor'
+                        />
+                      }
+                    >
                       <Heart
                         className='border p-[5px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
                         size={'42px'}
@@ -72,15 +83,25 @@ export const Header = () => {
                         className='flex items-center py-[8px] gap-[10px]'
                       >
                         <span className='font-[600]'>
-                          {totalPrice.toFixed(2)}{' '}
-                          <span className='font-[800]'>$</span>
+                          <NumberFlow
+                            value={totalPrice}
+                            format={{ useGrouping: false }}
+                            className='text-black dark:text-mainTextColor'
+                          />
+                          <span className='font-[800]'> $</span>
                         </span>
                         <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-black'>
                           |
                         </div>
                         <div className='flex gap-[3px] items-center'>
                           <ShoppingCart />
-                          <span className='font-[500]'>{totalCount}</span>
+                          <span className='font-[500]'>
+                            <NumberFlow
+                              value={totalCount}
+                              format={{ useGrouping: false }}
+                              className='text-black dark:text-mainTextColor'
+                            />
+                          </span>
                         </div>
                       </Link>
                     )}

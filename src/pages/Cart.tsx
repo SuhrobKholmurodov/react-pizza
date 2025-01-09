@@ -10,6 +10,7 @@ import {
   PaymentModal
 } from '../components/Cart'
 import { ShowToast } from '../components/ShowToast'
+import NumberFlow from '@number-flow/react'
 
 const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
@@ -42,10 +43,26 @@ const Cart = () => {
         <div className='flex justify-between sm:flex-col sm:gap-[10px] dark:bg-mainBgColor items-center p-2 bg-white border-gray-300'>
           <div className='flex items-center gap-6 p-4 sm:flex-col sm:w-full sm:items-start dark:bg-gray-900 dark:border-gray-700 sm:gap-2 bg-white border border-gray-300 rounded-lg shadow-sm'>
             <span className='text-sm font-medium dark:text-mainTextColor text-gray-700'>
-              Всего пицц: <b className='text-lg'>{totalCount} шт.</b>
+              Всего пицц:{' '}
+              <b className='text-lg'>
+                <NumberFlow
+                  value={totalCount}
+                  format={{ useGrouping: false }}
+                  className='text-black dark:text-mainTextColor'
+                />{' '}
+                шт.
+              </b>
             </span>
             <span className='text-sm font-medium dark:text-mainTextColor text-gray-700'>
-              Сумма заказа: <b className='text-lg'>{totalPrice.toFixed(2)} ₽</b>
+              Сумма заказа:{' '}
+              <b className='text-lg'>
+                <NumberFlow
+                  value={totalPrice}
+                  format={{ useGrouping: false }}
+                  className='text-black dark:text-mainTextColor'
+                />{' '}
+                $
+              </b>
             </span>
           </div>
 
