@@ -2,13 +2,12 @@ import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Heart, ShoppingCart } from 'lucide-react'
-import Badge from '@mui/material/Badge'
-import Tooltip from '@mui/material/Tooltip'
-import { Search } from './Search'
+import {Badge , Tooltip} from '@mui/material'
 import { selectCart } from '../redux/cart/selectors'
+import { selectFavorites } from '../redux/favorites/selectors'
 import MainLogo from '../assets/img/logo_main.png'
 import { Switcher } from './Switcher'
-import { selectFavorites } from '../redux/favorites/selectors'
+import { SearchInput } from './SearchInput'
 
 export const Header = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
@@ -49,7 +48,7 @@ export const Header = () => {
                 </div>
               </div>
             </Link>
-            <Search />
+            <SearchInput />
             <div className='flex dark:text-mainTextColor items-center gap-[20px]'>
               <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[5px]'>
                 <Switcher />

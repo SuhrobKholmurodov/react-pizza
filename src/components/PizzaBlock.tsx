@@ -1,17 +1,14 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ShoppingBasket, MessageCircle, Check, MinusIcon } from 'lucide-react'
-import StarIcon from '@mui/icons-material/Star'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined'
+import { Star, FavoriteBorder, Favorite, RemoveRedEyeOutlined } from '@mui/icons-material';
 import { selectCartItemById } from '../redux/cart/selectors'
-import { CartItem } from '../redux/cart/types'
 import { Pizza, ReviewItemProps } from '../redux/pizza/types'
+import { CartItem } from '../redux/cart/types'
 import { addItem, minusItem } from '../redux/cart/slice'
-import { PizzaDrawer } from './PizzaDrawer'
 import { selectFavoriteItemById } from '../redux/favorites/selectors'
 import { addFavorite, removeFavorite } from '../redux/favorites/slice'
+import { PizzaDrawer } from './PizzaDrawer'
 import { ShowToast } from './ShowToast'
 
 const typeNames = ['тонкое', 'традиционное']
@@ -62,7 +59,7 @@ export const PizzaBlock = ({
   const onClickFavorite = () => {
     if (favoriteItem) {
       dispatch(removeFavorite(id))
-      ShowToast({ message: `${title} удалена из избранного!`})
+      ShowToast({ message: `${title} удалена из избранного!` })
     } else {
       const favoriteItem: Pizza = {
         id,
@@ -84,7 +81,7 @@ export const PizzaBlock = ({
         calories
       }
       dispatch(addFavorite(favoriteItem))
-      ShowToast({ message: `${title} добавлена в избранное!`})
+      ShowToast({ message: `${title} добавлена в избранное!` })
     }
   }
 
@@ -101,13 +98,13 @@ export const PizzaBlock = ({
       sizes
     }
     dispatch(addItem(item))
-    ShowToast({ message: `${title} добавлена в корзину!`})
+    ShowToast({ message: `${title} добавлена в корзину!` })
   }
 
   const onClickMinus = () => {
     dispatch(minusItem(id))
     if (addedCount === 1) {
-      ShowToast({ message: `${title} удалена из корзины!`})
+      ShowToast({ message: `${title} удалена из корзины!` })
     }
   }
 
@@ -116,11 +113,11 @@ export const PizzaBlock = ({
   const averageRating =
     reviews.length > 0
       ? (
-          reviews.reduce((acc, review) => acc + review.rating, 0) /
-          reviews.length
-        )
-          .toFixed(1)
-          .replace(/\.0$/, '')
+        reviews.reduce((acc, review) => acc + review.rating, 0) /
+        reviews.length
+      )
+        .toFixed(1)
+        .replace(/\.0$/, '')
       : 0
   return (
     <div className='p-4 hover:shadow-xl transition-shadow group rounded-lg dark:hover:shadow-black hover:shadow-[#e4e3e3] duration-300 ease-in-out relative'>
@@ -142,19 +139,19 @@ export const PizzaBlock = ({
               onClick={handleDrawerOpen}
               className='hover:cursor-pointer border border-gray-200 dark:border-gray-500 p-[2px] rounded-md dark:text-mainTextColor dark:hover:text-[#4892f9] hover:text-[#4892f9]'
             >
-              <RemoveRedEyeOutlinedIcon className='w-[20px] text-[grey] hover:text-[#4892f9] h-[20px]' />
+              <RemoveRedEyeOutlined className='w-[20px] text-[grey] hover:text-[#4892f9] h-[20px]' />
             </div>
             <div
               onClick={onClickFavorite}
               className='border-gray-200 border duration-300 dark:border-gray-500 p-[2px] hover:cursor-pointer rounded-md dark:hover:border-[#c0bfbf] hover:border-gray-300'
             >
               {favoriteItem ? (
-                <FavoriteIcon
+                <Favorite
                   sx={{ color: 'rgb(248, 16, 75)' }}
                   className='w-[20px] h-[20px]'
                 />
               ) : (
-                <FavoriteBorderIcon
+                <FavoriteBorder
                   sx={{ color: 'grey' }}
                   className='w-[20px] hover:text-[red] h-[20px]'
                 />
@@ -173,11 +170,10 @@ export const PizzaBlock = ({
               <li
                 key={typeId}
                 onClick={() => setActiveType(typeId)}
-                className={`py-2 text-center rounded-md cursor-pointer flex-1 transition-all duration-300 ${
-                  types.length === 1 || activeType === typeId
+                className={`py-2 text-center rounded-md cursor-pointer flex-1 transition-all duration-300 ${types.length === 1 || activeType === typeId
                     ? 'bg-[#ebedf0] dark:bg-[#2a2c35] dark:text-mainTextColor text-black'
                     : 'bg-gray-150'
-                }`}
+                  }`}
               >
                 <div className='inline-flex items-center justify-center gap-1'>
                   {(types.length === 1 || activeType === typeId) && (
@@ -193,11 +189,10 @@ export const PizzaBlock = ({
               <li
                 key={size}
                 onClick={() => setActiveSize(i)}
-                className={`text-center py-2 rounded-md cursor-pointer flex-1 transition-all duration-300 ${
-                  activeSize === i
+                className={`text-center py-2 rounded-md cursor-pointer flex-1 transition-all duration-300 ${activeSize === i
                     ? 'bg-[#ebedf0] dark:bg-[#2a2c35] dark:text-mainTextColor text-black'
                     : 'bg-gray-150'
-                }`}
+                  }`}
               >
                 <div className='inline-flex items-center justify-center gap-1'>
                   {activeSize === i && (
@@ -237,7 +232,7 @@ export const PizzaBlock = ({
                 {Math.round(
                   ((prices[activeSize] - discountPrices[activeSize]) /
                     prices[activeSize]) *
-                    100
+                  100
                 )}
                 %
               </div>
@@ -262,15 +257,15 @@ export const PizzaBlock = ({
                     : reviews.length % 10 >= 2 &&
                       reviews.length % 10 <= 4 &&
                       (reviews.length % 100 < 10 || reviews.length % 100 >= 20)
-                    ? 'отзыва'
-                    : 'отзывов'}
+                      ? 'отзыва'
+                      : 'отзывов'}
                 </p>
               </>
             )}
           </div>
           <div className='dark:text-mainTextColor  text-black flex gap-[3px] items-center'>
             <p className='mt-[-3px]'>
-              <StarIcon className='text-[orange]' sx={{ fontSize: '16px' }} />
+              <Star className='text-[orange]' sx={{ fontSize: '16px' }} />
             </p>
             <p className='font-[500]'>{averageRating}</p>
           </div>

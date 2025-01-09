@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Drawer, Box } from '@mui/material'
-import Rating from '@mui/material/Rating'
+import { Drawer, Box, Rating } from '@mui/material'
 import { MessageCircle, X } from 'lucide-react'
 import { CommentFilterEnum } from '../redux/commentFilter/types'
 import { setCommentFilter } from '../redux/commentFilter/slice'

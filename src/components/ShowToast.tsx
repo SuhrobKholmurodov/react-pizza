@@ -1,9 +1,7 @@
 import toast from 'react-hot-toast'
-
 interface ShowToastProps {
   message: string
 }
-
 export const ShowToast = ({ message }: ShowToastProps) => {
   toast.success(
     <div className='flex items-center'>

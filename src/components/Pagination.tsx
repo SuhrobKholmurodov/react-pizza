@@ -1,5 +1,4 @@
-import Pagination from '@mui/material/Pagination'
-import Stack from '@mui/material/Stack'
+import { Pagination, Stack } from '@mui/material'
 
 type PaginationProps = {
   currentPage: number
