@@ -61,7 +61,7 @@ export const Header = () => {
                       badgeContent={
                         <AnimatedNumber
                           value={favoriteCount}
-                          className='text-black dark:text-mainTextColor'
+                          className='text-mainTextColor'
                         />
                       }
                     >
