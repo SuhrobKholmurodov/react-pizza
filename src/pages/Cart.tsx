@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { toast, Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { ArrowLeft } from 'lucide-react'
 import { selectCart } from '../redux/cart/selectors'
 import {
