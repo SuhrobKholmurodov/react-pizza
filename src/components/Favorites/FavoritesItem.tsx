@@ -29,7 +29,7 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
   const handleConfirmDelete = () => {
     dispatch(removeFavorite(item.id))
     setOpenDialog(false)
-    ShowToast({ message: `${item.title} был удален`, duration: 2000 })
+    ShowToast({ message: `${item.title} был удален`})
   }
 
   return (

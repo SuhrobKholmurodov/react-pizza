@@ -20,7 +20,7 @@ const Cart = () => {
   const handleCloseModal = () => setOpenModal(false)
 
   const handleToast = () => {
-    ShowToast({ message: 'Ваш заказ принят в обработку!', duration: 3000 })
+    ShowToast({ message: 'Ваш заказ принят в обработку!' })
   }
 
   if (items.length === 0) {

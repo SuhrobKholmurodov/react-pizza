@@ -62,7 +62,7 @@ export const CartItem = ({
   const handleConfirmDelete = () => {
     dispatch(removeItem(id))
     setOpenDialog(false)
-    ShowToast({ message: `${title} был удален`, duration: 2000 })
+    ShowToast({ message: `${title} был удален`})
   }
 
   const price = prices[size]

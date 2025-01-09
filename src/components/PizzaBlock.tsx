@@ -62,7 +62,7 @@ export const PizzaBlock = ({
   const onClickFavorite = () => {
     if (favoriteItem) {
       dispatch(removeFavorite(id))
-      ShowToast({ message: `${title} удалена из избранного!`, duration: 2000 })
+      ShowToast({ message: `${title} удалена из избранного!`})
     } else {
       const favoriteItem: Pizza = {
         id,
@@ -84,7 +84,7 @@ export const PizzaBlock = ({
         calories
       }
       dispatch(addFavorite(favoriteItem))
-      ShowToast({ message: `${title} добавлена в избранное!`, duration: 2000 })
+      ShowToast({ message: `${title} добавлена в избранное!`})
     }
   }
 
@@ -101,13 +101,13 @@ export const PizzaBlock = ({
       sizes
     }
     dispatch(addItem(item))
-    ShowToast({ message: `${title} добавлена в корзину!`, duration: 2000 })
+    ShowToast({ message: `${title} добавлена в корзину!`})
   }
 
   const onClickMinus = () => {
     dispatch(minusItem(id))
     if (addedCount === 1) {
-      ShowToast({ message: `${title} удалена из корзины!`, duration: 2000 })
+      ShowToast({ message: `${title} удалена из корзины!`})
     }
   }
 

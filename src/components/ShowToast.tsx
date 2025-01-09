@@ -2,10 +2,9 @@ import toast from 'react-hot-toast'
 
 interface ShowToastProps {
   message: string
-  duration: number
 }
 
-export const ShowToast = ({ message, duration }: ShowToastProps) => {
+export const ShowToast = ({ message }: ShowToastProps) => {
   toast.success(
     <div className='flex items-center'>
       <h4 className='text-[15px] text-center dark:text-mainTextColor'>
@@ -14,7 +13,7 @@ export const ShowToast = ({ message, duration }: ShowToastProps) => {
     </div>,
     {
       position: 'top-center',
-      duration: duration,
+      duration: 2000,
       style: {
         backgroundColor: document.documentElement.classList.contains('dark')
           ? '#272730'
