@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet'
-import { toast, Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { addItem, minusItem, removeItem } from '../../redux/cart/slice'
 import { CartItem as CartItemType } from '../../redux/cart/types'
 import { Trash2, CirclePlus, CircleMinus } from 'lucide-react'
 import { DialogDelete } from '../DialogDelete'
+import { ShowToast } from '../ShowToast'
 
 type CartItemProps = {
   id: string
@@ -62,25 +63,7 @@ export const CartItem = ({
   const handleConfirmDelete = () => {
     dispatch(removeItem(id))
     setOpenDialog(false)
-    toast.success(
-      <div className='flex items-center'>
-        <h4 className='text-[15px] text-center dark:text-mainTextColor'>
-          {title} был удален
-        </h4>
-      </div>,
-      {
-        position: 'top-center',
-        duration: 2000,
-        style: {
-          backgroundColor: document.documentElement.classList.contains('dark')
-            ? '#272730'
-            : '#ffffff',
-          color: document.documentElement.classList.contains('dark')
-            ? '#f5f5f5'
-            : '#000000',
-        }
-      }
-    )
+    ShowToast({ message: `${title} был удален`, duration: 2000 })
   }
 
   const price = prices[size]

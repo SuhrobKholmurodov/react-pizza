@@ -10,6 +10,7 @@ import {
   CartHeader,
   PaymentModal
 } from '../components/Cart'
+import { ShowToast } from '../components/ShowToast'
 
 const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
@@ -20,25 +21,7 @@ const Cart = () => {
   const handleCloseModal = () => setOpenModal(false)
 
   const handleToast = () => {
-    toast.success(
-      <div className='flex items-center'>
-        <h4 className='text-[15px] text-center dark:text-mainTextColor'>
-          Ваш заказ принят в обработку!
-        </h4>
-      </div>,
-      {
-        position: 'top-center',
-        duration: 3000,
-        style: {
-          backgroundColor: document.documentElement.classList.contains('dark')
-            ? '#272730'
-            : '#ffffff',
-          color: document.documentElement.classList.contains('dark')
-            ? '#f5f5f5'
-            : '#000000'
-        }
-      }
-    )
+    ShowToast({ message: 'Ваш заказ принят в обработку!', duration: 3000 })
   }
 
   if (items.length === 0) {

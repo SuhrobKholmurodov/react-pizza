@@ -5,7 +5,7 @@ import StarIcon from '@mui/icons-material/Star'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined'
-import { toast, Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { selectCartItemById } from '../redux/cart/selectors'
 import { CartItem } from '../redux/cart/types'
 import { Pizza, ReviewItemProps } from '../redux/pizza/types'
@@ -13,6 +13,7 @@ import { addItem, minusItem } from '../redux/cart/slice'
 import { PizzaDrawer } from './PizzaDrawer'
 import { selectFavoriteItemById } from '../redux/favorites/selectors'
 import { addFavorite, removeFavorite } from '../redux/favorites/slice'
+import { ShowToast } from './ShowToast'
 
 const typeNames = ['тонкое', 'традиционное']
 
@@ -62,25 +63,7 @@ export const PizzaBlock = ({
   const onClickFavorite = () => {
     if (favoriteItem) {
       dispatch(removeFavorite(id))
-      toast.success(
-        <div className='flex items-center'>
-          <h4 className='text-[15px] text-center dark:text-mainTextColor'>
-            {title} удалена из избранного!
-          </h4>
-        </div>,
-        {
-          position: 'top-center',
-          duration: 2000,
-          style: {
-            backgroundColor: document.documentElement.classList.contains('dark')
-              ? '#272730'
-              : '#ffffff',
-            color: document.documentElement.classList.contains('dark')
-              ? '#f5f5f5'
-              : '#000000'
-          }
-        }
-      )
+      ShowToast({ message: `${title} удалена из избранного!`, duration: 2000 })
     } else {
       const favoriteItem: Pizza = {
         id,
@@ -102,25 +85,7 @@ export const PizzaBlock = ({
         calories
       }
       dispatch(addFavorite(favoriteItem))
-      toast.success(
-        <div className='flex items-center'>
-          <h4 className='text-[15px] text-center dark:text-mainTextColor'>
-            {title} добавлена в избранное!
-          </h4>
-        </div>,
-        {
-          position: 'top-center',
-          duration: 2000,
-          style: {
-            backgroundColor: document.documentElement.classList.contains('dark')
-              ? '#272730'
-              : '#ffffff',
-            color: document.documentElement.classList.contains('dark')
-              ? '#f5f5f5'
-              : '#000000'
-          }
-        }
-      )
+      ShowToast({ message: `${title} добавлена в избранное!`, duration: 2000 })
     }
   }
 
@@ -137,49 +102,13 @@ export const PizzaBlock = ({
       sizes
     }
     dispatch(addItem(item))
-    toast.success(
-      <div className='flex items-center'>
-        <h4 className='text-[15px] text-center dark:text-mainTextColor'>
-          {title} добавлена в корзину!
-        </h4>
-      </div>,
-      {
-        position: 'top-center',
-        duration: 2000,
-        style: {
-          backgroundColor: document.documentElement.classList.contains('dark')
-            ? '#272730'
-            : '#ffffff',
-          color: document.documentElement.classList.contains('dark')
-            ? '#f5f5f5'
-            : '#000000'
-        }
-      }
-    )
+    ShowToast({ message: `${title} добавлена в корзину!`, duration: 2000 })
   }
 
   const onClickMinus = () => {
     dispatch(minusItem(id))
     if (addedCount === 1) {
-      toast.success(
-        <div className='flex items-center'>
-          <h4 className='text-[15px] text-center dark:text-mainTextColor'>
-            {title} удалена из корзины!
-          </h4>
-        </div>,
-        {
-          position: 'top-center',
-          duration: 2000,
-          style: {
-            backgroundColor: document.documentElement.classList.contains('dark')
-              ? '#272730'
-              : '#ffffff',
-            color: document.documentElement.classList.contains('dark')
-              ? '#f5f5f5'
-              : '#000000'
-          }
-        }
-      )
+      ShowToast({ message: `${title} удалена из корзины!`, duration: 2000 })
     }
   }
 

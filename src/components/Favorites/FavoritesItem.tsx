@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux'
 import { Trash } from 'lucide-react'
 import { useState } from 'react'
-import { toast, Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { removeFavorite } from '../../redux/favorites/slice'
 import { DialogDelete } from '../DialogDelete'
+import { ShowToast } from '../ShowToast'
 
 interface FavoritesItemProps {
   item: {
@@ -29,25 +30,7 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
   const handleConfirmDelete = () => {
     dispatch(removeFavorite(item.id))
     setOpenDialog(false)
-    toast.success(
-      <div className='flex items-center'>
-        <h4 className='text-[15px] text-center dark:text-mainTextColor'>
-          {item.title} был удален
-        </h4>
-      </div>,
-      {
-        position: 'top-center',
-        duration: 2000,
-        style: {
-          backgroundColor: document.documentElement.classList.contains('dark')
-            ? '#272730'
-            : '#ffffff',
-          color: document.documentElement.classList.contains('dark')
-            ? '#f5f5f5'
-            : '#000000'
-        }
-      }
-    )
+    ShowToast({ message: `${item.title} был удален`, duration: 2000 })
   }
 
   return (
