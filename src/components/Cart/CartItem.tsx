@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet'
-import { Toaster } from 'react-hot-toast'
 import { addItem, minusItem, removeItem } from '../../redux/cart/slice'
 import { CartItem as CartItemType } from '../../redux/cart/types'
 import { Trash2, CirclePlus, CircleMinus } from 'lucide-react'
@@ -77,7 +76,6 @@ export const CartItem = ({
         <meta name='keywords' content='Cart' />
         <meta name='robots' content='index, follow' />
       </Helmet>
-      <Toaster />
       <div className='w-20 sm:w-[60px] sm:h-[60px] h-20'>
         <img
           className='w-full h-full object-cover rounded-md'

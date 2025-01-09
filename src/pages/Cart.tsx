@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Toaster } from 'react-hot-toast'
 import { ArrowLeft } from 'lucide-react'
 import { selectCart } from '../redux/cart/selectors'
 import {
@@ -30,7 +29,6 @@ const Cart = () => {
   return (
     <div className='min-h-screen'>
       <CartHeader />
-      <Toaster />
       <div className='sm:mb-[30%] mt-[70px]'>
         {items.map(item => (
           <CartItem key={item.id} {...item} />

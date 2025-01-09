@@ -5,7 +5,6 @@ import StarIcon from '@mui/icons-material/Star'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined'
-import { Toaster } from 'react-hot-toast'
 import { selectCartItemById } from '../redux/cart/selectors'
 import { CartItem } from '../redux/cart/types'
 import { Pizza, ReviewItemProps } from '../redux/pizza/types'
@@ -138,7 +137,6 @@ export const PizzaBlock = ({
               Новинка
             </div>
           )}
-          <Toaster />
           <div className='absolute top-0 right-[0px] flex flex-col-reverse items-center gap-[5px]'>
             <div
               onClick={handleDrawerOpen}

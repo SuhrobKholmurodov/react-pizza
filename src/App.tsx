@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Loader } from 'lucide-react'
+import { Toaster } from 'react-hot-toast'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import MainLayout from './layouts/MainLayout'
@@ -10,6 +11,7 @@ import Favorites from './pages/Favorites'
 function App () {
   return (
     <div className='pl-[5%] dark:bg-mainBgColor pr-[5%]'>
+      <Toaster />
       <Routes>
         <Route path='/' element={<MainLayout />}>
           <Route path='' element={<Home />} />

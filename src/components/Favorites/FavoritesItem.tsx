@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { Trash } from 'lucide-react'
 import { useState } from 'react'
-import { Toaster } from 'react-hot-toast'
 import { removeFavorite } from '../../redux/favorites/slice'
 import { DialogDelete } from '../DialogDelete'
 import { ShowToast } from '../ShowToast'
@@ -46,7 +45,6 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
             className='text-[red] hover:shadow-md rounded-lg'
           />
         </button>
-        <Toaster />
         <img
           className='w-[260px] h-auto object-cover rounded-md'
           src={item.imageUrl}
