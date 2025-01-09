@@ -59,10 +59,12 @@ export const Header = () => {
                       showZero={false}
                       color='error'
                       badgeContent={
-                        <AnimatedNumber
-                          value={favoriteCount}
-                          className='text-mainTextColor'
-                        />
+                        favoriteCount > 0 ? (
+                          <AnimatedNumber
+                            value={favoriteCount}
+                            className='text-mainTextColor'
+                          />
+                        ) : null
                       }
                     >
                       <Heart
