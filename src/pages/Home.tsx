@@ -83,7 +83,7 @@ const Home = () => {
         <Sort value={sort} />
       </div>
       <Helmet>
-        <title>React Pizza | Главная</title>
+        <title>Pizza house | Главная</title>
       </Helmet>
       <h2 className='text-[24px] pl-[7px] dark:text-mainTextColor mt-[20px] font-[600] mb-[20px]'>
         Все пиццы
