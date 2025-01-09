@@ -1,3 +1,4 @@
+export * from './AnimatedNumber'
 export * from './BackToHomeButton'
 export * from './Categories'
 export * from './CommentSkeleteon'

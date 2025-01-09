@@ -7,7 +7,6 @@ import {
   Favorite,
   RemoveRedEyeOutlined
 } from '@mui/icons-material'
-import NumberFlow from '@number-flow/react'
 import { selectCartItemById } from '../redux/cart/selectors'
 import { Pizza, ReviewItemProps } from '../redux/pizza/types'
 import { CartItem } from '../redux/cart/types'
@@ -16,6 +15,7 @@ import { selectFavoriteItemById } from '../redux/favorites/selectors'
 import { addFavorite, removeFavorite } from '../redux/favorites/slice'
 import { PizzaDrawer } from './PizzaDrawer'
 import { ShowToast } from './ShowToast'
+import { AnimatedNumber } from './AnimatedNumber'
 
 const typeNames = ['тонкое', 'традиционное']
 
@@ -298,10 +298,9 @@ export const PizzaBlock = ({
         </button>
         {addedCount > 0 && (
           <button className='flex items-center justify-center px-[16px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'>
-            <NumberFlow
+            <AnimatedNumber
               value={addedCount}
-              format={{ useGrouping: false }}
-              className='text-white'
+              className='text-mainTextColor'
             />
           </button>
         )}

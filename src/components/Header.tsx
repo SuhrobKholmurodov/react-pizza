@@ -8,7 +8,7 @@ import { selectFavorites } from '../redux/favorites/selectors'
 import MainLogo from '../assets/img/logo_main.png'
 import { Switcher } from './Switcher'
 import { SearchInput } from './SearchInput'
-import NumberFlow from '@number-flow/react'
+import { AnimatedNumber } from './AnimatedNumber'
 
 export const Header = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
@@ -59,9 +59,8 @@ export const Header = () => {
                       showZero={false}
                       color='error'
                       badgeContent={
-                        <NumberFlow
+                        <AnimatedNumber
                           value={favoriteCount}
-                          format={{ useGrouping: false }}
                           className='text-black dark:text-mainTextColor'
                         />
                       }
@@ -83,9 +82,8 @@ export const Header = () => {
                         className='flex items-center py-[8px] gap-[10px]'
                       >
                         <span className='font-[600]'>
-                          <NumberFlow
+                          <AnimatedNumber
                             value={totalPrice}
-                            format={{ useGrouping: false }}
                             className='text-black dark:text-mainTextColor'
                           />
                           <span className='font-[800]'> $</span>
@@ -96,9 +94,8 @@ export const Header = () => {
                         <div className='flex gap-[3px] items-center'>
                           <ShoppingCart />
                           <span className='font-[500]'>
-                            <NumberFlow
+                            <AnimatedNumber
                               value={totalCount}
-                              format={{ useGrouping: false }}
                               className='text-black dark:text-mainTextColor'
                             />
                           </span>

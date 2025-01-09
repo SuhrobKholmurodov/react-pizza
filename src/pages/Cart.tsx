@@ -10,7 +10,7 @@ import {
   PaymentModal
 } from '../components/Cart'
 import { ShowToast } from '../components/ShowToast'
-import NumberFlow from '@number-flow/react'
+import { AnimatedNumber } from '../components'
 
 const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
@@ -45,22 +45,20 @@ const Cart = () => {
             <span className='text-sm font-medium dark:text-mainTextColor text-gray-700'>
               Всего пицц:{' '}
               <b className='text-lg'>
-                <NumberFlow
+                <AnimatedNumber
                   value={totalCount}
-                  format={{ useGrouping: false }}
                   className='text-black dark:text-mainTextColor'
-                />{' '}
+                />
                 шт.
               </b>
             </span>
             <span className='text-sm font-medium dark:text-mainTextColor text-gray-700'>
               Сумма заказа:{' '}
               <b className='text-lg'>
-                <NumberFlow
+                <AnimatedNumber
                   value={totalPrice}
-                  format={{ useGrouping: false }}
                   className='text-black dark:text-mainTextColor'
-                />{' '}
+                />
                 $
               </b>
             </span>

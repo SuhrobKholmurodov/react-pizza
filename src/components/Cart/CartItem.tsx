@@ -6,7 +6,7 @@ import { CartItem as CartItemType } from '../../redux/cart/types'
 import { Trash2, CirclePlus, CircleMinus } from 'lucide-react'
 import { DialogDelete } from '../DialogDelete'
 import { ShowToast } from '../ShowToast'
-import NumberFlow from '@number-flow/react'
+import { AnimatedNumber } from '../AnimatedNumber'
 
 type CartItemProps = {
   id: string
@@ -103,9 +103,8 @@ export const CartItem = ({
         </button>
 
         <span className='text-lg dark:text-mainTextColor font-semibold'>
-          <NumberFlow
+          <AnimatedNumber
             value={count}
-            format={{ useGrouping: false }}
             className='text-black dark:text-mainTextColor'
           />
         </span>
@@ -116,9 +115,8 @@ export const CartItem = ({
 
       <div className='flex items-center dark:text-mainTextColor gap-[15px]'>
         <span className='text-lg font-semibold'>
-          <NumberFlow
+          <AnimatedNumber
             value={totalPrice}
-            format={{ useGrouping: false }}
             className='text-black dark:text-mainTextColor'
           />
           <span className='font-[800]'> $</span>
