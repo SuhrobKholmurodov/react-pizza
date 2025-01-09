@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { ArrowLeft } from 'lucide-react'
@@ -22,6 +22,10 @@ const Cart = () => {
   const handleToast = () => {
     ShowToast({ message: 'Ваш заказ принят в обработку!' })
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   if (items.length === 0) {
     return <CartEmpty />
