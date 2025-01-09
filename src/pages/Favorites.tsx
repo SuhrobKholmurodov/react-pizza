@@ -39,17 +39,17 @@ const Favorites = () => {
 
   return (
     <div className='dark:bg-mainBgColor dark:text-mainTextColor min-h-screen'>
-      <div className='flex items-center gap-2 mb-4'>
-        <Link to={'/'}>
-          <div className='border p-[4px] focus:ring-4 hidden sm:block rounded-lg border-[#2fa4f8]'>
-            <ArrowLeft className='cursor-pointer text-2xl' />
-          </div>
-        </Link>
-        <div className='flex mb-2 sm:mb-0 justify-between w-full items-center'>
-          <h1 className='text-3xl sm:text-[20px] font-bold text-start'>
-            My Favorites
-          </h1>
-          {favoriteItems.length > 0 && (
+      {favoriteItems.length > 0 && (
+        <div className='flex items-center gap-2 mb-4'>
+          <Link to={'/'}>
+            <div className='border p-[4px] focus:ring-4 hidden sm:block rounded-lg border-[#2fa4f8]'>
+              <ArrowLeft className='cursor-pointer text-2xl' />
+            </div>
+          </Link>
+          <div className='flex mb-2 sm:mb-0 justify-between w-full items-center'>
+            <h1 className='text-3xl sm:text-[20px] font-bold text-start'>
+              My Favorites
+            </h1>
             <button
               onClick={handleOpenDialog}
               className='flex items-center gap-2 text-red-500 hover:text-red-600 transition duration-300'
@@ -58,9 +58,9 @@ const Favorites = () => {
               <Trash2 size={24} />
               <span className='text-[18px]'>Delete All</span>
             </button>
-          )}
+          </div>
         </div>
-      </div>
+      )}
       {filteredFavorites.length > 0 ? (
         <div className='grid grid-cols-4 sm:grid-cols-1 gap-6'>
           {filteredFavorites.map(item => (

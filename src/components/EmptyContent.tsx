@@ -9,7 +9,7 @@ export const EmptyContent = ({ title, subtitle, imageSrc }: EmptyContentProps) =
     <h2 className='text-[40px] sm:text-[30px] sm:mt-[100px] font-[600]'>
       {title}
     </h2>
-    <p className='text-[#a6a5a5] text-[20px] w-1/2 font-[500]'>{subtitle}</p>
+    <p className='text-[#a6a5a5] text-[20px] w-1/2 sm:w-full font-[500]'>{subtitle}</p>
     {imageSrc && (
       <img
         src={imageSrc}
