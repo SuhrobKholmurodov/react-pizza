@@ -38,15 +38,15 @@ const Cart = () => {
           <CartItem key={item.id} {...item} />
         ))}
       </div>
-      <CartFooter
-        totalCount={totalCount}
-        totalPrice={totalPrice}
-        onOrderClick={handleOpenModal}
-      />
       <PaymentModal
         open={openModal}
         onClose={handleCloseModal}
         handleSubmit={handleToast}
+      />
+      <CartFooter
+        totalCount={totalCount}
+        totalPrice={totalPrice}
+        onOrderClick={handleOpenModal}
       />
     </div>
   )

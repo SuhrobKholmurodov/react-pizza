@@ -10,7 +10,8 @@ import {
   Skeleton,
   SwiperPizza,
   CustomPagination,
-  AnimatedNumber
+  AnimatedNumber,
+  EmptyContent
 } from '../components'
 import { useAppDispatch } from '../redux/store'
 import { selectFilter } from '../redux/filter/selectors'
@@ -90,12 +91,12 @@ const Home = () => {
         Все пиццы
       </h2>
       {status === 'error' ? (
-        <div className='flex items-center justify-center text-center dark:text-mainTextColor h-[300px] flex-col gap-[20px]'>
-          <h2 className='text-[28px] font-[700]'>Произошла ошибка 😕</h2>
-          <p className='text-[20px] font-[500]'>
-            К сожалению, не удалось получить пиццы. Попробуйте повторить попытку
-            позже.
-          </p>
+        <div className='h-[300px]'>
+          <EmptyContent
+            title='Произошла ошибка 😕'
+            subtitle='К сожалению, не удалось получить пиццы. Попробуйте повторить попытку позже.'
+            showButton={false}
+          />
         </div>
       ) : (
         <div className='grid grid-cols-4 sm:grid-cols-1 md:grid-cols-3 mb-[-20px] sm:mb-[-5px] gap-6'>

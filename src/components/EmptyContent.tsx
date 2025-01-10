@@ -3,13 +3,21 @@ interface EmptyContentProps {
   title: string
   subtitle: string
   imageSrc?: string
+  showButton?: boolean
 }
-export const EmptyContent = ({ title, subtitle, imageSrc }: EmptyContentProps) => (
+export const EmptyContent = ({
+  title,
+  subtitle,
+  imageSrc,
+  showButton
+}: EmptyContentProps) => (
   <div className='flex text-center items-center dark:text-mainTextColor pt-[7%] sm:mt-0 gap-[20px] flex-col'>
     <h2 className='text-[40px] sm:text-[30px] sm:mt-[100px] font-[600]'>
       {title}
     </h2>
-    <p className='text-[#a6a5a5] text-[20px] w-1/2 sm:w-full font-[500]'>{subtitle}</p>
+    <p className='text-[#a6a5a5] text-[20px] w-1/2 sm:w-full font-[500]'>
+      {subtitle}
+    </p>
     {imageSrc && (
       <img
         src={imageSrc}
@@ -17,6 +25,6 @@ export const EmptyContent = ({ title, subtitle, imageSrc }: EmptyContentProps) =
         className='w-[370px] sm:w-[280px]'
       />
     )}
-    <BackToHomeButton />
+    {showButton && <BackToHomeButton />}
   </div>
 )
