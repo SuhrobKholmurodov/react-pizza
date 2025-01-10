@@ -7,7 +7,7 @@ import { selectCart } from '../redux/cart/selectors'
 import { selectFilter } from '../redux/filter/selectors'
 import { clearFavorites } from '../redux/favorites/slice'
 import { FavoritesEmpty, FavoritesItem } from '../components/Favorites'
-import { DialogDelete } from '../components'
+import { AnimatedNumber, DialogDelete } from '../components'
 
 export const Favorites = () => {
   const dispatch = useDispatch()
@@ -83,12 +83,21 @@ export const Favorites = () => {
         <div className='hidden sm:flex border dark:border-[#0d0d0d] dark:border-2 rounded-lg sm:px-[15px] px-[25px]'>
           <Link to='/cart' className='flex py-[12px] gap-[10px]'>
             <span className='font-[600]'>
-              {totalPrice} <span className='font-[800]'>$</span>
+              <AnimatedNumber
+                value={totalPrice}
+                className='text-black dark:text-mainTextColor'
+              />{' '}
+              <span className='font-[800]'>$</span>
             </span>
             <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-black'></div>
             <div className='flex gap-[3px] items-center'>
               <ShoppingCart className='sm:text-[12px]' />
-              <span className='font-[500] sm:font-[400]'>{totalCount}</span>
+              <span className='font-[500] sm:font-[400]'>
+                <AnimatedNumber
+                  value={totalCount}
+                  className='text-black dark:text-mainTextColor'
+                />
+              </span>
             </div>
           </Link>
         </div>
