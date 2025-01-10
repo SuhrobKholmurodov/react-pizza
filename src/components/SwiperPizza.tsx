@@ -6,6 +6,7 @@ import '../index.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+const apiUrl = import.meta.env.VITE_API_URL
 
 interface Pizza {
   id: number
@@ -17,9 +18,7 @@ interface Pizza {
 
 const fetchAllPromotionalPizzas = async () => {
   try {
-    const { data } = await axios.get(
-      'https://675b3f3d9ce247eb19360dcf.mockapi.io/items'
-    )
+    const { data } = await axios.get(`${apiUrl}`)
     return data.filter((pizza: Pizza) => pizza.onPromotion)
   } catch (error) {
     console.error('Failed to fetch promotional pizzas:', error)

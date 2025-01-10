@@ -1,14 +1,15 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { Pizza, SearchPizzaParams } from './types';
-import { pickBy } from 'lodash';
-import identity from 'lodash/identity';
+const apiUrl = import.meta.env.VITE_API_URL
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { Pizza, SearchPizzaParams } from './types'
+import { pickBy } from 'lodash'
+import identity from 'lodash/identity'
 
 export const fetchPizzas = createAsyncThunk<Pizza[], SearchPizzaParams>(
   'pizza/fetchPizzasStatus',
-  async (params) => {
-    const { sortBy, order, category, search, currentPage } = params;
-    const { data } = await axios.get<Pizza[]>(`https://675b3f3d9ce247eb19360dcf.mockapi.io/items`, {
+  async params => {
+    const { sortBy, order, category, search, currentPage } = params
+    const { data } = await axios.get<Pizza[]>(`${apiUrl}`, {
       params: pickBy(
         {
           page: currentPage,
@@ -16,12 +17,12 @@ export const fetchPizzas = createAsyncThunk<Pizza[], SearchPizzaParams>(
           category,
           sortBy,
           order,
-          search,
+          search
         },
-        identity,
-      ),
-    });
+        identity
+      )
+    })
 
-    return data;
-  },
-);
+    return data
+  }
+)
