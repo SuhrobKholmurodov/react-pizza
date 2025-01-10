@@ -1,19 +1,19 @@
 import { BackToHomeButton } from './BackToHomeButton'
+
 interface EmptyContentProps {
   title: string
   subtitle: string
   showButton?: boolean
 }
+
 export const EmptyContent = ({
   title,
   subtitle,
   showButton
 }: EmptyContentProps) => (
-  <div className='flex text-center justify-center h-[100vh] sm:h-[100%] items-center dark:text-mainTextColor mt-[-10%] sm:mt-0 gap-[20px] flex-col'>
-    <h2 className='text-[40px] sm:text-[27px] sm:mt-[100px] font-[600]'>
-      {title}
-    </h2>
-    <p className='text-[#a6a5a5] text-[20px] sm:text-[18px] w-1/2 sm:w-full font-[500]'>
+  <div className='flex flex-col text-center justify-center items-center h-[calc(100vh-160px)] sm:h-[calc(100vh-120px)] p-4 dark:text-mainTextColor'>
+    <h2 className='text-4xl sm:text-2xl font-semibold mb-4'>{title}</h2>
+    <p className='text-[#a6a5a5] text-xl sm:text-base font-medium max-w-2xl sm:max-w-full mb-6'>
       {subtitle}
     </p>
     {showButton && <BackToHomeButton />}

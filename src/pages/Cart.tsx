@@ -27,11 +27,7 @@ export const Cart = () => {
   }, [])
 
   if (items.length === 0) {
-    return (
-      <div className='mt-[125px]'>
-        <CartEmpty />
-      </div>
-    )
+    return <CartEmpty />
   }
 
   return (
