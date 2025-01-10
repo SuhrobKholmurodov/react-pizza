@@ -20,7 +20,7 @@ import { selectCart } from '../redux/cart/selectors'
 import { setCategoryId, setCurrentPage } from '../redux/filter/slice'
 import { fetchPizzas } from '../redux/pizza/asyncActions'
 
-const Home = () => {
+export const Home = () => {
   const dispatch = useAppDispatch()
   const { items, status } = useSelector(selectPizzaData)
   const { categoryId, sort, currentPage, searchValue } =
@@ -133,5 +133,3 @@ const Home = () => {
     </div>
   )
 }
-
-export default Home

@@ -10,7 +10,7 @@ import {
 } from '../components/Cart'
 import { ShowToast } from '../components/ShowToast'
 
-const Cart = () => {
+export const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)
   const [openModal, setOpenModal] = useState(false)
@@ -52,4 +52,3 @@ const Cart = () => {
   )
 }
 
-export default Cart

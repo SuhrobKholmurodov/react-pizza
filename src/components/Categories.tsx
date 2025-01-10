@@ -7,8 +7,8 @@ const categories = [
   'Все',
   'Детям',
   'Куриные',
-  'Острые',
   'Вегетарианская',
+  'Острые',
   'Сырные'
 ]
 export const Categories = React.memo(

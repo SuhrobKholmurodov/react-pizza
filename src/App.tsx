@@ -1,12 +1,9 @@
 import { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Loader } from 'lucide-react'
+import { Home, Loader } from 'lucide-react'
 import { Toaster } from 'react-hot-toast'
-import Home from './pages/Home'
-import Cart from './pages/Cart'
 import MainLayout from './layouts/MainLayout'
-import NotFound from './pages/NotFound'
-import Favorites from './pages/Favorites'
+import { Cart, Favorites, NotFound } from './pages'
 
 function App () {
   return (

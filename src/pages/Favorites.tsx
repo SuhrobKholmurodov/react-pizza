@@ -9,7 +9,7 @@ import { clearFavorites } from '../redux/favorites/slice'
 import { FavoritesEmpty, FavoritesItem } from '../components/Favorites'
 import { DialogDelete } from '../components'
 
-const Favorites = () => {
+export const Favorites = () => {
   const dispatch = useDispatch()
   const { items: favoriteItems } = useSelector(selectFavorites)
   const { items: cartItems, totalPrice } = useSelector(selectCart)
@@ -104,5 +104,3 @@ const Favorites = () => {
     </div>
   )
 }
-
-export default Favorites
