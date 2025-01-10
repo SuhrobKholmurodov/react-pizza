@@ -1,8 +1,6 @@
 import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
-import { Link } from 'react-router-dom'
-import { ShoppingCart } from 'lucide-react'
 import {
   Categories,
   Sort,
@@ -10,8 +8,8 @@ import {
   Skeleton,
   SwiperPizza,
   CustomPagination,
-  AnimatedNumber,
-  EmptyContent
+  EmptyContent,
+  CartSummary
 } from '../components'
 import { useAppDispatch } from '../redux/store'
 import { selectFilter } from '../redux/filter/selectors'
@@ -104,27 +102,7 @@ export const Home = () => {
         </div>
       )}
       <div className='px-[5%] dark:text-mainTextColor sm:pl-[3%] fixed left-0 right-0 sm:flex-row-reverse bottom-0 dark:bg-mainBgColor dark:border-t-[black] p-4 border-t bg-gray-100 flex justify-center sm:justify-between items-center'>
-        <div className='hidden sm:flex border dark:border-[#0d0d0d] dark:border-2 rounded-lg sm:px-[15px] px-[25px]'>
-          <Link to='/cart' className='flex py-[12px] gap-[10px]'>
-            <span className='font-[600]'>
-              <AnimatedNumber
-                value={totalPrice}
-                className='text-black dark:text-mainTextColor'
-              />{' '}
-              <span className='font-[800]'>$</span>
-            </span>
-            <div className='h-[100%] w-[2.5px] dark:bg-mainTextColor bg-black'></div>
-            <div className='flex gap-[3px] items-center'>
-              <ShoppingCart className='sm:text-[12px]' />
-              <span className='font-[500] sm:font-[400]'>
-                <AnimatedNumber
-                  value={totalCount}
-                  className='text-black dark:text-mainTextColor'
-                />
-              </span>
-            </div>
-          </Link>
-        </div>
+        <CartSummary totalPrice={totalPrice} totalCount={totalCount} />
         <CustomPagination
           currentPage={currentPage}
           onChangePage={onChangePage}

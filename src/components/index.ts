@@ -1,5 +1,6 @@
 export * from './AnimatedNumber'
 export * from './BackToHomeButton'
+export * from './CartSummary'
 export * from './Categories'
 export * from './CommentSkeleteon'
 export * from './DialogDelete'
