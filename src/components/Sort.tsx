@@ -14,7 +14,7 @@ import {
   OptionOwnerState
 } from '@mui/base/Option'
 import { useTheme } from '@mui/system'
-import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded'
+import SortIcon from '@mui/icons-material/Sort';
 import clsx from 'clsx'
 import { PopupContext } from '@mui/base/Unstable_Popup'
 import { CssTransition } from '@mui/base/Transitions'
@@ -78,7 +78,7 @@ const Button = React.forwardRef(function Button<
   return (
     <button type='button' {...other} ref={ref}>
       {other.children}
-      <UnfoldMoreRoundedIcon />
+      <SortIcon />
     </button>
   )
 })
