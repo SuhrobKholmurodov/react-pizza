@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Drawer, Box, Rating } from '@mui/material'
-import { MessageCircle, X } from 'lucide-react'
+import { Drawer, Box } from '@mui/material'
+import { X } from 'lucide-react'
 import { CommentFilterEnum } from '../redux/commentFilter/types'
 import { setCommentFilter } from '../redux/commentFilter/slice'
 import { selectCommentFilter } from '../redux/commentFilter/selectors'
 import { CommentSkeleteon } from './CommentSkeleteon'
 import { ProductInfoTooltip } from './ProductInfoTooltip'
-import { ReviewFilterControls } from './ReviewFilterControls'
+import { CommentSection } from './CommentSection'
 
 type PizzaType = {
   id: string
@@ -139,110 +139,10 @@ export const PizzaDrawer = ({
             (status === 'loading' ? (
               <div className='mt-[20px]'>{skeletons}</div>
             ) : (
-              <div
-                id='reviews'
-                className='bg-[#f6f6f9] dark:bg-mainBgColor pb-[12px] mt-[15px] rounded-[12px]'
-              >
-                <div className='font-[700] sm:dark:mt-[-10px] sm:flex-col flex sm:items-start items-center dark:bg-mainBgColor justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
-                  <div className='flex items-center dark:text-mainTextColor gap-[3px] text-[20px]'>
-                    <p className='hidden sm:flex'>Отзывы</p>{' '}
-                    <MessageCircle className='sm:hidden' />
-                    <p className='font-[550]'>({pizza?.reviews?.length})</p>
-                  </div>
-                  <ReviewFilterControls />
-                  {/* <div className='flex items-center justify-between gap-[15px] sm:gap-[10px]'>
-                    <button
-                      onClick={() =>
-                        dispatch(setCommentFilter(CommentFilterEnum.ALL))
-                      }
-                      className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-[#585858] hover:text-white duration-300 px-[20px] sm:px-[10px] rounded-[12px] bg-[#f6f6f9] ${
-                        currentFilter === CommentFilterEnum.ALL
-                          ? 'bg-black dark:bg-[white] dark:text-[#585858] text-white'
-                          : ''
-                      }`}
-                    >
-                      All
-                    </button>
-                    <button
-                      onClick={() =>
-                        dispatch(setCommentFilter(CommentFilterEnum.RECOMMEND))
-                      }
-                      className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-[#585858] hover:text-white duration-300 px-[35px] sm:px-[10px] rounded-[12px] bg-[#f6f6f9] ${
-                        currentFilter === CommentFilterEnum.RECOMMEND
-                          ? 'bg-black dark:bg-[white] dark:text-[#585858] text-white'
-                          : ''
-                      }`}
-                    >
-                      Recommend
-                    </button>
-                    <button
-                      onClick={() =>
-                        dispatch(
-                          setCommentFilter(CommentFilterEnum.NOT_RECOMMEND)
-                        )
-                      }
-                      className={`py-[7px] text-[15px] sm:text-[14px] dark:bg-[#2a2c35] hover:bg-[black] dark:text-[#585858] hover:text-white duration-300 px-[35px] sm:px-[10px] rounded-[12px] bg-[#f6f6f9] ${
-                        currentFilter === CommentFilterEnum.NOT_RECOMMEND
-                          ? 'bg-black dark:bg-[white] dark:text-[#585858] text-white'
-                          : ''
-                      }`}
-                    >
-                      Not Recommend
-                    </button>
-                  </div> */}
-                </div>
-                <ul
-                  className='list-disc pl-[20px] rounded-[12px] pr-[20px] mt-[10px] sm:pb-[70px] overflow-y-auto max-h-[230px]'
-                  style={{
-                    scrollbarWidth: 'none',
-                    msOverflowStyle: 'none'
-                  }}
-                >
-                  {filteredReviews.length > 0 ? (
-                    filteredReviews.map((review, index) => (
-                      <li key={index} className='flex gap-[15px] mb-[20px]'>
-                        <img
-                          src={review.profilePhoto}
-                          alt={review.name}
-                          className='w-[40px] h-[40px] rounded-[50%] border-2 dark:border-[gray] border-[#e9e9e9]'
-                        />
-                        <div className='flex flex-col'>
-                          <p className='text-[16px] w-[470px] sm:w-full flex items-center justify-between font-[600] text-[gray]'>
-                            {review.name}
-                            <Rating
-                              name='simple-uncontrolled'
-                              readOnly
-                              value={review.rating}
-                              sx={{
-                                fontSize: '19px',
-                                '& .MuiRating-iconEmpty': {
-                                  color: document.body.classList.contains(
-                                    'dark-mode'
-                                  )
-                                    ? '#fff'
-                                    : 'grey'
-                                }
-                              }}
-                            />
-                          </p>
-                          <p className='text-[14px] dark:text-mainTextColor text-[#333] leading-[1.5]'>
-                            {review.comment}
-                          </p>
-                          <p className='text-[12px] text-[gray] mt-[5px]'>
-                            {review.date}
-                          </p>
-                        </div>
-                      </li>
-                    ))
-                  ) : (
-                    <div className='flex justify-center items-center h-[100px]'>
-                      <p className='text-[16px] sm:text-[15px] text-gray-600 text-center'>
-                        Нет отзывов для выбранного фильтра.
-                      </p>
-                    </div>
-                  )}
-                </ul>
-              </div>
+              <CommentSection
+                reviews={pizza.reviews}
+                filteredReviews={filteredReviews}
+              />
             ))}
           <div className='flex bg-white dark:bg-mainBgColor p-[15px] fixed bottom-0 sm:w-full sm:bottom-[0%] border-t-0 rounded-t-[12px] mt-auto'>
             <button
