@@ -2,11 +2,12 @@ import { MessageCircle } from 'lucide-react'
 import { ReviewFilterControls } from './ReviewFilterControls'
 import { Rating } from '@mui/material'
 
-type Review = {
+export type Review = {
   profilePhoto: string
   name: string
   comment: string
   date: string
+  recommendation: boolean
   rating: number
 }
 

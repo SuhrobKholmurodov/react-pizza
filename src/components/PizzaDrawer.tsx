@@ -7,7 +7,7 @@ import { setCommentFilter } from '../redux/commentFilter/slice'
 import { selectCommentFilter } from '../redux/commentFilter/selectors'
 import { CommentSkeleteon } from './CommentSkeleteon'
 import { ProductInfoTooltip } from './ProductInfoTooltip'
-import { CommentSection } from './CommentSection'
+import { CommentSection, Review } from './CommentSection'
 
 type PizzaType = {
   id: string
@@ -21,14 +21,7 @@ type PizzaType = {
   preparationTime: number
   calories: number
   moreDetails: string
-  reviews: {
-    profilePhoto: string
-    name: string
-    comment: string
-    date: string
-    recommendation: boolean
-    rating: number
-  }[]
+  reviews: Review[]
 }
 
 type PizzaDrawerProps = {
