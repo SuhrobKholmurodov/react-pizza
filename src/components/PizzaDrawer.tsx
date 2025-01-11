@@ -7,6 +7,7 @@ import { setCommentFilter } from '../redux/commentFilter/slice'
 import { selectCommentFilter } from '../redux/commentFilter/selectors'
 import { CommentSkeleteon } from './CommentSkeleteon'
 import { ProductInfoTooltip } from './ProductInfoTooltip'
+import { ReviewFilterControls } from './ReviewFilterControls'
 
 type PizzaType = {
   id: string
@@ -148,7 +149,8 @@ export const PizzaDrawer = ({
                     <MessageCircle className='sm:hidden' />
                     <p className='font-[550]'>({pizza?.reviews?.length})</p>
                   </div>
-                  <div className='flex items-center justify-between gap-[15px] sm:gap-[10px]'>
+                  <ReviewFilterControls />
+                  {/* <div className='flex items-center justify-between gap-[15px] sm:gap-[10px]'>
                     <button
                       onClick={() =>
                         dispatch(setCommentFilter(CommentFilterEnum.ALL))
@@ -187,7 +189,7 @@ export const PizzaDrawer = ({
                     >
                       Not Recommend
                     </button>
-                  </div>
+                  </div> */}
                 </div>
                 <ul
                   className='list-disc pl-[20px] rounded-[12px] pr-[20px] mt-[10px] sm:pb-[70px] overflow-y-auto max-h-[230px]'
