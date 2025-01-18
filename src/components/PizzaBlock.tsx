@@ -295,7 +295,7 @@ export const PizzaBlock = ({
           onClick={onClickAdd}
           className='flex items-center justify-center w-full px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
         >
-          <ShoppingBasket className='h-5 group-hover:animate-bounce w-5' />
+          <ShoppingBasket className='h-5 group-hover:animate-pulse w-5' />
           <span className='ml-2'>{deliveryTime} минут</span>
         </button>
         {addedCount > 0 && (
