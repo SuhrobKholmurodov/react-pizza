@@ -126,7 +126,7 @@ export const PizzaBlock = ({
           .replace(/\.0$/, '')
       : 0
   return (
-    <div className='p-4 hover:shadow-xl transition-shadow group rounded-lg dark:hover:shadow-black hover:shadow-[#e4e3e3] duration-300 ease-in-out relative'>
+    <div className='p-4 group hover:shadow-xl transition-shadow group rounded-lg dark:hover:shadow-black hover:shadow-[#e4e3e3] duration-300 ease-in-out relative'>
       <div>
         <div className='relative flex items-center justify-center'>
           <img
@@ -293,7 +293,7 @@ export const PizzaBlock = ({
           onClick={onClickAdd}
           className='flex items-center justify-center w-full px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
         >
-          <ShoppingBasket className='h-5 w-5' />
+          <ShoppingBasket className='h-5 group-hover:animate-bounce w-5' />
           <span className='ml-2'>{deliveryTime} минут</span>
         </button>
         {addedCount > 0 && (
