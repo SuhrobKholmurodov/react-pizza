@@ -149,7 +149,9 @@ export const PizzaBlock = ({
             </div>
             <div
               onClick={onClickFavorite}
-              className='border-gray-200 border duration-300 dark:border-gray-500 p-[2px] hover:cursor-pointer rounded-md dark:hover:border-[#c0bfbf] hover:border-gray-300'
+              className={`border-gray-200 border duration-300 dark:border-gray-500 p-[2px] hover:cursor-pointer rounded-md dark:hover:border-[#c0bfbf] hover:border-gray-300 ${
+                favoriteItem ? 'animate-bounce' : ''
+              }`}
             >
               {favoriteItem ? (
                 <Favorite
@@ -298,10 +300,7 @@ export const PizzaBlock = ({
         </button>
         {addedCount > 0 && (
           <button className='flex items-center justify-center px-[16px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'>
-            <AnimatedNumber
-              value={addedCount}
-              className='text-mainTextColor'
-            />
+            <AnimatedNumber value={addedCount} className='text-mainTextColor' />
           </button>
         )}
       </div>
