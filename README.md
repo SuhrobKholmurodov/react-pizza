@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+<h2 align="center"> React + TypeScript + Vite - Inventory Management System </h2><br>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- ⚛️ **React** - A JavaScript library for building user interfaces.
+- ⚡️ **Vite** - Instant HMR and fast builds.
+- 📜 **TypeScript** - Strongly typed JavaScript.
+- 🧹 **ESLint** - Pluggable linting utility for JavaScript and TypeScript.
+- 🎨 **Material-UI (MUI)** - A popular React UI framework.
+  - `@mui/base`
+  - `@mui/material`
+  - `@mui/icons-material`
+  - `@mui/styled-engine-sc`
+  - `@mui/system`
+- 🧰 **Redux Toolkit** - State management simplified.
+  - `@reduxjs/toolkit`
+  - `react-redux`
+- 🛣️ **React Router** - Declarative routing for React.
+  - `react-router-dom`
+- 🌐 **Axios** - Promise-based HTTP client.
+- 🧹 **Lodash** - Utility library for JavaScript.
+  - `lodash`
+  - `lodash.debounce`
+- 🎨 **Tailwind CSS** - Utility-first CSS framework.
+- 🎭 **Emotion** - CSS-in-JS library for styling.
+  - `@emotion/react`
+  - `@emotion/styled`
+- ✨ **Lucide React** - Beautiful and customizable icons.
+  - `lucide-react`
+- 🔥 **React Hot Toast** - Lightweight toast notifications.
+  - `react-hot-toast`
+- 🪖 **React Helmet** - Manage document head dynamically.
+  - `react-helmet`
+- 🔒 **React Input Mask** - Input masking for React.
+  - `react-input-mask`
+- ⏳ **React Loadable** - Component loading with promises.
+  - `react-loadable`
+- 📄 **React Paginate** - Pagination component for React.
+  - `react-paginate`
+- 🌙 **React Toggle Dark Mode** - Dark mode toggle component.
+  - `react-toggle-dark-mode`
+- 🖼️ **React Content Loader** - SVG-based content loaders.
+  - `react-content-loader`
+- 🥾 **React Bootstrap** - Bootstrap components built with React.
+  - `react-bootstrap`
+- 🎠 **Swiper** - Modern slider and carousel.
+  - `swiper`
