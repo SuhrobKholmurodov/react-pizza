@@ -23,9 +23,6 @@
   - `lodash`
   - `lodash.debounce`
 - 🎨 **Tailwind CSS** - Utility-first CSS framework.
-- 🎭 **Emotion** - CSS-in-JS library for styling.
-  - `@emotion/react`
-  - `@emotion/styled`
 - ✨ **Lucide React** - Beautiful and customizable icons.
   - `lucide-react`
 - 🔥 **React Hot Toast** - Lightweight toast notifications.
