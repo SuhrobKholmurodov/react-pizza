@@ -5,6 +5,7 @@
 - ⚛️ **React** - A JavaScript library for building user interfaces.
 - ⚡️ **Vite** - Instant HMR and fast builds.
 - 📜 **TypeScript** - Strongly typed JavaScript.
+- 📑 [Layout system](./src/layouts) - Custom layout components for the application.
 - 🧹 **ESLint** - Pluggable linting utility for JavaScript and TypeScript.
 - 🎨 **Material-UI (MUI)** - A popular React UI framework.
   - `@mui/base`
