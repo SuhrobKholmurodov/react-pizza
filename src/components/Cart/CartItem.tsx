@@ -89,6 +89,7 @@ export const CartItem = ({
         <p className='text-sm text-gray-500'>
           {type}, {sizes[size]} см.
         </p>
+        <p className='text-sm text-gray-500'>Цена за штуку: {price}</p>
       </div>
       <div className='flex dark:text-mainTextColor sm:flex-col-reverse items-center gap-2'>
         <button
