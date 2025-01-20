@@ -33,8 +33,6 @@
   - `react-input-mask`
 - ⏳ **React Loadable** - Component loading with promises.
   - `react-loadable`
-- 📄 **React Paginate** - Pagination component for React.
-  - `react-paginate`
 - 🌙 **React Toggle Dark Mode** - Dark mode toggle component.
   - `react-toggle-dark-mode`
 - 🖼️ **React Content Loader** - SVG-based content loaders.
