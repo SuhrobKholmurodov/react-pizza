@@ -70,7 +70,7 @@ export const CartItem = ({
   const totalPrice = (price !== undefined ? price : 0) * count
 
   return (
-    <div className='flex items-center gap-4 p-4 border-b border-gray-300'>
+    <div className='flex items-center gap-4 p-4 sm:pt-2 sm:p-0 sm:pb-2 border-b border-gray-300'>
       <Helmet>
         <title>Cart</title>
         <meta name='description' content='Cart' />
@@ -85,11 +85,11 @@ export const CartItem = ({
         />
       </div>
       <div className='flex-1 dark:text-mainTextColor'>
-        <h3 className='text-lg sm:text-[14px] font-semibold'>{title}</h3>
-        <p className='text-sm text-gray-500'>
+        <h3 className='text-lg sm:text-[13px] font-semibold'>{title}</h3>
+        <p className='text-sm sm:text-[12px] text-gray-500'>
           {type}, {sizes[size]} см.
         </p>
-        <p className='text-sm text-gray-500'>Цена за штуку: {price}</p>
+        <p className='text-sm sm:text-[12px] text-gray-500'>Цена за штуку: {price}$</p>
       </div>
       <div className='flex dark:text-mainTextColor sm:flex-col-reverse items-center gap-2'>
         <button
@@ -118,9 +118,9 @@ export const CartItem = ({
         <span className='text-lg font-semibold'>
           <AnimatedNumber
             value={totalPrice}
-            className='text-black dark:text-mainTextColor'
+            className='text-black sm:text-[16px] dark:text-mainTextColor'
           />
-          <span className='font-[800]'> $</span>
+          <span className='font-[800] sm:text-[16px]'> $</span>
         </span>
         <button
           onClick={handleOpenDialog}
