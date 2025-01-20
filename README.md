@@ -39,7 +39,5 @@
   - `react-toggle-dark-mode`
 - 🖼️ **React Content Loader** - SVG-based content loaders.
   - `react-content-loader`
-- 🥾 **React Bootstrap** - Bootstrap components built with React.
-  - `react-bootstrap`
 - 🎠 **Swiper** - Modern slider and carousel.
   - `swiper`
