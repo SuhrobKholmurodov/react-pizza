@@ -57,7 +57,7 @@ export const Header = () => {
               <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[5px]'>
                 <Switcher />
                 <SelectLang /> 
-                <Tooltip title='Favorites' arrow>
+                <Tooltip title={t("header.tooltipFav")} arrow>
                   <Link to={'/favorites'}>
                     <Badge
                       showZero={false}
@@ -80,7 +80,7 @@ export const Header = () => {
                 </Tooltip>
               </div>
               <div className='flex sm:hidden rounded-lg px-[25px] border'>
-                <Tooltip title='Cart' arrow>
+                <Tooltip title={t("header.tooltipCart")}  arrow>
                   <div>
                     {location.pathname !== '/cart' && (
                       <Link
