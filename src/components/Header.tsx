@@ -10,6 +10,7 @@ import { Switcher } from './Switcher'
 import { SearchInput } from './SearchInput'
 import { AnimatedNumber } from './AnimatedNumber'
 import { useLocalization } from '../hooks/useLocalization'
+import { SelectLang } from './SelectLang'
 
 export const Header = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
@@ -22,6 +23,7 @@ export const Header = () => {
     0
   )
   const favoriteCount = favoriteItems.length
+
   useEffect(() => {
     if (isMounted.current) {
       const json = JSON.stringify(cartItems)
@@ -30,7 +32,7 @@ export const Header = () => {
     isMounted.current = true
   }, [cartItems])
 
-  const { t, lng, changeLanguage } = useLocalization()
+  const { t } = useLocalization()
 
   return (
     <div>
@@ -53,17 +55,8 @@ export const Header = () => {
             <SearchInput />
             <div className='flex dark:text-mainTextColor items-center gap-[20px]'>
               <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[5px]'>
-                <select
-                  value={lng}
-                  className='border sm:mt-[-40px] text-[black] rounded-[5px] w-[50px] h-[35px]'
-                  id=''
-                  onChange={e => changeLanguage(e.target.value)}
-                >
-                  <option value={'en'}>En</option>
-                  <option value={'ru'}>Ru</option>
-                  <option value={'tj'}>Tj</option>
-                </select>
                 <Switcher />
+                <SelectLang /> 
                 <Tooltip title='Favorites' arrow>
                   <Link to={'/favorites'}>
                     <Badge
