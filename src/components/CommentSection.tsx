@@ -1,7 +1,8 @@
 import { MessageCircle } from 'lucide-react'
 import { ReviewFilterControls } from './ReviewFilterControls'
 import { Rating } from '@mui/material'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
+
 
 export type Review = {
   profilePhoto: string

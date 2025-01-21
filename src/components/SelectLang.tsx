@@ -1,4 +1,5 @@
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
+
 
 export const SelectLang = () => {
   const { lng, changeLanguage } = useLocalization()

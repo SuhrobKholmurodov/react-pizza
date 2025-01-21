@@ -9,7 +9,7 @@ import {
   CartFooter
 } from '../components/Cart'
 import { ShowToast } from '../components/ShowToast'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
 
 export const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)

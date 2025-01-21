@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Sun, Moon } from 'lucide-react'
-import useDarkSide from '../hooks/useDarkSide'
 import { Tooltip } from '@mui/material'
-import { useLocalization } from '../hooks/useLocalization'
+import { useDarkSide, useLocalization } from '../hooks'
+
 
 export const Switcher = () => {
   const [colorTheme, setTheme] = useDarkSide()

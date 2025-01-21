@@ -17,7 +17,7 @@ import { selectPizzaData } from '../redux/pizza/selectors'
 import { selectCart } from '../redux/cart/selectors'
 import { setCategoryId, setCurrentPage } from '../redux/filter/slice'
 import { fetchPizzas } from '../redux/pizza/asyncActions'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
 
 export const Home = () => {
   const dispatch = useAppDispatch()

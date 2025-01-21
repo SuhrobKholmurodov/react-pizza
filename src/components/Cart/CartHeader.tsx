@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearItems } from '../../redux/cart/slice';
 import { DialogDelete } from '../DialogDelete';
 import { selectCart } from '../../redux/cart/selectors';
-import { useLocalization } from '../../hooks/useLocalization'; 
+import { useLocalization } from '../../hooks';
 
 export const CartHeader = () => {
   const dispatch = useDispatch();

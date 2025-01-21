@@ -7,7 +7,7 @@ import { ShowToast } from '../ShowToast';
 import { PizzaDrawer } from '../PizzaDrawer';
 import { addItem } from '../../redux/cart/slice';
 import { CartItem } from '../../redux/cart/types';
-import { useLocalization } from '../../hooks/useLocalization';
+import { useLocalization } from '../../hooks';
 
 interface FavoritesItemProps {
   item: {

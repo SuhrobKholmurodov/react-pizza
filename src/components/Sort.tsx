@@ -18,7 +18,8 @@ import SortIcon from '@mui/icons-material/Sort'
 import clsx from 'clsx'
 import { PopupContext } from '@mui/base/Unstable_Popup'
 import { CssTransition } from '@mui/base/Transitions'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
+
 
 function useIsDarkMode () {
   const theme = useTheme()

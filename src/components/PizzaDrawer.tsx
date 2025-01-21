@@ -8,7 +8,8 @@ import { selectCommentFilter } from '../redux/commentFilter/selectors'
 import { CommentSkeleteon } from './CommentSkeleteon'
 import { ProductInfoTooltip } from './ProductInfoTooltip'
 import { CommentSection, Review } from './CommentSection'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
+
 
 type PizzaType = {
   id: string

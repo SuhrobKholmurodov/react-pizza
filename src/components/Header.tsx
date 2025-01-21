@@ -5,12 +5,12 @@ import { Heart, ShoppingCart } from 'lucide-react'
 import { Badge, Tooltip } from '@mui/material'
 import { selectCart } from '../redux/cart/selectors'
 import { selectFavorites } from '../redux/favorites/selectors'
-import MainLogo from '../assets/img/logo_main.png'
 import { Switcher } from './Switcher'
 import { SearchInput } from './SearchInput'
 import { AnimatedNumber } from './AnimatedNumber'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
 import { SelectLang } from './SelectLang'
+import MainLogo from '../assets/img/logo_main.png'
 
 export const Header = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)

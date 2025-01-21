@@ -1,4 +1,4 @@
-import { useLocalization } from '../../hooks/useLocalization';
+import { useLocalization } from '../../hooks';
 import { EmptyContent } from '../EmptyContent';
 import { CartHeader } from './CartHeader';
 

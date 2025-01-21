@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
 
 export const BackToHomeButton = () => {
   const { t } = useLocalization()

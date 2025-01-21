@@ -7,7 +7,7 @@ import { Trash2, CirclePlus, CircleMinus } from 'lucide-react';
 import { DialogDelete } from '../DialogDelete';
 import { ShowToast } from '../ShowToast';
 import { AnimatedNumber } from '../AnimatedNumber';
-import { useLocalization } from '../../hooks/useLocalization'; 
+import { useLocalization } from '../../hooks';
 
 type CartItemProps = {
   id: string;

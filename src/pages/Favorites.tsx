@@ -8,7 +8,7 @@ import { selectFilter } from '../redux/filter/selectors'
 import { clearFavorites } from '../redux/favorites/slice'
 import { FavoritesEmpty, FavoritesItem } from '../components/Favorites'
 import { CartSummary, DialogDelete } from '../components'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
 
 export const Favorites = () => {
   const dispatch = useDispatch()

@@ -5,7 +5,8 @@ import {
   DialogTitle,
   Button
 } from '@mui/material'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
+
 
 type DialogDeleteProps = {
   open: boolean

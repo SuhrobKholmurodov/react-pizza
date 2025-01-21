@@ -16,7 +16,8 @@ import { addFavorite, removeFavorite } from '../redux/favorites/slice'
 import { PizzaDrawer } from './PizzaDrawer'
 import { ShowToast } from './ShowToast'
 import { AnimatedNumber } from './AnimatedNumber'
-import { useLocalization } from '../hooks/useLocalization'
+import { useLocalization } from '../hooks'
+
 
 type PizzaBlockProps = {
   id: string
