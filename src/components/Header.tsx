@@ -54,7 +54,7 @@ export const Header = () => {
             </Link>
             <SearchInput />
             <div className='flex dark:text-mainTextColor items-center gap-[20px]'>
-              <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[5px]'>
+              <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[10px]'>
                 <Switcher />
                 <SelectLang /> 
                 <Tooltip title={t("header.tooltipFav")} arrow>

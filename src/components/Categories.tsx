@@ -31,7 +31,7 @@ export const Categories = React.memo(
           spaceBetween={16}
           centeredSlides={false}
           modules={[Autoplay, Pagination, Navigation]}
-          className='w-full sm:pr-[3px] bg-transparent'
+          className='w-full bg-transparent'
         >
           {categoryKeys.map((categoryKey, i) => (
             <SwiperSlide key={i} className='!w-auto !bg-transparent'>

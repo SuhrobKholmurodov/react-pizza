@@ -38,7 +38,7 @@ export const SearchInput = () => {
         value={value}
         onChange={onChangeInput}
         placeholder={t('searchInput.pizzaSearch')} 
-        className='border dark:text-mainTextColor border-black/10 p-[11px] sm:p-[8.5px] sm:pl-[45px] pl-[42px] pr-[42px] dark:bg-[#161618] w-[400px] sm:w-[200px] rounded-lg text-[16px] focus:border-black/20'
+        className='border dark:text-mainTextColor border-black/10 p-[11px] sm:p-[8.5px] sm:pl-[45px] pl-[42px] pr-[42px] dark:bg-[#161618] w-[400px] sm:w-[190px] rounded-lg text-[16px] focus:border-black/20'
       />
       {value && (
         <Close

@@ -3,7 +3,6 @@ import { Sun, Moon } from 'lucide-react'
 import { Tooltip } from '@mui/material'
 import { useDarkSide, useLocalization } from '../hooks'
 
-
 export const Switcher = () => {
   const [colorTheme, setTheme] = useDarkSide()
   const [darkSide, setDarkSide] = useState<boolean>(
@@ -25,12 +24,11 @@ export const Switcher = () => {
         arrow
       >
         <div
-          className='relative hover:cursor-pointer flex items-center justify-center'
+          className='relative hover:cursor-pointer flex items-center justify-center border p-[5px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
           style={{
-            width: '45px',
-            height: '45px',
+            width: '46px',
+            height: '42px',
             position: 'relative',
-            borderRadius: '50%',
             backgroundColor: 'transparent'
           }}
           onClick={() => toggleDarkMode(!darkSide)}
