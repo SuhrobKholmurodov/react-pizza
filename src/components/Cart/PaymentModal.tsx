@@ -69,7 +69,23 @@ export const PaymentModal = ({
         />
         <br />
         <br />
-        <div className='flex justify-center mt-4'>
+        <div className='flex justify-center mt-4 gap-[10px]'>
+          <Button
+            variant='outlined'
+            fullWidth
+            sx={{
+              borderColor: 'white',
+              color: '#6B7280',
+              '&:hover': {
+                backgroundColor: '#F3F4F6',
+                borderColor: '#6B7280'
+              }
+            }}
+            onClick={onClose}
+            className='dark:border-gray-500 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:border-gray-500'
+          >
+            Отмена
+          </Button>
           <Button
             variant='contained'
             fullWidth
@@ -80,7 +96,7 @@ export const PaymentModal = ({
             }}
             className='dark:bg-[#FF6F00] dark:hover:bg-[#FF8F00] hover:bg-orange-600'
           >
-            Заказать доставку
+            Оформить
           </Button>
         </div>
       </Box>
