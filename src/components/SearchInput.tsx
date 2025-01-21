@@ -1,13 +1,15 @@
 import React, { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import debounce from 'lodash.debounce'
-import {Close, Search} from '@mui/icons-material'
+import { Close, Search } from '@mui/icons-material'
 import { setSearchValue } from '../redux/filter/slice'
+import { useLocalization } from '../hooks/useLocalization'
 
 export const SearchInput = () => {
   const dispatch = useDispatch()
   const [value, setValue] = React.useState<string>('')
   const inputRef = React.useRef<HTMLInputElement>(null)
+  const { t } = useLocalization() 
 
   const onClickClear = () => {
     dispatch(setSearchValue(''))
@@ -34,7 +36,7 @@ export const SearchInput = () => {
         ref={inputRef}
         value={value}
         onChange={onChangeInput}
-        placeholder='Поиск пиццы...'
+        placeholder={t('searchInput.pizzaSearch')} 
         className='border dark:text-mainTextColor border-black/10 p-[11px] sm:p-[8.5px] sm:pl-[45px] pl-[42px] pr-[42px] dark:bg-[#161618] w-[400px] sm:w-[260px] rounded-lg text-[16px] focus:border-black/20'
       />
       {value && (

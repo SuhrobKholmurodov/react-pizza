@@ -9,6 +9,7 @@ import MainLogo from '../assets/img/logo_main.png'
 import { Switcher } from './Switcher'
 import { SearchInput } from './SearchInput'
 import { AnimatedNumber } from './AnimatedNumber'
+import { useLocalization } from '../hooks/useLocalization'
 
 export const Header = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
@@ -29,6 +30,8 @@ export const Header = () => {
     isMounted.current = true
   }, [cartItems])
 
+  const { t, lng, changeLanguage } = useLocalization()
+
   return (
     <div>
       {location.pathname !== '/cart' && (
@@ -43,15 +46,23 @@ export const Header = () => {
                 />
                 <div className='sm:hidden dark:text-mainTextColor'>
                   <h1 className='text-[25px] font-[700]'>Pizza house</h1>
-                  <p className='text-[18px] font-[600]'>
-                    Пицца, которая покорит ваше сердце
-                  </p>
+                  <p className='text-[18px] font-[600]'>{t('header.title')}</p>
                 </div>
               </div>
             </Link>
             <SearchInput />
             <div className='flex dark:text-mainTextColor items-center gap-[20px]'>
               <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[5px]'>
+                <select
+                  value={lng}
+                  className='border sm:mt-[-40px] text-[black] rounded-[5px] w-[50px] h-[35px]'
+                  id=''
+                  onChange={e => changeLanguage(e.target.value)}
+                >
+                  <option value={'en'}>En</option>
+                  <option value={'ru'}>Ru</option>
+                  <option value={'tj'}>Tj</option>
+                </select>
                 <Switcher />
                 <Tooltip title='Favorites' arrow>
                   <Link to={'/favorites'}>

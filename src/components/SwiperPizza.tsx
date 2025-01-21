@@ -6,6 +6,7 @@ import '../index.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import { useLocalization } from '../hooks/useLocalization'
 const apiUrl = import.meta.env.VITE_API_URL
 
 interface Pizza {
@@ -28,6 +29,8 @@ const fetchAllPromotionalPizzas = async () => {
 
 export const SwiperPizza = () => {
   const [promotionalItems, setPromotionalItems] = useState<Pizza[]>([])
+
+  const { t } = useLocalization()
 
   useEffect(() => {
     const fetchPromotions = async () => {
@@ -60,7 +63,7 @@ export const SwiperPizza = () => {
             className='bg-yellow-50 dark:bg-neutral-900 px-[180px] py-10 shadow-md flex flex-col items-center justify-between gap-6 relative sm:px-[30px] sm:py-4 sm:gap-2'
           >
             <button className='absolute top-[45px] left-4 bg-orange-500 text-white pl-[45px] pr-[20px] py-2 rounded-full font-semibold hover:bg-orange-600 transition duration-300 transform rotate-90 sm:top-6 sm:pl-8 sm:left-[-20px] sm:pr-2 sm:py-[2px] sm:text-xs'>
-              On Promotion
+              {t('swiperPizza.onPromotion')}
             </button>
 
             <div className='flex gap-[220px] justify-between items-center sm:gap-[4px] sm:flex-col'>

@@ -1,9 +1,14 @@
-import { EmptyContent } from '../EmptyContent'
+import { EmptyContent } from '../EmptyContent';
+import { useLocalization } from '../../hooks/useLocalization';
 
-export const FavoritesEmpty = () => (
-  <EmptyContent
-    title='Упс, здесь пусто! 😔'
-    subtitle='Похоже, вы ещё ничего не добавили в избранное. Начните с главной страницы, чтобы найти что-то особенное!'
-    showButton={true}
-  />
-)
+export const FavoritesEmpty = () => {
+  const { t } = useLocalization();
+
+  return (
+    <EmptyContent
+      title={t('favoritesEmpty.emptyTitle')}
+      subtitle={t('favoritesEmpty.emptySubTitle')}
+      showButton={true}
+    />
+  );
+};

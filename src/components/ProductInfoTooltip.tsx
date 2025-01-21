@@ -1,14 +1,7 @@
 import React from 'react'
 import { Tooltip, ClickAwayListener, Grid } from '@mui/material'
 import { Info } from 'lucide-react'
-
-const spicyLevels = [
-  'Не остро',
-  'Слабо остро',
-  'Умеренно остро',
-  'Остро',
-  'Очень остро'
-]
+import { useLocalization } from '../hooks/useLocalization'
 
 type ProductInfoTooltipProps = {
   open: boolean
@@ -21,8 +14,19 @@ type ProductInfoTooltipProps = {
   }
 }
 
-export const ProductInfoTooltip = ({ onClose, pizza }: ProductInfoTooltipProps) => {
+export const ProductInfoTooltip = ({
+  onClose,
+  pizza
+}: ProductInfoTooltipProps) => {
   const [tooltipOpen, setTooltipOpen] = React.useState(false)
+  const { t } = useLocalization()
+  const spicyLevels = [
+    t('productInfoTooltip.notSpicy'),
+    t('productInfoTooltip.mildlySpicy'),
+    t('productInfoTooltip.moderatelySpicy'),
+    t('productInfoTooltip.spicy'),
+    t('productInfoTooltip.verySpicy')
+  ]
 
   const handleTooltipClose = () => {
     setTooltipOpen(false)
@@ -49,18 +53,20 @@ export const ProductInfoTooltip = ({ onClose, pizza }: ProductInfoTooltipProps) 
             title={
               <div className='space-y-3'>
                 <p>
-                  <strong>Спайс-уровень:</strong>{' '}
+                  <strong>{t('productInfoTooltip.spiceLevel')}:</strong>{' '}
                   {spicyLevels[pizza.spicyLevel - 1]}
                 </p>
                 <p>
-                  <strong>Время подготовки:</strong> {pizza.preparationTime}{' '}
-                  минут
+                  <strong>{t('productInfoTooltip.prepTime')}:</strong>{' '}
+                  {pizza.preparationTime} {t('productInfoTooltip.minutes')}
                 </p>
                 <p>
-                  <strong>Время доставки:</strong> {pizza.deliveryTime} минут
+                  <strong>{t('productInfoTooltip.deliveryTime')}:</strong>{' '}
+                  {pizza.deliveryTime} {t('productInfoTooltip.minutes')}
                 </p>
                 <p>
-                  <strong>Калории:</strong> {pizza.calories}
+                  <strong>{t('productInfoTooltip.calories')}:</strong>{' '}
+                  {pizza.calories}
                 </p>
               </div>
             }

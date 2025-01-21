@@ -1,37 +1,41 @@
-import { useState } from 'react'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import DeleteIcon from '@mui/icons-material/Delete'
-import { useDispatch, useSelector } from 'react-redux'
-import { clearItems } from '../../redux/cart/slice'
-import { DialogDelete } from '../DialogDelete'
-import { selectCart } from '../../redux/cart/selectors'
+import { useState } from 'react';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearItems } from '../../redux/cart/slice';
+import { DialogDelete } from '../DialogDelete';
+import { selectCart } from '../../redux/cart/selectors';
+import { useLocalization } from '../../hooks/useLocalization'; 
 
 export const CartHeader = () => {
-  const dispatch = useDispatch()
-  const { items } = useSelector(selectCart)
-  const [openDialog, setOpenDialog] = useState(false)
+  const dispatch = useDispatch();
+  const { items } = useSelector(selectCart);
+  const [openDialog, setOpenDialog] = useState(false);
+  const { t } = useLocalization(); 
 
   const handleOpenDialog = () => {
     if (items.length > 0) {
-      setOpenDialog(true)
+      setOpenDialog(true);
     }
-  }
+  };
 
   const handleCloseDialog = () => {
-    setOpenDialog(false)
-  }
+    setOpenDialog(false);
+  };
 
   const handleConfirmDelete = () => {
-    dispatch(clearItems())
-    setOpenDialog(false)
-  }
+    dispatch(clearItems());
+    setOpenDialog(false);
+  };
 
   return (
     <div>
       <div className='py-[20px] dark:bg-mainBgColor flex items-center justify-between fixed top-0 left-0 pl-[5%] pr-[5%] right-0 shadow-md bg-white z-50'>
         <div className='flex items-center dark:text-mainTextColor'>
           <ShoppingCartIcon sx={{ fontSize: '30px' }} />
-          <p className='text-[30px] sm:text-[18px] font-[600]'>Корзина</p>
+          <p className='text-[30px] sm:text-[18px] font-[600]'>
+            {t('cartHeader.cart')} 
+          </p>
         </div>
         <div
           className={`flex items-center dark:text-mainTextColor ${
@@ -43,7 +47,7 @@ export const CartHeader = () => {
         >
           <DeleteIcon sx={{ fontSize: '24px' }} />
           <span className='text-[20px] font-[600] sm:text-[18px]'>
-            Очистить корзину
+            {t('cartHeader.clearCart')} 
           </span>
         </div>
       </div>
@@ -51,9 +55,9 @@ export const CartHeader = () => {
         open={openDialog}
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
-        title='Удалить всю корзину?'
-        message='Вы уверены, что хотите удалить все товары из корзины? Это действие невозможно отменить'
+        title={t('cartHeader.dialogTitle')} 
+        message={t('cartHeader.dialogMsg')} 
       />
     </div>
-  )
-}
+  );
+};

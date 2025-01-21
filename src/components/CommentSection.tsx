@@ -1,6 +1,7 @@
 import { MessageCircle } from 'lucide-react'
 import { ReviewFilterControls } from './ReviewFilterControls'
 import { Rating } from '@mui/material'
+import { useLocalization } from '../hooks/useLocalization'
 
 export type Review = {
   profilePhoto: string
@@ -20,6 +21,8 @@ export const CommentSection = ({
   reviews,
   filteredReviews
 }: CommentSectionProps) => {
+  const { t } = useLocalization()
+
   return (
     <div
       id='reviews'
@@ -27,7 +30,7 @@ export const CommentSection = ({
     >
       <div className='font-[700] sm:dark:mt-[-10px] sm:flex-col flex sm:items-start items-center dark:bg-mainBgColor justify-between bg-white rounded-[12px] gap-[5px] mt-[15px] p-[10px]'>
         <div className='flex items-center dark:text-mainTextColor gap-[3px] text-[20px]'>
-          <p className='hidden sm:flex'>Отзывы</p>{' '}
+          <p className='hidden sm:flex'>{t('commentSection.reviews')}</p>{' '}
           <MessageCircle className='sm:hidden' />
           <p className='font-[550]'>({reviews.length})</p>
         </div>
@@ -77,7 +80,7 @@ export const CommentSection = ({
         ) : (
           <div className='flex justify-center items-center h-[100px]'>
             <p className='text-[16px] sm:text-[15px] text-gray-600 text-center'>
-              Нет отзывов для выбранного фильтра.
+              {t('commentSection.noReviews')}
             </p>
           </div>
         )}

@@ -9,17 +9,19 @@ import {
   CartFooter
 } from '../components/Cart'
 import { ShowToast } from '../components/ShowToast'
+import { useLocalization } from '../hooks/useLocalization'
 
 export const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)
   const totalCount = items.reduce((sum: number, item) => sum + item.count, 0)
   const [openModal, setOpenModal] = useState(false)
+  const { t } = useLocalization()
 
   const handleOpenModal = () => setOpenModal(true)
   const handleCloseModal = () => setOpenModal(false)
 
   const handleToast = () => {
-    ShowToast({ message: 'Ваш заказ принят в обработку!' })
+    ShowToast({ message: t('cart.toastMsg') })
   }
 
   useEffect(() => {

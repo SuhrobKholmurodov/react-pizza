@@ -1,14 +1,16 @@
+import { useLocalization } from '../hooks/useLocalization'
+
 export const NotFound = () => {
+  const { t } = useLocalization()
+
   return (
     <div className='p-[100px] max-w-[750px] mx-auto text-center'>
       <h1>
         <span className='text-[64px] '>😕</span>
         <br />
-        Ничего не найдено
+        {t('notFound.firstMsg')}
       </h1>
-      <p className='text-[22px]'>
-        К сожалени данная страница отсутствует в нашем интернет-магазине
-      </p>
+      <p className='text-[22px]'>{t('notFound.secMsg')}</p>
     </div>
   )
 }

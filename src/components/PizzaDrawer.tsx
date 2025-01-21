@@ -8,6 +8,7 @@ import { selectCommentFilter } from '../redux/commentFilter/selectors'
 import { CommentSkeleteon } from './CommentSkeleteon'
 import { ProductInfoTooltip } from './ProductInfoTooltip'
 import { CommentSection, Review } from './CommentSection'
+import { useLocalization } from '../hooks/useLocalization'
 
 type PizzaType = {
   id: string
@@ -44,6 +45,7 @@ export const PizzaDrawer = ({
   onAddToCart
 }: PizzaDrawerProps) => {
   const [tooltipOpen, setTooltipOpen] = useState(false)
+  const { t } = useLocalization() 
 
   const handleTooltipClose = () => {
     setTooltipOpen(false)
@@ -70,7 +72,7 @@ export const PizzaDrawer = ({
   return (
     <Drawer anchor='right' open={open} onClose={onClose}>
       <Box className='w-[600px] sm:w-[100%] dark:bg-[#2a2c35] bg-[#f6f6f9] h-[100vh] sm:h-auto'>
-        <div className='pl-[10px] pr-[10px] flex  flex-col'>
+        <div className='pl-[10px] pr-[10px] flex flex-col'>
           <div className='flex sm:fixed sm:top-0 dark:bg-mainBgColor dark:text-mainTextColor sm:left-[10px] sm:right-[10px] sm:z-10 bg-white p-[16px] border-t-0 rounded-b-[12px] justify-between items-center'>
             <p className='font-[700] text-[26px] sm:text-[20px]'>
               {pizza.title}
@@ -95,10 +97,13 @@ export const PizzaDrawer = ({
                     {pizza.discountPrices &&
                     pizza.discountPrices.some(price => price !== null) ? (
                       <>
-                        <span>Цены без скидки: {pizza.prices.join(', ')}$</span>
+                        <span>
+                          {t('pizzaDrawer.regPrice')}: {pizza.prices.join(', ')}
+                          $
+                        </span>
                         <br />
                         <span>
-                          Цены со скидкой:{' '}
+                          {t('pizzaDrawer.salePrice')}:{' '}
                           {pizza.discountPrices
                             .filter(price => price !== null)
                             .join(', ')}
@@ -106,7 +111,9 @@ export const PizzaDrawer = ({
                         </span>
                       </>
                     ) : (
-                      <>Цены: {pizza.prices.join(', ')}$</>
+                      <>
+                        {t('pizzaDrawer.prices')}: {pizza.prices.join(', ')}$
+                      </>
                     )}
                   </p>
                 </div>
@@ -118,11 +125,15 @@ export const PizzaDrawer = ({
               </div>
 
               <div className='flex flex-wrap'>
-                <p className='text-[15px] font-[700]'>Ингредиенты:</p>
+                <p className='text-[15px] font-[700]'>
+                  {t('pizzaDrawer.ingredients')}:
+                </p>
                 <p className='text-[14px]'>{pizza?.ingredients?.join(', ')}</p>
               </div>
               <div className='flex flex-col mt-[-15px]'>
-                <p className='text-[15px] font-[700]'>Описание:</p>
+                <p className='text-[15px] font-[700]'>
+                  {t('pizzaDrawer.description')}:
+                </p>
                 <p className='text-[14px]'>{pizza.moreDetails}</p>
               </div>
             </div>
@@ -142,7 +153,7 @@ export const PizzaDrawer = ({
               onClick={onAddToCart}
               className='bg-orange-500 w-[550px] sm:w-[95%] text-white py-[10px] rounded-[8px] hover:bg-orange-400 transition duration-300'
             >
-              <span>Добавить в корзину</span>
+              <span>{t('pizzaDrawer.addToCart')}</span>
             </button>
           </div>
         </div>

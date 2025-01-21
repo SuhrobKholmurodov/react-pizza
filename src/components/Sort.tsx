@@ -14,10 +14,11 @@ import {
   OptionOwnerState
 } from '@mui/base/Option'
 import { useTheme } from '@mui/system'
-import SortIcon from '@mui/icons-material/Sort';
+import SortIcon from '@mui/icons-material/Sort'
 import clsx from 'clsx'
 import { PopupContext } from '@mui/base/Unstable_Popup'
 import { CssTransition } from '@mui/base/Transitions'
+import { useLocalization } from '../hooks/useLocalization'
 
 function useIsDarkMode () {
   const theme = useTheme()
@@ -187,44 +188,47 @@ export const Sort = React.memo(({ value }: SortPopupProps) => {
   const isDarkMode = useIsDarkMode()
   const [selectedSort, setSelectedSort] = React.useState(value.sortProperty)
 
+  const { t } = useLocalization()
+
   const sortList = [
     {
-      name: 'Популярные',
+      name: t('sort.popular'),
       sortProperty: SortPropertyEnum.RATING_DESC
     },
     {
-      name: 'Не популярные',
+      name: t('sort.unPopular'),
       sortProperty: SortPropertyEnum.RATING_ASC
     },
     {
-      name: 'Сначала дешевые',
+      name: t('sort.cheapestFirst'),
       sortProperty: SortPropertyEnum.PRICE_DESC
     },
     {
-      name: 'Сначала дорогие',
+      name: t('sort.expensiveFirst'),
       sortProperty: SortPropertyEnum.PRICE_ASC
     },
     {
-      name: 'По количеству отзывов (от большего)',
+      name: t('sort.byNumRevDesc'),
       sortProperty: SortPropertyEnum.REVIEWS_CNT_DESC
     },
     {
-      name: 'По количеству отзывов (от меньшего)',
+      name: t('sort.byNumRevAsc'),
       sortProperty: SortPropertyEnum.REVIEWS_CNT_ASC
     },
     {
-      name: 'Новинки',
-      sortProperty: SortPropertyEnum.IS_NEW,
+      name: t('sort.newArrivals'),
+      sortProperty: SortPropertyEnum.IS_NEW
     },
     {
-      name: 'Я-А',
+      name: t('sort.za'),
       sortProperty: SortPropertyEnum.TITLE_DESC
     },
     {
-      name: 'А-Я',
+      name: t('sort.az'),
       sortProperty: SortPropertyEnum.TITLE_ASC
     }
   ]
+
   const handleChange = (newValue: SortPropertyEnum) => {
     if (newValue) {
       setSelectedSort(newValue)

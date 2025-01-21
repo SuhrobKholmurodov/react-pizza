@@ -1,0 +1,146 @@
+{
+    "header": {
+        "title": "Pizza that will win your heart"
+    },
+    "cartEmpty": {
+        "emptyTitle": "Cart is empty 😕",
+        "emptySubTitle": "Most likely, you haven't ordered pizza yet. To order pizza, go to the homepage."
+    },
+    "cartFooter": {
+        "totalPizzas": "Total pizzas",
+        "count": "count",
+        "orderTotal": "Order total:",
+        "orderDelivery": "Order delivery"
+    },
+    "cartHeader": {
+        "cart": "Cart",
+        "clearCart": "Clear cart",
+        "dialogTitle": "Delete the entire cart?",
+        "dialogMsg": "Are you sure you want to remove all items from the cart? This action cannot be undone."
+    },
+    "cartItem": {
+        "wasRemoved": "was removed",
+        "helmetMsg": "Cart",
+        "cm": "cm",
+        "pricePerPiece": "Price per piece:",
+        "dialogTitle": "Delete item?",
+        "dialogMsg": "Are you sure you want to delete"
+    },
+    "paymentModal": {
+        "writeTheData": "Enter payment details",
+        "cardholder": "Cardholder",
+        "cancel": "Cancel",
+        "checkout": "Checkout"
+    },
+    "favoritesEmpty": {
+        "emptyTitle": "Oops, it's empty here! 😔",
+        "emptySubTitle": "It looks like you haven't added anything to favorites yet. Start from the homepage to find something special!"
+    },
+    "favoriteItem": {
+        "wasDeleted": "was deleted",
+        "toastMsg": "added to the cart",
+        "view": "View",
+        "dialogTitle": "Delete item?",
+        "dialogMsg1": "Are you sure you want to remove",
+        "dialogMsg2": "from favorites"
+    },
+    "buttons": {
+        "backToHome": "Go back",
+        "back": "Back"
+    },
+    "categories": {
+        "all": "All",
+        "forKids": "For Kids",
+        "chicken": "Chicken",
+        "vegetarian": "Vegetarian",
+        "spicy": "Spicy",
+        "cheesy": "Cheesy"
+    },
+    "commentSection": {
+        "reviews": "Reviews",
+        "noReviews": "No reviews for the selected filter"
+    },
+    "dialogDelete": {
+        "cancel": "Cancel",
+        "Confirm": "Confirm"
+    },
+    "pizzaBlock": {
+        "thin": "thin",
+        "traditional": "traditional",
+        "new": "New",
+        "youSave": "You save",
+        "minutes": "minutes",
+        "addedToCart": "added to the cart",
+        "removedFromCart": "removed from the cart",
+        "reviewSingular": "review",
+        "reviewPlural": "reviews",
+        "reviewPluralGenitive": "reviews",
+        "cm": "cm"
+    },
+    "pizzaDrawer": {
+        "regPrice": "Regular price",
+        "salePrice": "Sale price",
+        "prices": "Prices",
+        "ingredients": "Ingredients",
+        "description": "Description",
+        "addToCart": " Add to cart"
+    },
+    "productInfoTooltip": {
+        "spiceLevel": "Spice level",
+        "prepTime": "Preparation time",
+        "minutes": "Minutes",
+        "deliveryTime": "Delivery time",
+        "calories": "Calories",
+        "notSpicy": "Not spicy",
+        "mildlySpicy": "Mildly spicy",
+        "moderatelySpicy": "Moderately spicy",
+        "spicy": "Spicy",
+        "verySpicy": "Very spicy"
+    },
+    "reviewFilterCont": {
+        "all": "All",
+        "recommend": "Recommend",
+        "notRecommend": "Not Recommend"
+    },
+    "searchInput": {
+        "pizzaSearch": "Pizza search"
+    },
+    "sort": {
+        "popular": "Popular",
+        "unPopular": "Unpopular",
+        "cheapestFirst": "Cheapest first",
+        "expensiveFirst": "Expensive first",
+        "byNumRevDesc": "By number of reviews (descending)",
+        "byNumRevAsc": "By number of reviews (ascending)",
+        "newArrivals": "New arrivals",
+        "za": "Z-A",
+        "az": "A-Z"
+    },
+    "swiperPizza": {
+        "onPromotion": "On Promotion"
+    },
+    "switcher": {
+        "switchToLight": "Switch to light",
+        "switchToDark": "Switch to dark"
+    },
+    "cart": {
+        "toastMsg": "Your order is being processed!"
+    },
+    "myFavorites": {
+        "myFavorites": "My Favorites",
+        "deleteAll": "Delete All",
+        "home": "Home",
+        "dialogTitle": "Delete all favorites?",
+        "dialogMsg": "Are you sure you want to remove all items from favorites? This action cannot be undone."
+    },
+    "home": {
+        "helmetMsg": "Home",
+        "allPizza": "All pizzas",
+        "emptyTitle": "Error occurred 😕",
+        "emptySubTitle": "Unfortunately, we couldn't get the pizzas. Please try again later."
+    },
+    "notFound": {
+        "firstMsg": "Nothing found",
+        "secMsg": "Unfortunately, this page is not available in our online store."
+    }
+}

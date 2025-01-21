@@ -2,12 +2,14 @@ import { useState } from 'react'
 import { Sun, Moon } from 'lucide-react'
 import useDarkSide from '../hooks/useDarkSide'
 import { Tooltip } from '@mui/material'
+import { useLocalization } from '../hooks/useLocalization'
 
 export const Switcher = () => {
   const [colorTheme, setTheme] = useDarkSide()
   const [darkSide, setDarkSide] = useState<boolean>(
     colorTheme === 'light' ? true : false
   )
+  const { t } = useLocalization()
 
   const toggleDarkMode = (checked: boolean) => {
     setTheme(checked ? 'dark' : 'light')
@@ -16,7 +18,12 @@ export const Switcher = () => {
 
   return (
     <div className='relative'>
-      <Tooltip title={darkSide ? 'Switch to light' : 'Switch to dark'} arrow>
+      <Tooltip
+        title={
+          darkSide ? t('switcher.switchToLight') : t('switcher.switchToDark')
+        }
+        arrow
+      >
         <div
           className='relative hover:cursor-pointer flex items-center justify-center'
           style={{

@@ -16,8 +16,7 @@ import { addFavorite, removeFavorite } from '../redux/favorites/slice'
 import { PizzaDrawer } from './PizzaDrawer'
 import { ShowToast } from './ShowToast'
 import { AnimatedNumber } from './AnimatedNumber'
-
-const typeNames = ['тонкое', 'традиционное']
+import { useLocalization } from '../hooks/useLocalization'
 
 type PizzaBlockProps = {
   id: string
@@ -61,11 +60,14 @@ export const PizzaBlock = ({
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const { t } = useLocalization()
+
+  const typeNames = [t('pizzaBlock.thin'), t('pizzaBlock.traditional')]
 
   const onClickFavorite = () => {
     if (favoriteItem) {
       dispatch(removeFavorite(id))
-      ShowToast({ message: `${title} удалена из избранного!` })
+      ShowToast({ message: `${title} ${t('favoriteItem.wasDeleted')}` })
     } else {
       const favoriteItem: Pizza = {
         id,
@@ -87,7 +89,7 @@ export const PizzaBlock = ({
         calories
       }
       dispatch(addFavorite(favoriteItem))
-      ShowToast({ message: `${title} добавлена в избранное!` })
+      ShowToast({ message: `${title} ${t('favoriteItem.toastMsg')}` })
     }
   }
 
@@ -104,13 +106,13 @@ export const PizzaBlock = ({
       sizes
     }
     dispatch(addItem(item))
-    ShowToast({ message: `${title} добавлена в корзину!` })
+    ShowToast({ message: `${title} ${t('pizzaBlock.addedToCart')}` })
   }
 
   const onClickMinus = () => {
     dispatch(minusItem(id))
     if (addedCount === 1) {
-      ShowToast({ message: `${title} удалена из корзины!` })
+      ShowToast({ message: `${title} ${t('pizzaBlock.removedFromCart')}` })
     }
   }
 
@@ -125,6 +127,7 @@ export const PizzaBlock = ({
           .toFixed(1)
           .replace(/\.0$/, '')
       : 0
+
   return (
     <div className='p-4 group hover:shadow-xl transition-shadow group rounded-lg dark:hover:shadow-black hover:shadow-[#e4e3e3] duration-300 ease-in-out relative'>
       <div>
@@ -137,7 +140,7 @@ export const PizzaBlock = ({
           />
           {isNew && (
             <div className='absolute top-0 left-0 bg-orange-500 text-white text-xs font-bold py-1 px-2 rounded-tl-lg rounded-br-lg'>
-              Новинка
+              {t('pizzaBlock.new')}
             </div>
           )}
           <div className='absolute top-0 right-[0px] flex flex-col-reverse items-center gap-[5px]'>
@@ -208,7 +211,7 @@ export const PizzaBlock = ({
                   {activeSize === i && (
                     <Check className='w-[20px] mt-[5px] h-[20px] text-green-500' />
                   )}
-                  <span>{size} см.</span>
+                  <span>{size} {t('pizzaBlock.cm')}</span>
                 </div>
               </li>
             ))}
@@ -238,7 +241,7 @@ export const PizzaBlock = ({
           {discountPrices && discountPrices[activeSize] !== null ? (
             <div className='flex justify-between items-center w-full'>
               <div className='text-sm text-green-500 font-[500]'>
-                вы сэкономите:{' '}
+                {t('pizzaBlock.youSave')}:{' '}
                 {Math.round(
                   ((prices[activeSize] - discountPrices[activeSize]) /
                     prices[activeSize]) *
@@ -263,12 +266,12 @@ export const PizzaBlock = ({
                 <p>{reviews.length}</p>
                 <p>
                   {reviews.length % 10 === 1 && reviews.length % 100 !== 11
-                    ? 'отзыв'
+                    ? t('pizzaBlock.reviewSingular')
                     : reviews.length % 10 >= 2 &&
                       reviews.length % 10 <= 4 &&
                       (reviews.length % 100 < 10 || reviews.length % 100 >= 20)
-                    ? 'отзыва'
-                    : 'отзывов'}
+                    ? t('pizzaBlock.reviewPlural')
+                    : t('pizzaBlock.reviewPluralGenitive')}
                 </p>
               </>
             )}
@@ -296,7 +299,9 @@ export const PizzaBlock = ({
           className='flex items-center justify-center w-full px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
         >
           <ShoppingBasket className='h-5 group-hover:animate-pulse w-5' />
-          <span className='ml-2'>{deliveryTime} минут</span>
+          <span className='ml-2'>
+            {deliveryTime} {t('pizzaBlock.minutes')}
+          </span>
         </button>
         {addedCount > 0 && (
           <button className='flex items-center justify-center px-[16px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'>

@@ -5,6 +5,7 @@ import {
   DialogTitle,
   Button
 } from '@mui/material'
+import { useLocalization } from '../hooks/useLocalization'
 
 type DialogDeleteProps = {
   open: boolean
@@ -21,6 +22,8 @@ export const DialogDelete = ({
   title,
   message
 }: DialogDeleteProps) => {
+  const { t } = useLocalization()
+
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle className='dark:bg-dialogBgColor dark:text-white'>
@@ -35,7 +38,7 @@ export const DialogDelete = ({
           sx={{ color: '#FF5722' }}
           className='dark:hover:bg-gray-700 dark:text-white'
         >
-          Отменить
+          {t('dialogDelete.cancel')}
         </Button>
         <Button
           onClick={onConfirm}
@@ -44,7 +47,7 @@ export const DialogDelete = ({
           autoFocus
           className='dark:bg-gray-800 dark:hover:bg-gray-700'
         >
-          Подтвердить
+          {t('dialogDelete.Confirm')}
         </Button>
       </DialogActions>
     </Dialog>

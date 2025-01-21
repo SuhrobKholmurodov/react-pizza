@@ -8,6 +8,7 @@ import { selectFilter } from '../redux/filter/selectors'
 import { clearFavorites } from '../redux/favorites/slice'
 import { FavoritesEmpty, FavoritesItem } from '../components/Favorites'
 import { CartSummary, DialogDelete } from '../components'
+import { useLocalization } from '../hooks/useLocalization'
 
 export const Favorites = () => {
   const dispatch = useDispatch()
@@ -15,6 +16,7 @@ export const Favorites = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
   const { searchValue } = useSelector(selectFilter)
   const [openDialog, setOpenDialog] = useState(false)
+  const { t } = useLocalization()
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -48,7 +50,7 @@ export const Favorites = () => {
           </Link>
           <div className='flex mb-2 sm:mb-0 justify-between w-full items-center'>
             <h1 className='text-3xl sm:text-[20px] font-bold text-start'>
-              My Favorites
+              {t('myFavorites.myFavorites')}
             </h1>
             <button
               onClick={handleOpenDialog}
@@ -56,7 +58,7 @@ export const Favorites = () => {
               aria-label='Delete all favorites'
             >
               <Trash2 size={24} />
-              <span className='text-[18px]'>Delete All</span>
+              <span className='text-[18px]'>{t('myFavorites.deleteAll')}</span>
             </button>
           </div>
         </div>
@@ -78,7 +80,7 @@ export const Favorites = () => {
           className='items-center flex gap-2 text-black dark:text-mainTextColor hover:text-gray-600 dark:hover:text-gray-300 transition duration-300'
         >
           <Home size={20} />
-          <span className='font-[500]'>Home</span>
+          <span className='font-[500]'>{t('myFavorites.home')}</span>
         </Link>
         <CartSummary totalPrice={totalPrice} totalCount={totalCount} />
       </div>
@@ -87,8 +89,8 @@ export const Favorites = () => {
         open={openDialog}
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
-        title='Удалить все избранное?'
-        message='Вы уверены, что хотите удалить все товары из избранного? Это действие невозможно отменить'
+        title={t('myFavorites.dialogTitle')}
+        message={t('myFavorites.dialogMsg')}
       />
     </div>
   )

@@ -1,15 +1,19 @@
-import { EmptyContent } from '../EmptyContent'
-import { CartHeader } from './CartHeader'
+import { useLocalization } from '../../hooks/useLocalization';
+import { EmptyContent } from '../EmptyContent';
+import { CartHeader } from './CartHeader';
 
-export const CartEmpty = () => (
-  <div>
-    <CartHeader />
-    <div className='h-[100vh]'>
-      <EmptyContent
-        title='Корзина пустая 😕'
-        subtitle='Вероятней всего, вы не заказывали ещё пиццу. Для того, чтобы заказать пиццу, перейдите на главную страницу.'
-        showButton={true}
-      />
+export const CartEmpty = () => {
+  const { t } = useLocalization();
+  return (
+    <div>
+      <CartHeader />
+      <div className='h-[100vh]'>
+        <EmptyContent
+          title={t('cartEmpty.emptyTitle')}
+          subtitle={t('cartEmpty.emptySubTitle')}
+          showButton={true}
+        />
+      </div>
     </div>
-  </div>
-)
+  );
+};

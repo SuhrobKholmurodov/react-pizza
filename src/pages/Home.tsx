@@ -17,6 +17,7 @@ import { selectPizzaData } from '../redux/pizza/selectors'
 import { selectCart } from '../redux/cart/selectors'
 import { setCategoryId, setCurrentPage } from '../redux/filter/slice'
 import { fetchPizzas } from '../redux/pizza/asyncActions'
+import { useLocalization } from '../hooks/useLocalization'
 
 export const Home = () => {
   const dispatch = useAppDispatch()
@@ -24,6 +25,7 @@ export const Home = () => {
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter)
   const { items: cartItems, totalPrice } = useSelector(selectCart)
+  const { t } = useLocalization()
 
   const totalCount = cartItems.reduce(
     (sum: number, item) => sum + item.count,
@@ -83,16 +85,16 @@ export const Home = () => {
         <Sort value={sort} />
       </div>
       <Helmet>
-        <title>Pizza house | Главная</title>
+        <title>Pizza house | {t('home.helmetMsg')}</title>
       </Helmet>
       <h2 className='text-[24px] pl-[7px] dark:text-mainTextColor mt-[20px] font-[600] mb-[20px]'>
-        Все пиццы
+        {t('home.allPizza')}
       </h2>
       {status === 'error' ? (
         <div className='mt-[-50px]'>
           <EmptyContent
-            title='Произошла ошибка 😕'
-            subtitle='К сожалению, не удалось получить пиццы. Попробуйте повторить попытку позже.'
+            title={t('home.emptyTitle')}
+            subtitle={t('home.emptySubTitle')}
             showButton={false}
           />
         </div>

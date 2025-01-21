@@ -1,56 +1,58 @@
-import { useDispatch } from 'react-redux'
-import { Trash } from 'lucide-react'
-import { useState } from 'react'
-import { removeFavorite } from '../../redux/favorites/slice'
-import { DialogDelete } from '../DialogDelete'
-import { ShowToast } from '../ShowToast'
-import { PizzaDrawer } from '../PizzaDrawer'
-import { addItem } from '../../redux/cart/slice'
-import { CartItem } from '../../redux/cart/types'
+import { useDispatch } from 'react-redux';
+import { Trash } from 'lucide-react';
+import { useState } from 'react';
+import { removeFavorite } from '../../redux/favorites/slice';
+import { DialogDelete } from '../DialogDelete';
+import { ShowToast } from '../ShowToast';
+import { PizzaDrawer } from '../PizzaDrawer';
+import { addItem } from '../../redux/cart/slice';
+import { CartItem } from '../../redux/cart/types';
+import { useLocalization } from '../../hooks/useLocalization';
 
 interface FavoritesItemProps {
   item: {
-    id: string
-    imageUrl: string
-    title: string
-    prices: number[]
-    discountPrices?: number[]
-    typeNames?: string[]
-    sizes?: number[]
-    moreDetails?: string
-    ingredients?: string[]
+    id: string;
+    imageUrl: string;
+    title: string;
+    prices: number[];
+    discountPrices?: number[];
+    typeNames?: string[];
+    sizes?: number[];
+    moreDetails?: string;
+    ingredients?: string[];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    reviews?: any[]
-    spicyLevel?: number
-    deliveryTime?: number
-    preparationTime?: number
-    calories?: number
-  }
+    reviews?: any[];
+    spicyLevel?: number;
+    deliveryTime?: number;
+    preparationTime?: number;
+    calories?: number;
+  };
 }
 
 export const FavoritesItem = ({ item }: FavoritesItemProps) => {
-  const dispatch = useDispatch()
-  const [openDialog, setOpenDialog] = useState(false)
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const dispatch = useDispatch();
+  const [openDialog, setOpenDialog] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { t } = useLocalization();
 
-  const handleDrawerOpen = () => setDrawerOpen(true)
-  const handleDrawerClose = () => setDrawerOpen(false)
+  const handleDrawerOpen = () => setDrawerOpen(true);
+  const handleDrawerClose = () => setDrawerOpen(false);
 
-  const handleOpenDialog = () => setOpenDialog(true)
-  const handleCloseDialog = () => setOpenDialog(false)
+  const handleOpenDialog = () => setOpenDialog(true);
+  const handleCloseDialog = () => setOpenDialog(false);
 
   const handleConfirmDelete = () => {
-    dispatch(removeFavorite(item.id))
-    setOpenDialog(false)
-    ShowToast({ message: `${item.title} был удален` })
-  }
+    dispatch(removeFavorite(item.id));
+    setOpenDialog(false);
+    ShowToast({ message: `${item.title} ${t('favoriteItem.wasDeleted')}` });
+  };
 
   const onClickAdd = () => {
-    const defaultTypeNames = ['тонкое']
-    const defaultSizes = [25, 30, 35]
-    const defaultPrices = [0]
+    const defaultTypeNames = ['тонкое'];
+    const defaultSizes = [25, 30, 35];
+    const defaultPrices = [0];
     const prices =
-      item.prices && item.prices.length > 0 ? item.prices : defaultPrices
+      item.prices && item.prices.length > 0 ? item.prices : defaultPrices;
 
     const cartItem: CartItem = {
       id: item.id,
@@ -64,12 +66,12 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
       size:
         item.sizes && item.sizes.length > 0 ? item.sizes[0] : defaultSizes[0],
       sizes: item.sizes || defaultSizes,
-      count: 0
-    }
+      count: 0,
+    };
 
-    dispatch(addItem(cartItem))
-    ShowToast({ message: `${item.title} добавлена в корзину!` })
-  }
+    dispatch(addItem(cartItem));
+    ShowToast({ message: `${item.title} ${t('favoriteItem.toastMsg')}` });
+  };
 
   return (
     <div className='bg-white dark:bg-mainBgColor hover:shadow-lg dark:hover:shadow-black rounded-lg transition-shadow duration-300 ease-in-out'>
@@ -114,7 +116,7 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
           onClick={handleDrawerOpen}
           className='bg-orange-500 w-full text-white py-[10px] rounded-[8px] hover:bg-orange-400 transition duration-300'
         >
-          Просмотр
+          {t('favoriteItem.view')}
         </button>
       </div>
       <PizzaDrawer
@@ -132,7 +134,7 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
           spicyLevel: item.spicyLevel || 0,
           deliveryTime: item.deliveryTime || 0,
           preparationTime: item.preparationTime || 0,
-          calories: item.calories || 0
+          calories: item.calories || 0,
         }}
         status='loaded'
         onAddToCart={onClickAdd}
@@ -142,9 +144,9 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
         open={openDialog}
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
-        title='Удалить товар?'
-        message={`Вы уверены, что хотите удалить ${item.title} из избранное?`}
+        title={t('favoriteItem.dialogTitle')}
+        message={`${t('favoriteItem.dialogMsg1')} ${item.title} ${t('favoriteItem.dialogMsg2')}`}
       />
     </div>
-  )
-}
+  );
+};
