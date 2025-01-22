@@ -65,7 +65,22 @@ export const CartItem = ({
   const handleConfirmDelete = () => {
     dispatch(removeItem(id))
     setOpenDialog(false)
-    ShowToast({ message: `${title[lng]} ${t('cartItem.wasRemoved')}` })
+      ShowToast({
+        message: (
+          <span>
+            <span
+              style={{
+                color: document.documentElement.classList.contains('dark')
+                  ? '#ff0000'
+                  : '#0000ff'
+              }}
+            >
+              {title[lng]}
+            </span>{' '}
+            {t('cartItem.wasRemoved')}
+          </span>
+        )
+      })
   }
 
   const price = prices[size]
@@ -138,9 +153,9 @@ export const CartItem = ({
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
         title={t('cartItem.dialogTitle')}
-        message={`${t('cartItem.dialogMsg1')} ${title[lng]}${lng === 'tj' ? '-po' : ''} ${t(
-          'cartItem.dialogMsg2'
-        )}`}
+        message={`${t('cartItem.dialogMsg1')} ${title[lng]}${
+          lng === 'tj' ? '-po' : ''
+        } ${t('cartItem.dialogMsg2')}`}
       />
     </div>
   )

@@ -44,7 +44,22 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
   const handleConfirmDelete = () => {
     dispatch(removeFavorite(item.id))
     setOpenDialog(false)
-    ShowToast({ message: `${item.title[lng]} ${t('favoriteItem.wasDeleted')}` })
+    ShowToast({
+      message: (
+        <span>
+          <span
+            style={{
+              color: document.documentElement.classList.contains('dark')
+                ? '#ff0000'
+                : '#0000ff'
+            }}
+          >
+            {item.title[lng]}
+          </span>{' '}
+          {t('favoriteItem.wasDeleted')}
+        </span>
+      )
+    })
   }
 
   const onClickAdd = () => {
@@ -145,9 +160,9 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
         title={t('favoriteItem.dialogTitle')}
-        message={`${t('favoriteItem.dialogMsg1')} ${item.title[lng]}${lng === 'tj' ? '-po' : ''} ${t(
-          'favoriteItem.dialogMsg2'
-        )}?`}
+        message={`${t('favoriteItem.dialogMsg1')} ${item.title[lng]}${
+          lng === 'tj' ? '-po' : ''
+        } ${t('favoriteItem.dialogMsg2')}?`}
       />
     </div>
   )

@@ -1,6 +1,7 @@
 import toast from 'react-hot-toast'
 interface ShowToastProps {
-  message: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  message: any
 }
 export const ShowToast = ({ message }: ShowToastProps) => {
   toast.success(
