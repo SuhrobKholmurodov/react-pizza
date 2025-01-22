@@ -67,12 +67,6 @@ export const CartItem = ({
     setOpenDialog(false)
     ShowToast({ message: `${title[lng]} ${t('cartItem.wasRemoved')}` })
   }
-  const localizedTitle =
-    title && title[lng] ? title[lng] : 'Нет доступного заголовка'
-
-  console.log('Структура заголовка:', title)
-  console.log('Текущий язык:', lng)
-  console.log('Локализованный заголовок:', localizedTitle)
 
   const price = prices[size]
   const totalPrice = (price !== undefined ? price : 0) * count
