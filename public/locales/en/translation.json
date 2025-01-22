@@ -108,6 +108,15 @@
     "searchInput": {
         "pizzaSearch": "Pizza search"
     },
+    "selectLang": {
+        "shortFormEn": "En",
+        "shortFormRu": "Ru",
+        "shortFormTj": "Tj",
+        "longFormEn": "English",
+        "longFormRu": "Russian",
+        "longFormTj": "Tajik",
+        "selectLang": "Select Language"
+    },
     "sort": {
         "popular": "Popular",
         "unPopular": "Unpopular",

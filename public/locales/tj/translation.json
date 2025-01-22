@@ -108,6 +108,15 @@
     "searchInput": {
         "pizzaSearch": "Ҷустуҷӯи питса"
     },
+    "selectLang": {
+        "shortFormEn": "En",
+        "shortFormRu": "Ru",
+        "shortFormTj": "Tj",
+        "longFormEn": "Англисӣ",
+        "longFormRu": "Русӣ",
+        "longFormTj": "Тоҷикӣ",
+        "selectLang": "Забонро интихоб кунед"
+      },
     "sort": {
         "popular": "Маъмул",
         "unPopular": "Ғайри маъмул",

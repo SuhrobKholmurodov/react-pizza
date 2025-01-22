@@ -108,6 +108,15 @@
   "searchInput": {
     "pizzaSearch": "Поиск пиццы"
   },
+  "selectLang": {
+    "shortFormEn": "En",
+    "shortFormRu": "Ru",
+    "shortFormTj": "Tj",
+    "longFormEn": "Английский",
+    "longFormRu": "Русский",
+    "longFormTj": "Таджикский",
+    "selectLang": "Выберите язык"
+  },
   "sort": {
     "popular": "Популярные",
     "unPopular": "Непопулярные",
