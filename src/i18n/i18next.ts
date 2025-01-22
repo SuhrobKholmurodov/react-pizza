@@ -11,7 +11,7 @@ i18next
     debug: true,
     detection: {
       order: ['queryString', 'cookie'],
-      cache: ['cookie']
+      caches: ['cookie']
     },
     interpolation: {
       escapeValue: false
