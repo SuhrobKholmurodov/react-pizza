@@ -17,7 +17,7 @@ export const CartFooter = ({
   const { t } = useLocalization() 
 
   return (
-    <div className='fixed bottom-0 left-0 w-full px-[5%] dark:bg-mainBgColor bg-white p-4 border-t border-gray-300'>
+    <div className='fixed bottom-0 left-0 w-full px-[5%] sm:px-[2%] dark:bg-mainBgColor bg-white p-4 sm:p-0 sm:pt-[5px] border-t border-gray-300'>
       <div className='flex justify-between sm:flex-col sm:gap-[10px] dark:bg-mainBgColor items-center p-2 bg-white border-gray-300'>
         <div className='flex items-center gap-6 p-4 sm:flex-col sm:w-full sm:items-start dark:bg-gray-900 dark:border-gray-700 sm:gap-2 bg-white border border-gray-300 rounded-lg shadow-sm'>
           <span className='text-sm font-medium dark:text-mainTextColor text-gray-700'>
