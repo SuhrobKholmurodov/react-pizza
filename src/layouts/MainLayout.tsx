@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { Header } from '../components/Header'
+import { GoTopButton } from '../components'
 
 const MainLayout = () => {
   const location = useLocation()
@@ -12,6 +13,9 @@ const MainLayout = () => {
         } sm:pb-[30%] pb-[8%]`}
       >
         <Outlet />
+      </div>
+      <div className='hidden sm:block'>
+        <GoTopButton />
       </div>
     </div>
   )
