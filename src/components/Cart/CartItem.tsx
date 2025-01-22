@@ -138,7 +138,7 @@ export const CartItem = ({
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
         title={t('cartItem.dialogTitle')}
-        message={`${t('cartItem.dialogMsg1')} ${title[lng]} ${t(
+        message={`${t('cartItem.dialogMsg1')} ${title[lng]}${lng === 'tj' ? '-po' : ''} ${t(
           'cartItem.dialogMsg2'
         )}`}
       />

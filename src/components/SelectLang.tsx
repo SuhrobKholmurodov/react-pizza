@@ -14,7 +14,7 @@ export const SelectLang = () => {
     <>
       <select
         value={lng}
-        className='block sm:hidden bg-white border-black/10 dark:border-2 dark:bg-mainBgColor border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-[50px] pt-[10px] pl-[10px] pb-[10px] pr-[0px] dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+        className='block sm:hidden hover:cursor-pointer bg-white border-black/10 dark:border-2 dark:bg-mainBgColor border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-[55px] pt-[10px] pl-[10px] pb-[10px] pr-[0px] dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
         onChange={e => handleLanguageChange(e.target.value as Language)}
       >
         <option value='en'>{t('selectLang.shortFormEn')}</option>
