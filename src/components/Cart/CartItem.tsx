@@ -1,24 +1,24 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import { addItem, minusItem, removeItem } from '../../redux/cart/slice';
-import { CartItem as CartItemType } from '../../redux/cart/types';
-import { Trash2, CirclePlus, CircleMinus } from 'lucide-react';
-import { DialogDelete } from '../DialogDelete';
-import { ShowToast } from '../ShowToast';
-import { AnimatedNumber } from '../AnimatedNumber';
-import { useLocalization } from '../../hooks';
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { Helmet } from 'react-helmet'
+import { addItem, minusItem, removeItem } from '../../redux/cart/slice'
+import { CartItem as CartItemType } from '../../redux/cart/types'
+import { Trash2, CirclePlus, CircleMinus } from 'lucide-react'
+import { DialogDelete } from '../DialogDelete'
+import { ShowToast } from '../ShowToast'
+import { AnimatedNumber } from '../AnimatedNumber'
+import { useLocalization } from '../../hooks'
 
 type CartItemProps = {
-  id: string;
-  title: string;
-  type: string;
-  size: number;
-  prices: number[];
-  count: number;
-  imageUrl: string;
-  sizes: number[];
-};
+  id: string
+  title: string
+  type: string
+  size: number
+  prices: number[]
+  count: number
+  imageUrl: string
+  sizes: number[]
+}
 
 export const CartItem = ({
   id,
@@ -28,11 +28,11 @@ export const CartItem = ({
   prices,
   count,
   imageUrl,
-  sizes,
+  sizes
 }: CartItemProps) => {
-  const dispatch = useDispatch();
-  const [openDialog, setOpenDialog] = useState(false);
-  const { t } = useLocalization(); 
+  const dispatch = useDispatch()
+  const [openDialog, setOpenDialog] = useState(false)
+  const { t } = useLocalization()
 
   const onClickPlus = () => {
     dispatch(
@@ -43,38 +43,38 @@ export const CartItem = ({
         imageUrl,
         type,
         size,
-        count,
+        count
       } as CartItemType)
-    );
-  };
+    )
+  }
 
   const onClickMinus = () => {
     if (count > 1) {
-      dispatch(minusItem(id));
+      dispatch(minusItem(id))
     }
-  };
+  }
 
   const handleOpenDialog = () => {
-    setOpenDialog(true);
-  };
+    setOpenDialog(true)
+  }
 
   const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
+    setOpenDialog(false)
+  }
 
   const handleConfirmDelete = () => {
-    dispatch(removeItem(id));
-    setOpenDialog(false);
-    ShowToast({ message: `${title} ${t('cartItem.wasRemoved')}` }); 
-  };
+    dispatch(removeItem(id))
+    setOpenDialog(false)
+    ShowToast({ message: `${title} ${t('cartItem.wasRemoved')}` })
+  }
 
-  const price = prices[size];
-  const totalPrice = (price !== undefined ? price : 0) * count;
+  const price = prices[size]
+  const totalPrice = (price !== undefined ? price : 0) * count
 
   return (
     <div className='flex items-center gap-4 p-4 sm:pt-2 sm:p-0 sm:pb-2 border-b border-gray-300'>
       <Helmet>
-        <title>{t('cartItem.helmetMsg')}</title> 
+        <title>{t('cartItem.helmetMsg')}</title>
         <meta name='description' content={t('cartItem.helmetMsg')} />
         <meta name='keywords' content={t('cartItem.helmetMsg')} />
         <meta name='robots' content='index, follow' />
@@ -89,10 +89,10 @@ export const CartItem = ({
       <div className='flex-1 dark:text-mainTextColor'>
         <h3 className='text-lg sm:text-[13px] font-semibold'>{title}</h3>
         <p className='text-sm sm:text-[12px] text-gray-500'>
-          {type}, {sizes[size]} {t('cartItem.cm')} 
+          {type}, {sizes[size]} {t('cartItem.cm')}
         </p>
         <p className='text-sm sm:text-[12px] text-gray-500'>
-          {t('cartItem.pricePerPiece')}: {price}$ 
+          {t('cartItem.pricePerPiece')} {price}$
         </p>
       </div>
       <div className='flex dark:text-mainTextColor sm:flex-col-reverse items-center gap-2'>
@@ -101,7 +101,7 @@ export const CartItem = ({
           onClick={onClickMinus}
           disabled={count === 1}
           style={{
-            cursor: count === 1 ? 'not-allowed' : 'pointer',
+            cursor: count === 1 ? 'not-allowed' : 'pointer'
           }}
         >
           <CircleMinus style={{ color: count === 1 ? '#e2e2e2' : 'gray' }} />
@@ -137,9 +137,11 @@ export const CartItem = ({
         open={openDialog}
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
-        title={t('cartItem.dialogTitle')} 
-        message={`${t('cartItem.dialogMsg1')} ${title} ${t('cartItem.dialogMsg2')}`} 
+        title={t('cartItem.dialogTitle')}
+        message={`${t('cartItem.dialogMsg1')} ${title} ${t(
+          'cartItem.dialogMsg2'
+        )}`}
       />
     </div>
-  );
-};
+  )
+}

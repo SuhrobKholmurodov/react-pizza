@@ -59,7 +59,7 @@ export const PaymentModal = ({ open, onClose, handleSubmit }: PaymentModalProps)
         />
         <br />
         <br />
-        <div className='flex justify-center mt-4 gap-[10px]'>
+        <div className='flex justify-center mt-4 gap-[5px]'>
           <Button
             variant='outlined'
             fullWidth

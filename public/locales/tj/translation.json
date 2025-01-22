@@ -9,7 +9,7 @@
         "emptySubTitle": "Эҳтимол, ки шумо то ҳол питса фармоиш накардаед. Барои фармоиши питса, ба саҳифаи асосӣ гузаред."
     },
     "cartFooter": {
-        "totalPizzas": "Ҳамаи питсаҳо",
+        "totalPizzas": "Ҳамаи питсаҳо:",
         "count": "адад",
         "orderTotal": "Ҷамъи фармоиш:",
         "orderDelivery": "Фармоиш кардан"
@@ -85,7 +85,7 @@
         "prices": "Нархҳо",
         "ingredients": "Маҳсулотҳо",
         "description": "Тавсиф",
-        "addToCart": "Ба корзина илова кардан"
+        "addToCart": "Ба сабад илова кардан"
     },
     "productInfoTooltip": {
         "spiceLevel": "Сатҳи тезӣ",
