@@ -7,7 +7,7 @@ export const SelectLang = () => {
 
   const handleLanguageChange = (language: Language) => {
     changeLanguage(language)
-    setIsDrawerOpen(false) 
+    setIsDrawerOpen(false)
   }
 
   return (
@@ -33,29 +33,36 @@ export const SelectLang = () => {
         className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 ${
           isDrawerOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
-        onClick={() => setIsDrawerOpen(false)} 
+        onClick={() => setIsDrawerOpen(false)}
       >
         <div
           className={`fixed hidden sm:block bottom-0 left-0 right-0 bg-white dark:bg-mainBgColor rounded-t-2xl p-6 transition-transform duration-300 ${
             isDrawerOpen ? 'translate-y-0' : 'translate-y-full'
           }`}
-          onClick={e => e.stopPropagation()} 
+          onClick={e => e.stopPropagation()}
         >
           <h2 className='text-lg font-semibold mb-4 dark:text-white'>
             Select Language
           </h2>
           <div className='space-y-3'>
-            {(['en', 'ru', 'tj'] as Language[]).map(language => (
+            {(
+              [
+                { code: 'en', name: 'English', flag: '🇺🇸' },
+                { code: 'ru', name: 'Russian', flag: '🇷🇺' },
+                { code: 'tj', name: 'Tajik', flag: '🇹🇯' }
+              ] as const
+            ).map(({ code, name, flag }) => (
               <button
-                key={language}
-                onClick={() => handleLanguageChange(language)}
-                className={`w-full text-left p-2 rounded-lg ${
-                  lng === language
+                key={code}
+                onClick={() => handleLanguageChange(code)}
+                className={`w-full text-left p-2 rounded-lg flex items-center space-x-3 ${
+                  lng === code
                     ? 'bg-blue-500 text-white'
                     : 'bg-gray-100 dark:bg-gray-700 dark:text-white'
                 }`}
               >
-                {language.toUpperCase()}
+                <span className='text-xl'>{flag}</span>
+                <span>{name}</span>
               </button>
             ))}
           </div>
