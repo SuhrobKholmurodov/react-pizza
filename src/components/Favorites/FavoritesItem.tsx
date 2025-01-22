@@ -1,58 +1,58 @@
-import { useDispatch } from 'react-redux';
-import { Trash } from 'lucide-react';
-import { useState } from 'react';
-import { removeFavorite } from '../../redux/favorites/slice';
-import { DialogDelete } from '../DialogDelete';
-import { ShowToast } from '../ShowToast';
-import { PizzaDrawer } from '../PizzaDrawer';
-import { addItem } from '../../redux/cart/slice';
-import { CartItem } from '../../redux/cart/types';
-import { useLocalization } from '../../hooks';
+import { useDispatch } from 'react-redux'
+import { Trash } from 'lucide-react'
+import { useState } from 'react'
+import { removeFavorite } from '../../redux/favorites/slice'
+import { DialogDelete } from '../DialogDelete'
+import { ShowToast } from '../ShowToast'
+import { PizzaDrawer } from '../PizzaDrawer'
+import { addItem } from '../../redux/cart/slice'
+import { CartItem } from '../../redux/cart/types'
+import { useLocalization } from '../../hooks'
 
 interface FavoritesItemProps {
   item: {
-    id: string;
-    imageUrl: string;
-    title: string;
-    prices: number[];
-    discountPrices?: number[];
-    typeNames?: string[];
-    sizes?: number[];
-    moreDetails?: string;
-    ingredients?: string[];
+    id: string
+    imageUrl: string
+    title: { en: string; ru: string; tj: string }
+    prices: number[]
+    discountPrices?: number[]
+    typeNames?: string[]
+    sizes?: number[]
+    moreDetails?: { en: string; ru: string; tj: string }
+    ingredients?: { en: string[]; ru: string[]; tj: string[] }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    reviews?: any[];
-    spicyLevel?: number;
-    deliveryTime?: number;
-    preparationTime?: number;
-    calories?: number;
-  };
+    reviews?: any[]
+    spicyLevel?: number
+    deliveryTime?: number
+    preparationTime?: number
+    calories?: number
+  }
 }
 
 export const FavoritesItem = ({ item }: FavoritesItemProps) => {
-  const dispatch = useDispatch();
-  const [openDialog, setOpenDialog] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const { t } = useLocalization();
+  const dispatch = useDispatch()
+  const [openDialog, setOpenDialog] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const { t, lng } = useLocalization()
 
-  const handleDrawerOpen = () => setDrawerOpen(true);
-  const handleDrawerClose = () => setDrawerOpen(false);
+  const handleDrawerOpen = () => setDrawerOpen(true)
+  const handleDrawerClose = () => setDrawerOpen(false)
 
-  const handleOpenDialog = () => setOpenDialog(true);
-  const handleCloseDialog = () => setOpenDialog(false);
+  const handleOpenDialog = () => setOpenDialog(true)
+  const handleCloseDialog = () => setOpenDialog(false)
 
   const handleConfirmDelete = () => {
-    dispatch(removeFavorite(item.id));
-    setOpenDialog(false);
-    ShowToast({ message: `${item.title} ${t('favoriteItem.wasDeleted')}` });
-  };
+    dispatch(removeFavorite(item.id))
+    setOpenDialog(false)
+    ShowToast({ message: `${item.title[lng]} ${t('favoriteItem.wasDeleted')}` })
+  }
 
   const onClickAdd = () => {
-    const defaultTypeNames = ['тонкое'];
-    const defaultSizes = [25, 30, 35];
-    const defaultPrices = [0];
+    const defaultTypeNames = ['тонкое']
+    const defaultSizes = [25, 30, 35]
+    const defaultPrices = [0]
     const prices =
-      item.prices && item.prices.length > 0 ? item.prices : defaultPrices;
+      item.prices && item.prices.length > 0 ? item.prices : defaultPrices
 
     const cartItem: CartItem = {
       id: item.id,
@@ -66,12 +66,12 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
       size:
         item.sizes && item.sizes.length > 0 ? item.sizes[0] : defaultSizes[0],
       sizes: item.sizes || defaultSizes,
-      count: 0,
-    };
+      count: 0
+    }
 
-    dispatch(addItem(cartItem));
-    ShowToast({ message: `${item.title} ${t('favoriteItem.toastMsg')}` });
-  };
+    dispatch(addItem(cartItem))
+    ShowToast({ message: `${item.title[lng]} ${t('favoriteItem.toastMsg')}` })
+  }
 
   return (
     <div className='bg-white dark:bg-mainBgColor hover:shadow-lg dark:hover:shadow-black rounded-lg transition-shadow duration-300 ease-in-out'>
@@ -89,12 +89,12 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
         <img
           className='w-[260px] h-auto object-cover rounded-md'
           src={item.imageUrl}
-          alt={item.title}
+          alt={item.title[lng]}
         />
       </div>
       <div className='p-4'>
         <h2 className='text-xl font-semibold mb-2 dark:text-mainTextColor'>
-          {item.title}
+          {item.title[lng]}
         </h2>
         <div className='flex items-center gap-2 mb-2'>
           {item.discountPrices && item.discountPrices[0] !== null ? (
@@ -126,15 +126,15 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
           id: item.id,
           title: item.title,
           prices: item.prices,
-          moreDetails: item.moreDetails || '',
+          moreDetails: item.moreDetails || { en: '', ru: '', tj: '' },
           discountPrices: item.discountPrices,
           imageUrl: item.imageUrl,
-          ingredients: item.ingredients || [],
+          ingredients: item.ingredients || { en: [], ru: [], tj: [] },
           reviews: item.reviews || [],
           spicyLevel: item.spicyLevel || 0,
           deliveryTime: item.deliveryTime || 0,
           preparationTime: item.preparationTime || 0,
-          calories: item.calories || 0,
+          calories: item.calories || 0
         }}
         status='loaded'
         onAddToCart={onClickAdd}
@@ -145,8 +145,10 @@ export const FavoritesItem = ({ item }: FavoritesItemProps) => {
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
         title={t('favoriteItem.dialogTitle')}
-        message={`${t('favoriteItem.dialogMsg1')} ${item.title} ${t('favoriteItem.dialogMsg2')}`}
+        message={`${t('favoriteItem.dialogMsg1')} ${item.title[lng]}${lng === 'tj' ? '-po' : ''} ${t(
+          'favoriteItem.dialogMsg2'
+        )}?`}
       />
     </div>
-  );
-};
+  )
+}

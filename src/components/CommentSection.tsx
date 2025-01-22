@@ -3,12 +3,11 @@ import { ReviewFilterControls } from './ReviewFilterControls'
 import { Rating } from '@mui/material'
 import { useLocalization } from '../hooks'
 
-
 export type Review = {
   profilePhoto: string
   name: string
   comment: string
-  date: string
+  date: { en: string; ru: string; tj: string }
   recommendation: boolean
   rating: number
 }
@@ -22,7 +21,7 @@ export const CommentSection = ({
   reviews,
   filteredReviews
 }: CommentSectionProps) => {
-  const { t } = useLocalization()
+  const { t, lng } = useLocalization()
 
   return (
     <div
@@ -73,7 +72,7 @@ export const CommentSection = ({
                   {review.comment}
                 </p>
                 <p className='text-[12px] text-[gray] mt-[5px]'>
-                  {review.date}
+                  {review.date[lng]}
                 </p>
               </div>
             </li>

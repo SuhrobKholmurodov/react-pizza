@@ -26,7 +26,8 @@
     "cm": "см",
     "pricePerPiece": "Цена за штуку:",
     "dialogTitle": "Удалить товар?",
-    "dialogMsg": "Вы уверены, что хотите удалить"
+    "dialogMsg1": "Вы уверены, что хотите удалить",
+    "dialogMsg2": "из корзины"
   },
   "paymentModal": {
     "writeTheData": "Введите данные для оплаты",

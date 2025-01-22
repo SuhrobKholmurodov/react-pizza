@@ -10,19 +10,18 @@ import { ProductInfoTooltip } from './ProductInfoTooltip'
 import { CommentSection, Review } from './CommentSection'
 import { useLocalization } from '../hooks'
 
-
 type PizzaType = {
   id: string
-  title: string
+  title: { en: string; ru: string; tj: string }
   prices: number[]
   discountPrices?: number[]
   imageUrl: string
-  ingredients: string[]
+  ingredients: { en: string[]; ru: string[]; tj: string[] }
   spicyLevel: number
   deliveryTime: number
   preparationTime: number
   calories: number
-  moreDetails: string
+  moreDetails: { en: string; ru: string; tj: string }
   reviews: Review[]
 }
 
@@ -46,7 +45,7 @@ export const PizzaDrawer = ({
   onAddToCart
 }: PizzaDrawerProps) => {
   const [tooltipOpen, setTooltipOpen] = useState(false)
-  const { t } = useLocalization() 
+  const { t, lng } = useLocalization()
 
   const handleTooltipClose = () => {
     setTooltipOpen(false)
@@ -76,7 +75,7 @@ export const PizzaDrawer = ({
         <div className='pl-[10px] pr-[10px] flex flex-col'>
           <div className='flex sm:fixed sm:top-0 dark:bg-mainBgColor dark:text-mainTextColor sm:left-[10px] sm:right-[10px] sm:z-10 bg-white p-[16px] border-t-0 rounded-b-[12px] justify-between items-center'>
             <p className='font-[700] text-[26px] sm:text-[20px]'>
-              {pizza.title}
+              {pizza.title[lng]}
             </p>
             <X
               onClick={onClose}
@@ -87,7 +86,7 @@ export const PizzaDrawer = ({
             <div className='flex justify-center'>
               <img
                 src={pizza.imageUrl}
-                alt={pizza.title}
+                alt={pizza.title[lng]}
                 className='w-[80%] sm:w-[70%] object-contain'
               />
             </div>
@@ -129,13 +128,15 @@ export const PizzaDrawer = ({
                 <p className='text-[15px] font-[700]'>
                   {t('pizzaDrawer.ingredients')}:
                 </p>
-                <p className='text-[14px]'>{pizza?.ingredients?.join(', ')}</p>
+                <p className='text-[14px]'>
+                  {pizza?.ingredients[lng]?.join(', ')}
+                </p>
               </div>
               <div className='flex flex-col mt-[-15px]'>
                 <p className='text-[15px] font-[700]'>
                   {t('pizzaDrawer.description')}:
                 </p>
-                <p className='text-[14px]'>{pizza.moreDetails}</p>
+                <p className='text-[14px]'>{pizza.moreDetails[lng]}</p>
               </div>
             </div>
           </div>

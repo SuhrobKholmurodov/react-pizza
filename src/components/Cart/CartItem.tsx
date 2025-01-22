@@ -11,7 +11,7 @@ import { useLocalization } from '../../hooks'
 
 type CartItemProps = {
   id: string
-  title: string
+  title: { en: string; ru: string; tj: string }
   type: string
   size: number
   prices: number[]
@@ -32,7 +32,7 @@ export const CartItem = ({
 }: CartItemProps) => {
   const dispatch = useDispatch()
   const [openDialog, setOpenDialog] = useState(false)
-  const { t } = useLocalization()
+  const { t, lng } = useLocalization()
 
   const onClickPlus = () => {
     dispatch(
@@ -65,8 +65,14 @@ export const CartItem = ({
   const handleConfirmDelete = () => {
     dispatch(removeItem(id))
     setOpenDialog(false)
-    ShowToast({ message: `${title} ${t('cartItem.wasRemoved')}` })
+    ShowToast({ message: `${title[lng]} ${t('cartItem.wasRemoved')}` })
   }
+  const localizedTitle =
+    title && title[lng] ? title[lng] : 'Нет доступного заголовка'
+
+  console.log('Структура заголовка:', title)
+  console.log('Текущий язык:', lng)
+  console.log('Локализованный заголовок:', localizedTitle)
 
   const price = prices[size]
   const totalPrice = (price !== undefined ? price : 0) * count
@@ -83,11 +89,11 @@ export const CartItem = ({
         <img
           className='w-full h-full object-cover rounded-md'
           src={imageUrl}
-          alt={title}
+          alt={title[lng]}
         />
       </div>
       <div className='flex-1 dark:text-mainTextColor'>
-        <h3 className='text-lg sm:text-[13px] font-semibold'>{title}</h3>
+        <h3 className='text-lg sm:text-[13px] font-semibold'>{title[lng]}</h3>
         <p className='text-sm sm:text-[12px] text-gray-500'>
           {type}, {sizes[size]} {t('cartItem.cm')}
         </p>
@@ -138,7 +144,7 @@ export const CartItem = ({
         onClose={handleCloseDialog}
         onConfirm={handleConfirmDelete}
         title={t('cartItem.dialogTitle')}
-        message={`${t('cartItem.dialogMsg1')} ${title} ${t(
+        message={`${t('cartItem.dialogMsg1')} ${title[lng]} ${t(
           'cartItem.dialogMsg2'
         )}`}
       />

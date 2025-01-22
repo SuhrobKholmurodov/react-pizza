@@ -18,17 +18,16 @@ import { ShowToast } from './ShowToast'
 import { AnimatedNumber } from './AnimatedNumber'
 import { useLocalization } from '../hooks'
 
-
 type PizzaBlockProps = {
   id: string
-  title: string
+  title: { en: string; ru: string; tj: string }
   prices: number[]
   discountPrices?: number[]
   reviews: ReviewItemProps[]
-  ingredients: string[]
+  ingredients: { en: string[]; ru: string[]; tj: string[] }
   deliveryTime: number
   isNew: boolean
-  moreDetails: string
+  moreDetails: { en: string; ru: string; tj: string }
   imageUrl: string
   sizes: number[]
   types: number[]
@@ -61,14 +60,14 @@ export const PizzaBlock = ({
   const [activeType, setActiveType] = useState(0)
   const [activeSize, setActiveSize] = useState(0)
   const [drawerOpen, setDrawerOpen] = useState(false)
-  const { t } = useLocalization()
+  const { t, lng } = useLocalization()
 
   const typeNames = [t('pizzaBlock.thin'), t('pizzaBlock.traditional')]
 
   const onClickFavorite = () => {
     if (favoriteItem) {
       dispatch(removeFavorite(id))
-      ShowToast({ message: `${title} ${t('favoriteItem.wasDeleted')}` })
+      ShowToast({ message: `${title[lng]} ${t('favoriteItem.wasDeleted')}` })
     } else {
       const favoriteItem: Pizza = {
         id,
@@ -90,7 +89,7 @@ export const PizzaBlock = ({
         calories
       }
       dispatch(addFavorite(favoriteItem))
-      ShowToast({ message: `${title} ${t('favoriteItem.toastMsg')}` })
+      ShowToast({ message: `${title[lng]} ${t('favoriteItem.toastMsg')}` })
     }
   }
 
@@ -107,13 +106,13 @@ export const PizzaBlock = ({
       sizes
     }
     dispatch(addItem(item))
-    ShowToast({ message: `${title} ${t('pizzaBlock.addedToCart')}` })
+    ShowToast({ message: `${title[lng]} ${t('pizzaBlock.addedToCart')}` })
   }
 
   const onClickMinus = () => {
     dispatch(minusItem(id))
     if (addedCount === 1) {
-      ShowToast({ message: `${title} ${t('pizzaBlock.removedFromCart')}` })
+      ShowToast({ message: `${title[lng]} ${t('pizzaBlock.removedFromCart')}` })
     }
   }
 
@@ -137,7 +136,7 @@ export const PizzaBlock = ({
             onClick={handleDrawerOpen}
             className='w-[260px] hover:cursor-pointer h-auto object-cover rounded-md'
             src={imageUrl}
-            alt={title}
+            alt={title[lng]}
           />
           {isNew && (
             <div className='absolute top-0 left-0 bg-orange-500 text-white text-xs font-bold py-1 px-2 rounded-tl-lg rounded-br-lg'>
@@ -172,7 +171,7 @@ export const PizzaBlock = ({
           </div>
         </div>
         <h4 className='text-lg font-semibold dark:text-mainTextColor mt-2 text-center'>
-          {title}
+          {title[lng]}
         </h4>
       </div>
       <div className='mt-3 rounded-md p-[5px] dark:text-[#e3e1e1] dark:bg-[#202127] bg-[#f5f6f7]'>
@@ -212,7 +211,9 @@ export const PizzaBlock = ({
                   {activeSize === i && (
                     <Check className='w-[20px] mt-[5px] h-[20px] text-green-500' />
                   )}
-                  <span>{size} {t('pizzaBlock.cm')}</span>
+                  <span>
+                    {size} {t('pizzaBlock.cm')}
+                  </span>
                 </div>
               </li>
             ))}

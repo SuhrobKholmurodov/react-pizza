@@ -1,8 +1,8 @@
 {
     "header": {
         "title": "Pizza that will win your heart",
-        "tooltipFav":"Favorites",
-        "tooltipCart":"Cart"
+        "tooltipFav": "Favorites",
+        "tooltipCart": "Cart"
     },
     "cartEmpty": {
         "emptyTitle": "Cart is empty 😕",
@@ -26,7 +26,8 @@
         "cm": "cm",
         "pricePerPiece": "Price per piece:",
         "dialogTitle": "Delete item?",
-        "dialogMsg": "Are you sure you want to delete"
+        "dialogMsg1": "Are you sure you want to remove",
+        "dialogMsg2": "from favorites"
     },
     "paymentModal": {
         "writeTheData": "Enter payment details",

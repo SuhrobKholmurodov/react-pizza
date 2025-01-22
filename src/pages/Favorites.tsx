@@ -16,14 +16,14 @@ export const Favorites = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
   const { searchValue } = useSelector(selectFilter)
   const [openDialog, setOpenDialog] = useState(false)
-  const { t } = useLocalization()
+  const { t , lng} = useLocalization()
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
   const filteredFavorites = favoriteItems.filter(item =>
-    item.title.toLowerCase().includes(searchValue.toLowerCase())
+    item.title[lng].toLowerCase().includes(searchValue.toLowerCase())
   )
 
   const totalCount = cartItems.reduce((sum, item) => sum + item.count, 0)

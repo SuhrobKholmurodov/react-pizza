@@ -13,8 +13,8 @@ const apiUrl = import.meta.env.VITE_API_URL
 interface Pizza {
   id: number
   imageUrl: string
-  title: string
-  moreDetails: string
+  title: { en: string; ru: string; tj: string }
+  moreDetails: { en: string; ru: string; tj: string }
   onPromotion: boolean
 }
 
@@ -31,7 +31,7 @@ const fetchAllPromotionalPizzas = async () => {
 export const SwiperPizza = () => {
   const [promotionalItems, setPromotionalItems] = useState<Pizza[]>([])
 
-  const { t } = useLocalization()
+  const { t, lng } = useLocalization()
 
   useEffect(() => {
     const fetchPromotions = async () => {
@@ -70,15 +70,15 @@ export const SwiperPizza = () => {
             <div className='flex gap-[220px] justify-between items-center sm:gap-[4px] sm:flex-col'>
               <img
                 src={el.imageUrl}
-                alt={el.title}
+                alt={el.title[lng]}
                 className='w-[250px] h-[250px] rounded-lg object-cover sm:w-[130px] sm:h-[130px]'
               />
               <div className='flex flex-col justify-center text-start max-w-[500px] items-start sm:max-w-full sm:items-center sm:text-center'>
                 <h3 className='text-3xl dark:text-mainTextColor font-bold text-gray-800 mb-4 sm:text-lg sm:mb-2'>
-                  {el.title}
+                  {el.title[lng]}
                 </h3>
                 <p className='text-lg leading-[30px] sm:leading-[18px] mb-[10px] dark:text-gray-300 text-gray-600 sm:text-[12px]'>
-                  {el.moreDetails}
+                  {el.moreDetails[lng]}
                 </p>
               </div>
             </div>

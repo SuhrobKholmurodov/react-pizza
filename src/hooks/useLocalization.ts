@@ -1,13 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+export type Language = 'en' | 'ru' | 'tj'
 
 export const useLocalization = () => {
   const { t, i18n } = useTranslation()
-  const [lng, setLng] = useState(i18n.language)
+  const [lng, setLng] = useState<Language>(i18n.language as Language)
 
-  const changeLanguage = (language: string) => {
+  useEffect(() => {
+    const handleLanguageChange = (language: Language) => {
+      setLng(language)
+    }
+
+    i18n.on('languageChanged', handleLanguageChange)
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange)
+    }
+  }, [i18n])
+
+  const changeLanguage = (language: Language) => {
     i18n.changeLanguage(language)
-    setLng(language)
   }
 
   return { t, lng, changeLanguage }
