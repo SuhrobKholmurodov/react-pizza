@@ -76,8 +76,8 @@
         "addedToCart": "ба сабад илова шуд",
         "removedFromCart": "аз сабад тоза шуд",
         "reviewSingular": "барраси",
-        "reviewPlural": "баррасиҳо",
-        "reviewPluralGenitive": "баррасиҳо",
+        "reviewPlural": "барраси",
+        "reviewPluralGenitive": "барраси",
         "cm": "см"
     },
     "pizzaDrawer": {
