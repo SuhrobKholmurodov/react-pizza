@@ -125,8 +125,8 @@
     "byNumRevDesc": "By number of reviews (descending)",
     "byNumRevAsc": "By number of reviews (ascending)",
     "newArrivals": "New arrivals",
-    "za": "Z-A",
-    "az": "A-Z"
+    "za": "Reverse alphabetical order Z-A",
+    "az": "Alphabetical order A-Z"
   },
   "swiperPizza": {
     "onPromotion": "On Promotion"
