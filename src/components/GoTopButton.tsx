@@ -11,7 +11,7 @@ export const GoTopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className='fixed bottom-[88px] right-4 p-2 border border-[#b4b2b2] backdrop-blur-sm text-blue-800 rounded-full cursor-pointer z-[1000] flex items-center justify-center dark:text-blue-400'
+      className='fixed bottom-[88px] focus:ring-1 focus:ring-slate-500 right-4 p-2 border border-[#b4b2b2] backdrop-blur-sm text-blue-800 rounded-full cursor-pointer z-[1000] flex items-center justify-center dark:text-blue-400'
     >
       <ArrowUp size={26} />
     </button>
