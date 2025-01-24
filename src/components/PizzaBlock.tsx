@@ -18,6 +18,8 @@ import { ShowToast } from './ShowToast'
 import { AnimatedNumber } from './AnimatedNumber'
 import { useLocalization } from '../hooks'
 
+// total price
+
 type PizzaBlockProps = {
   id: string
   title: { en: string; ru: string; tj: string }

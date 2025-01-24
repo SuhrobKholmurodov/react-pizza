@@ -9,7 +9,8 @@ import {
   SwiperPizza,
   CustomPagination,
   EmptyContent,
-  CartSummary
+  CartSummary,
+  PriceFilter
 } from '../components'
 import { useAppDispatch } from '../redux/store'
 import { selectFilter } from '../redux/filter/selectors'
@@ -82,12 +83,15 @@ export const Home = () => {
       </div>
       <div className='flex mt-[20px] items-center sm:gap-[20px] sm:flex-col justify-between'>
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort value={sort} />
+        <div className='flex items-center gap-[20px] sm:flex-col-reverse sm:items-start'>
+          <PriceFilter />
+          <Sort value={sort} />
+        </div>
       </div>
       <Helmet>
         <title>Pizza house | {t('home.helmetMsg')}</title>
       </Helmet>
-      <h2 className='text-[24px] pl-[7px] dark:text-mainTextColor mt-[20px] font-[600] mb-[20px]'>
+      <h2 className='text-[24px] pl-[7px] dark:text-mainTextColor mt-[20px] sm:mt-[5px] font-[600] mb-[20px]'>
         {t('home.allPizza')}
       </h2>
       {status === 'error' ? (

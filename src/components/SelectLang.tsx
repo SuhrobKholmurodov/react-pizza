@@ -44,7 +44,7 @@ export const SelectLang = () => {
           <div className='flex items-center justify-center'>
             <p className='w-[60px] h-[5px] rounded-b-3xl bg-gray-500 dark:bg-gray-700 mb-[10px]'></p>
           </div>
-          <h2 className='text-lg font-semibold mb-4 dark:text-white'>
+          <h2 className='text-lg text-center font-semibold mb-4 dark:text-white'>
             {t('selectLang.selectLang')}
           </h2>
           <div className='space-y-3'>
