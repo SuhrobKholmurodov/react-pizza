@@ -45,21 +45,21 @@ export const Favorites = () => {
       {favoriteItems.length > 0 && (
         <div className='flex items-center gap-2 mb-4'>
           <Link to={'/'}>
-            <div className='border p-[4px] focus:ring-4 hidden sm:block rounded-lg border-[#2fa4f8]'>
-              <ArrowLeft className='cursor-pointer text-2xl' />
+            <div className='border p-[4px] sm:p-[2px] focus:ring-4 hidden sm:block rounded-lg border-[#2fa4f8]'>
+              <ArrowLeft className='cursor-pointer' />
             </div>
           </Link>
           <div className='flex mb-2 sm:mb-0 justify-between w-full items-center'>
-            <h1 className='text-3xl sm:text-[20px] font-bold text-start'>
+            <h1 className='text-3xl sm:text-[16px] font-bold text-start'>
               {t('myFavorites.myFavorites')}
             </h1>
             <button
               onClick={handleOpenDialog}
-              className='flex items-center gap-2 text-red-500 hover:text-red-600 transition duration-300'
+              className='flex items-center gap-2 sm:gap-[2px] text-red-500 hover:text-red-600 transition duration-300'
               aria-label='Delete all favorites'
             >
-              <Trash2 size={24} />
-              <span className='text-[18px]'>{t('myFavorites.deleteAll')}</span>
+              <Trash2 size={20} />
+              <span className='text-[18px] sm:text-[16px]'>{t('myFavorites.deleteAll')}</span>
             </button>
           </div>
         </div>

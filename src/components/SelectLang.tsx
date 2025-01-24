@@ -36,7 +36,7 @@ export const SelectLang = () => {
         onClick={() => setIsDrawerOpen(false)}
       >
         <div
-          className={`fixed hidden sm:block bottom-0 left-0 right-0 bg-white dark:bg-mainBgColor rounded-t-2xl p-6 transition-transform duration-300 ${
+          className={`fixed hidden sm:block bottom-0 left-0 right-0 bg-white dark:bg-mainBgColor rounded-t-2xl px-4 py-6 transition-transform duration-300 ${
             isDrawerOpen ? 'translate-y-0' : 'translate-y-full'
           }`}
           onClick={e => e.stopPropagation()}
@@ -47,7 +47,7 @@ export const SelectLang = () => {
           <h2 className='text-lg text-center font-semibold mb-4 dark:text-white'>
             {t('selectLang.selectLang')}
           </h2>
-          <div className='space-y-3'>
+          <div className='space-y-4'>
             {(
               [
                 { code: 'en', name: t('selectLang.longFormEn'), flag: '🇺🇸' },
