@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Heart, ShoppingCart } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import { Badge, Tooltip } from '@mui/material'
 import { selectCart } from '../redux/cart/selectors'
 import { selectFavorites } from '../redux/favorites/selectors'
@@ -11,6 +11,7 @@ import { AnimatedNumber } from './AnimatedNumber'
 import { useLocalization } from '../hooks'
 import { SelectLang } from './SelectLang'
 import MainLogo from '../assets/img/logo_main.png'
+import greyHeart from '../assets/img/greyHeart.png'
 
 export const Header = () => {
   const { items: cartItems, totalPrice } = useSelector(selectCart)
@@ -56,8 +57,8 @@ export const Header = () => {
             <div className='flex dark:text-mainTextColor items-center gap-[20px]'>
               <div className='flex sm:ml-[10px] sm:flex-row-reverse items-center gap-[10px] sm:gap-[10px]'>
                 <Switcher />
-                <SelectLang /> 
-                <Tooltip title={t("header.tooltipFav")} arrow>
+                <SelectLang />
+                <Tooltip title={t('header.tooltipFav')} arrow>
                   <Link to={'/favorites'}>
                     <Badge
                       showZero={false}
@@ -71,16 +72,17 @@ export const Header = () => {
                         ) : null
                       }
                     >
-                      <Heart
-                        className='border p-[5px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
-                        size={'42px'}
+                      <img
+                        src={greyHeart}
+                        className='border p-[5px] w-[42px] h-[42px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
+                        alt=''
                       />
                     </Badge>
                   </Link>
                 </Tooltip>
               </div>
               <div className='flex sm:hidden rounded-lg px-[25px] border'>
-                <Tooltip title={t("header.tooltipCart")}  arrow>
+                <Tooltip title={t('header.tooltipCart')} arrow>
                   <div>
                     {location.pathname !== '/cart' && (
                       <Link

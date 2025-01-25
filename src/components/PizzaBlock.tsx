@@ -1,12 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ShoppingBasket, MessageCircle, Check, MinusIcon } from 'lucide-react'
-import {
-  Star,
-  FavoriteBorder,
-  Favorite,
-  RemoveRedEyeOutlined
-} from '@mui/icons-material'
+import { Star, RemoveRedEyeOutlined } from '@mui/icons-material'
 import { selectCartItemById } from '../redux/cart/selectors'
 import { Pizza, ReviewItemProps } from '../redux/pizza/types'
 import { CartItem } from '../redux/cart/types'
@@ -17,6 +12,8 @@ import { PizzaDrawer } from './PizzaDrawer'
 import { ShowToast } from './ShowToast'
 import { AnimatedNumber } from './AnimatedNumber'
 import { useLocalization } from '../hooks'
+import redHeart from '../assets/img/redheart.png'
+import greyHeart from '../assets/img/greyHeart.png'
 
 // total price
 
@@ -215,19 +212,13 @@ export const PizzaBlock = ({
             <div
               onClick={onClickFavorite}
               className={`border-gray-200 border duration-300 dark:border-gray-500 p-[2px] hover:cursor-pointer rounded-md dark:hover:border-[#c0bfbf] hover:border-gray-300 ${
-                favoriteItem ? 'animate-bounce' : ''
+                favoriteItem ? '' : 'animate-bounce'
               }`}
             >
               {favoriteItem ? (
-                <Favorite
-                  sx={{ color: 'rgb(248, 16, 75)' }}
-                  className='w-[20px] h-[20px]'
-                />
+                <img src={redHeart} className='w-[24px] h-[24px]' alt='' />
               ) : (
-                <FavoriteBorder
-                  sx={{ color: 'grey' }}
-                  className='w-[20px] hover:text-[red] h-[20px]'
-                />
+                <img src={greyHeart} className='w-[24px] h-[24px]' alt='' />
               )}
             </div>
           </div>
