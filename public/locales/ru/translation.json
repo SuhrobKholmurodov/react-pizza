@@ -88,6 +88,10 @@
     "description": "Описание",
     "addToCart": "Добавить в корзину"
   },
+  "priceFilter": {
+    "from": "От",
+    "to": "До"
+  },
   "productInfoTooltip": {
     "spiceLevel": "Уровень остроты",
     "prepTime": "Время приготовления",

@@ -88,6 +88,10 @@
     "description": "Description",
     "addToCart": " Add to cart"
   },
+  "priceFilter": {
+    "from": "From",
+    "to": "To"
+  },
   "productInfoTooltip": {
     "spiceLevel": "Spice level",
     "prepTime": "Preparation time",
