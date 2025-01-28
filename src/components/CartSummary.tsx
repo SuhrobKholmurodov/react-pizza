@@ -9,8 +9,8 @@ type CartSummaryProps = {
 
 export const CartSummary = ({ totalPrice, totalCount }: CartSummaryProps) => {
   return (
-    <div className='hidden sm:flex border dark:border-[#0d0d0d] dark:border-2 rounded-lg sm:px-[15px] px-[25px]'>
-      <Link to='/cart' className='flex py-[12px] gap-[10px]'>
+    <div className='hidden sm:flex border border-gray-300 dark:border-gray-600 rounded-lg sm:px-[15px] px-[25px]'>
+      <Link to='/cart' className='flex py-[12px] items-center gap-[10px]'>
         <span className='font-[600]'>
           <AnimatedNumber
             value={totalPrice}

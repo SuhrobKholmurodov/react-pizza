@@ -74,14 +74,14 @@ export const Header = () => {
                     >
                       <img
                         src={greyHeart}
-                        className='border p-[5px] w-[42px] h-[42px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
+                        className='p-[5px] hover:border-gray-400 dark:hover:border-gray-500 w-[42px] sm:w-[85px] h-[42px] dark:text-mainTextColor border border-gray-300 dark:border-gray-600 rounded-lg'
                         alt=''
                       />
                     </Badge>
                   </Link>
                 </Tooltip>
               </div>
-              <div className='flex sm:hidden rounded-lg px-[25px] border'>
+              <div className='flex sm:hidden rounded-lg px-[25px] border hover:border-gray-400 dark:hover:border-gray-500 border-gray-300 dark:border-gray-600'>
                 <Tooltip title={t('header.tooltipCart')} arrow>
                   <div>
                     {location.pathname !== '/cart' && (

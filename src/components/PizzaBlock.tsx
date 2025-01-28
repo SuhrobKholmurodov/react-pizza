@@ -205,20 +205,20 @@ export const PizzaBlock = ({
           <div className='absolute top-0 right-[0px] flex flex-col-reverse items-center gap-[5px]'>
             <div
               onClick={handleDrawerOpen}
-              className='hover:cursor-pointer border border-gray-200 dark:border-gray-500 p-[2px] rounded-md dark:text-mainTextColor dark:hover:text-[#4892f9] hover:text-[#4892f9]'
+              className='hover:cursor-pointer border border-gray-200 dark:border-gray-500 sm:p-[6px] p-[2px] rounded-md dark:text-mainTextColor dark:hover:text-[#4892f9] hover:text-[#4892f9]'
             >
-              <RemoveRedEyeOutlined className='w-[20px] text-[grey] hover:text-[#4892f9] h-[20px]' />
+              <RemoveRedEyeOutlined className='text-[grey] hover:text-[#4892f9]' />
             </div>
             <div
               onClick={onClickFavorite}
-              className={`border-gray-200 border duration-300 dark:border-gray-500 p-[2px] hover:cursor-pointer rounded-md dark:hover:border-[#c0bfbf] hover:border-gray-300 ${
+              className={`border-gray-200 border duration-300 dark:border-gray-500 sm:p-[4px] p-[2px] hover:cursor-pointer rounded-md dark:hover:border-[#c0bfbf] hover:border-gray-300 ${
                 favoriteItem ? '' : 'animate-bounce'
               }`}
             >
               {favoriteItem ? (
-                <img src={redHeart} className='w-[24px] h-[24px]' alt='' />
+                <img src={redHeart} className='w-[24px] sm:w-[30px] sm:h-[30px] h-[24px]' alt='' />
               ) : (
-                <img src={greyHeart} className='w-[24px] h-[24px]' alt='' />
+                <img src={greyHeart} className='w-[24px] sm:w-[30px] sm:h-[30px] h-[24px]' alt='' />
               )}
             </div>
           </div>

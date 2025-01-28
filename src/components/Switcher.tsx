@@ -24,7 +24,7 @@ export const Switcher = () => {
         arrow
       >
         <div
-          className='relative hover:cursor-pointer flex items-center justify-center border p-[5px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg'
+          className='relative hover:border-gray-400 dark:hover:border-gray-500 hover:cursor-pointer flex items-center justify-center p-[5px] dark:text-mainTextColor border border-gray-300 dark:border-gray-600 rounded-lg'
           style={{
             width: '46px',
             height: '42px',

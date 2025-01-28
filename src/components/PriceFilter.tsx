@@ -3,7 +3,7 @@ import { useLocalization } from '../hooks'
 export const PriceFilter = () => {
   const { t, lng } = useLocalization()
   return (
-    <div className='flex justify-between gap-[20px]'>
+    <div className='flex justify-between w-[100%]'>
       <div className='relative'>
         <input
           type='number'

@@ -14,7 +14,7 @@ export const SelectLang = () => {
     <>
       <select
         value={lng}
-        className='block sm:hidden hover:cursor-pointer bg-white border-black/10 dark:border-2 dark:bg-mainBgColor border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-[55px] pt-[10px] pl-[10px] pb-[10px] pr-[0px] dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+        className='hover:cursor-pointer sm:hidden bg-white dark:bg-mainBgColor border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white text-sm p-[5px] w-auto h-[42px] transition-all duration-200 ease-in-out shadow-sm hover:shadow-lg hover:border-gray-400 dark:hover:border-gray-500'
         onChange={e => handleLanguageChange(e.target.value as Language)}
       >
         <option value='en'>{t('selectLang.shortFormEn')}</option>
@@ -24,7 +24,7 @@ export const SelectLang = () => {
 
       <button
         onClick={() => setIsDrawerOpen(true)}
-        className='hidden sm:block border pl-[13px] pr-[13px] pt-[10px] pb-[10px] dark:text-mainTextColor border-black/10 dark:border-2 rounded-lg focus:outline-none'
+        className='hidden sm:block p-[5px] w-[42px] h-[42px] sm:w-[75px] dark:text-mainTextColor border-black/10 rounded-lg focus:outline-none border border-gray-300 dark:border-gray-600'
       >
         {lng.toUpperCase()}
       </button>

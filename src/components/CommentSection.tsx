@@ -49,7 +49,7 @@ export const CommentSection = ({
               <img
                 src={review.profilePhoto}
                 alt={review.name}
-                className='w-[40px] h-[40px] rounded-[50%] border-2 dark:border-[gray] border-[#e9e9e9]'
+                className='w-[40px] h-[40px] rounded-[50%] border dark:border-[gray] border-[#e9e9e9]'
               />
               <div className='flex flex-col'>
                 <p className='text-[16px] w-[470px] sm:w-full flex items-center justify-between font-[600] text-[gray]'>
