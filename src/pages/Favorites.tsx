@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Trash2, ArrowLeft, Home } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { selectFavorites } from '../redux/favorites/selectors'
 import { selectCart } from '../redux/cart/selectors'
 import { selectFilter } from '../redux/filter/selectors'
@@ -41,7 +42,13 @@ export const Favorites = () => {
   }
 
   return (
-    <div className='dark:bg-mainBgColor dark:text-mainTextColor min-h-screen'>
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 100 }}
+      transition={{ duration: 0.5 }}
+      className='dark:bg-mainBgColor dark:text-mainTextColor min-h-screen'
+    >
       {favoriteItems.length > 0 && (
         <div className='flex items-center gap-2 mb-4'>
           <Link to={'/'}>
@@ -59,7 +66,9 @@ export const Favorites = () => {
               aria-label='Delete all favorites'
             >
               <Trash2 size={20} />
-              <span className='text-[18px] sm:text-[16px]'>{t('myFavorites.deleteAll')}</span>
+              <span className='text-[18px] sm:text-[16px]'>
+                {t('myFavorites.deleteAll')}
+              </span>
             </button>
           </div>
         </div>
@@ -93,6 +102,6 @@ export const Favorites = () => {
         title={t('myFavorites.dialogTitle')}
         message={t('myFavorites.dialogMsg')}
       />
-    </div>
+    </motion.div>
   )
 }

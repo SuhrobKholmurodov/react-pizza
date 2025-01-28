@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Sun, Moon } from 'lucide-react'
+import { Sun, MoonStar } from 'lucide-react'
 import { Tooltip } from '@mui/material'
 import { useDarkSide, useLocalization } from '../hooks'
+import { motion } from 'framer-motion'
 
 export const Switcher = () => {
   const [colorTheme, setTheme] = useDarkSide()
@@ -33,28 +34,22 @@ export const Switcher = () => {
           }}
           onClick={() => toggleDarkMode(!darkSide)}
         >
-          <Sun
-            size={35}
-            color='#f39c12'
-            className={`absolute transition-opacity duration-500 ease-in-out ${
-              darkSide ? 'opacity-0' : 'opacity-100'
-            }`}
-            style={{
-              transform: darkSide ? 'rotate(180deg)' : 'rotate(0deg)',
-              transition: 'transform 0.5s ease-in-out'
-            }}
-          />
-          <Moon
-            size={35}
-            color='#9b9b9b'
-            className={`absolute transition-opacity duration-500 ease-in-out ${
-              darkSide ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              transform: darkSide ? 'rotate(0deg)' : 'rotate(-180deg)',
-              transition: 'transform 0.5s ease-in-out'
-            }}
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: darkSide ? 0 : 1, scale: darkSide ? 0.8 : 1 }}
+            transition={{ duration: 0.3 }}
+            className='absolute'
+          >
+            <Sun size={28} color='#f39c12' />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: darkSide ? 1 : 0, scale: darkSide ? 1 : 0.8 }}
+            transition={{ duration: 0.3 }}
+            className='absolute'
+          >
+            <MoonStar size={28} color='#9b999b' />
+          </motion.div>
         </div>
       </Tooltip>
     </div>

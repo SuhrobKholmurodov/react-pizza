@@ -205,7 +205,7 @@ export const PizzaBlock = ({
           <div className='absolute top-0 right-[0px] flex flex-col-reverse items-center gap-[5px]'>
             <div
               onClick={handleDrawerOpen}
-              className='hover:cursor-pointer border border-gray-200 dark:border-gray-500 sm:p-[6px] p-[2px] rounded-md dark:text-mainTextColor dark:hover:text-[#4892f9] hover:text-[#4892f9]'
+              className='hover:cursor-pointer border border-gray-200 dark:border-gray-500 sm:p-[7px] p-[2px] rounded-md dark:text-mainTextColor dark:hover:text-[#4892f9] hover:text-[#4892f9]'
             >
               <RemoveRedEyeOutlined className='text-[grey] hover:text-[#4892f9]' />
             </div>

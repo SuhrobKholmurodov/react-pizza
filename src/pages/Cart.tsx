@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion'
 import { selectCart } from '../redux/cart/selectors'
 import {
   CartEmpty,
@@ -35,16 +36,23 @@ export const Cart = () => {
   return (
     <div className='min-h-screen'>
       <CartHeader />
-      <div className='sm:mb-[30%] mt-[70px]'>
-        {items.map(item => (
-          <CartItem key={item.id} {...item} />
-        ))}
-      </div>
-      <PaymentModal
-        open={openModal}
-        onClose={handleCloseModal}
-        handleSubmit={handleToast}
-      />
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 100 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className='sm:mb-[30%] mt-[70px]'>
+          {items.map(item => (
+            <CartItem key={item.id} {...item} />
+          ))}
+        </div>
+        <PaymentModal
+          open={openModal}
+          onClose={handleCloseModal}
+          handleSubmit={handleToast}
+        />
+      </motion.div>
       <CartFooter
         totalCount={totalCount}
         totalPrice={totalPrice}
