@@ -16,7 +16,6 @@ import redHeart from '../assets/img/redheart.png'
 import greyHeart from '../assets/img/greyHeart.png'
 
 // total price
-
 type PizzaBlockProps = {
   id: string
   title: { en: string; ru: string; tj: string }
