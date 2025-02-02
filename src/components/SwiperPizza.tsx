@@ -6,7 +6,7 @@ import '../index.css'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { useLocalization } from '../hooks'
+import { useLocalization } from '@/hooks'
 
 const apiUrl = import.meta.env.VITE_API_URL
 

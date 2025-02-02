@@ -1,4 +1,4 @@
-import { BackToHomeButton } from './BackToHomeButton'
+import { BackToHomeButton } from "./BackToHomeButton"
 
 interface EmptyContentProps {
   title: string

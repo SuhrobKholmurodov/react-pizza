@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Box, Button, Typography } from '@mui/material';
 import InputMask from 'react-input-mask';
-import { useLocalization } from '../../hooks';
+import { useLocalization } from '@/hooks';
 
 interface PaymentModalProps {
   open: boolean;

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet'
-import { addItem, minusItem, removeItem } from '../../redux/cart/slice'
-import { CartItem as CartItemType } from '../../redux/cart/types'
+import { CartItem as CartItemType } from '@/redux/cart/types'
 import { Trash2, CirclePlus, CircleMinus } from 'lucide-react'
-import { DialogDelete } from '../DialogDelete'
+import { useLocalization } from '@/hooks'
+import { addItem, minusItem, removeItem } from '@/redux/cart/slice'
 import { ShowToast } from '../ShowToast'
 import { AnimatedNumber } from '../AnimatedNumber'
-import { useLocalization } from '../../hooks'
+import { DialogDelete } from '../DialogDelete'
 
 type CartItemProps = {
   id: string
@@ -65,22 +65,22 @@ export const CartItem = ({
   const handleConfirmDelete = () => {
     dispatch(removeItem(id))
     setOpenDialog(false)
-      ShowToast({
-        message: (
-          <span>
-            <span
-              style={{
-                color: document.documentElement.classList.contains('dark')
-                  ? '#ff0000'
-                  : '#0000ff'
-              }}
-            >
-              {title[lng]}
-            </span>{' '}
-            {t('cartItem.wasRemoved')}
-          </span>
-        )
-      })
+    ShowToast({
+      message: (
+        <span>
+          <span
+            style={{
+              color: document.documentElement.classList.contains('dark')
+                ? '#ff0000'
+                : '#0000ff'
+            }}
+          >
+            {title[lng]}
+          </span>{' '}
+          {t('cartItem.wasRemoved')}
+        </span>
+      )
+    })
   }
 
   const price = prices[size]

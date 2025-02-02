@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import { useLocalization } from '@/hooks'
 import { AnimatedNumber } from '../AnimatedNumber'
-import { useLocalization } from '../../hooks'
 
 type CartFooterProps = {
   totalCount: number

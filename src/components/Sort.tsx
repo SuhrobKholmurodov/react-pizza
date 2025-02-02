@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
-import { setSort } from '../redux/filter/slice'
-import { Sort as SortType, SortPropertyEnum } from '../redux/filter/types'
+import { setSort } from '@/redux/filter/slice'
+import { Sort as SortType, SortPropertyEnum } from '@/redux/filter/types'
 import {
   Select as BaseSelect,
   SelectRootSlotProps,
@@ -18,7 +18,7 @@ import SortIcon from '@mui/icons-material/Sort'
 import clsx from 'clsx'
 import { PopupContext } from '@mui/base/Unstable_Popup'
 import { CssTransition } from '@mui/base/Transitions'
-import { useLocalization } from '../hooks'
+import { useLocalization } from '@/hooks'
 
 
 function useIsDarkMode () {

@@ -1,3 +1,4 @@
+import { useLocalization } from '@/hooks'
 import {
   Dialog,
   DialogActions,
@@ -5,7 +6,6 @@ import {
   DialogTitle,
   Button
 } from '@mui/material'
-import { useLocalization } from '../hooks'
 
 
 type DialogDeleteProps = {

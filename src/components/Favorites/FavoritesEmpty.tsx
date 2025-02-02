@@ -1,5 +1,5 @@
-import { useLocalization } from '../../hooks';
-import { EmptyContent } from '../EmptyContent';
+import { useLocalization } from "@/hooks";
+import { EmptyContent } from "../EmptyContent";
 
 export const FavoritesEmpty = () => {
   const { t } = useLocalization();

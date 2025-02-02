@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Trash2, ArrowLeft, Home } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { selectFavorites } from '../redux/favorites/selectors'
-import { selectCart } from '../redux/cart/selectors'
-import { selectFilter } from '../redux/filter/selectors'
-import { clearFavorites } from '../redux/favorites/slice'
-import { FavoritesEmpty, FavoritesItem } from '../components/Favorites'
-import { CartSummary, DialogDelete } from '../components'
-import { useLocalization } from '../hooks'
+import { selectFavorites } from '@/redux/favorites/selectors'
+import { selectCart } from '@/redux/cart/selectors'
+import { selectFilter } from '@/redux/filter/selectors'
+import { useLocalization } from '@/hooks'
+import { clearFavorites } from '@/redux/favorites/slice'
+import { FavoritesEmpty, FavoritesItem } from '@/components/Favorites'
+import { CartSummary, DialogDelete } from '@/components'
 
 export const Favorites = () => {
   const dispatch = useDispatch()
@@ -94,7 +94,6 @@ export const Favorites = () => {
         </Link>
         <CartSummary totalPrice={totalPrice} totalCount={totalCount} />
       </div>
-
       <DialogDelete
         open={openDialog}
         onClose={handleCloseDialog}

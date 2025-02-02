@@ -2,24 +2,24 @@ import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { motion } from 'framer-motion'
+import { useAppDispatch } from '@/redux/store'
+import { selectPizzaData } from '@/redux/pizza/selectors'
+import { selectCart } from '@/redux/cart/selectors'
+import { selectFilter } from '@/redux/filter/selectors'
+import { useLocalization } from '@/hooks'
+import { setCategoryId, setCurrentPage } from '@/redux/filter/slice'
+import { fetchPizzas } from '@/redux/pizza/asyncActions'
 import {
+  CartSummary,
   Categories,
-  Sort,
-  PizzaBlock,
-  Skeleton,
-  SwiperPizza,
   CustomPagination,
   EmptyContent,
-  CartSummary,
-  PriceFilter
-} from '../components'
-import { useAppDispatch } from '../redux/store'
-import { selectFilter } from '../redux/filter/selectors'
-import { selectPizzaData } from '../redux/pizza/selectors'
-import { selectCart } from '../redux/cart/selectors'
-import { setCategoryId, setCurrentPage } from '../redux/filter/slice'
-import { fetchPizzas } from '../redux/pizza/asyncActions'
-import { useLocalization } from '../hooks'
+  PizzaBlock,
+  PriceFilter,
+  Sort,
+  SwiperPizza
+} from '@/components'
+import { Skeleton } from '@mui/material'
 
 export const Home = () => {
   const dispatch = useAppDispatch()

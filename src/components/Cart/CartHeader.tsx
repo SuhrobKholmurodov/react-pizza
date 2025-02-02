@@ -2,10 +2,10 @@ import { useState } from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearItems } from '../../redux/cart/slice';
+import { selectCart } from '@/redux/cart/selectors';
+import { useLocalization } from '@/hooks';
+import { clearItems } from '@/redux/cart/slice';
 import { DialogDelete } from '../DialogDelete';
-import { selectCart } from '../../redux/cart/selectors';
-import { useLocalization } from '../../hooks';
 
 export const CartHeader = () => {
   const dispatch = useDispatch();

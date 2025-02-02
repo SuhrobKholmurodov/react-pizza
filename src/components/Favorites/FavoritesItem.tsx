@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux'
 import { Trash } from 'lucide-react'
 import { useState } from 'react'
-import { removeFavorite } from '../../redux/favorites/slice'
-import { DialogDelete } from '../DialogDelete'
+import { useLocalization } from '@/hooks'
+import { removeFavorite } from '@/redux/favorites/slice'
 import { ShowToast } from '../ShowToast'
+import { CartItem } from '@/redux/cart/types'
+import { addItem } from '@/redux/cart/slice'
 import { PizzaDrawer } from '../PizzaDrawer'
-import { addItem } from '../../redux/cart/slice'
-import { CartItem } from '../../redux/cart/types'
-import { useLocalization } from '../../hooks'
+import { DialogDelete } from '../DialogDelete'
 
 interface FavoritesItemProps {
   item: {

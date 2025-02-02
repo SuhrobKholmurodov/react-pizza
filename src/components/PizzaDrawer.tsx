@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Drawer, Box } from '@mui/material'
 import { X } from 'lucide-react'
-import { CommentFilterEnum } from '../redux/commentFilter/types'
-import { setCommentFilter } from '../redux/commentFilter/slice'
-import { selectCommentFilter } from '../redux/commentFilter/selectors'
 import { CommentSkeleteon } from './CommentSkeleteon'
 import { ProductInfoTooltip } from './ProductInfoTooltip'
 import { CommentSection, Review } from './CommentSection'
-import { useLocalization } from '../hooks'
+import { useLocalization } from '@/hooks'
+import { selectCommentFilter } from '@/redux/commentFilter/selectors'
+import { CommentFilterEnum } from '@/redux/commentFilter/types'
+import { setCommentFilter } from '@/redux/commentFilter/slice'
 
 type PizzaType = {
   id: string

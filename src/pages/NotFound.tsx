@@ -1,4 +1,4 @@
-import { useLocalization } from "../hooks"
+import { useLocalization } from "@/hooks"
 
 export const NotFound = () => {
   const { t } = useLocalization()

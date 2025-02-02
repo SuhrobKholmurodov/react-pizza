@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Language, useLocalization } from '../hooks'
+import { Language, useLocalization } from '@/hooks'
 
 export const SelectLang = () => {
   const { lng, changeLanguage, t } = useLocalization()

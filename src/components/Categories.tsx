@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocalization } from '../hooks'
+import { useLocalization } from '@/hooks'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'

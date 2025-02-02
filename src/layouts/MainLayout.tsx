@@ -1,9 +1,8 @@
-import { Outlet, useLocation } from 'react-router-dom'
-import { Header } from '../components/Header'
-import { GoTopButton } from '../components'
+import { GoTopButton, Header } from '@/components'
+import { selectCart } from '@/redux/cart/selectors'
+import { selectFavorites } from '@/redux/favorites/selectors'
 import { useSelector } from 'react-redux'
-import { selectCart } from '../redux/cart/selectors'
-import { selectFavorites } from '../redux/favorites/selectors'
+import { Outlet, useLocation } from 'react-router-dom'
 
 const MainLayout = () => {
   const location = useLocation()

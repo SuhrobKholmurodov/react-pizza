@@ -1,16 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { motion } from 'framer-motion'
-import { selectCart } from '../redux/cart/selectors'
-import {
-  CartEmpty,
-  CartItem,
-  CartHeader,
-  PaymentModal,
-  CartFooter
-} from '../components/Cart'
-import { ShowToast } from '../components/ShowToast'
-import { useLocalization } from '../hooks'
+import { selectCart } from '@/redux/cart/selectors'
+import { useLocalization } from '@/hooks'
+import { ShowToast } from '@/components/ShowToast'
+import { CartEmpty, CartFooter, CartHeader, CartItem, PaymentModal } from '@/components/Cart'
 
 export const Cart = () => {
   const { totalPrice, items } = useSelector(selectCart)

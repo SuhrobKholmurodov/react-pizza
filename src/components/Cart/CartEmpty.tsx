@@ -1,6 +1,6 @@
-import { useLocalization } from '../../hooks';
-import { EmptyContent } from '../EmptyContent';
-import { CartHeader } from './CartHeader';
+import { useLocalization } from "@/hooks";
+import { CartHeader } from "./CartHeader";
+import { EmptyContent } from "../EmptyContent";
 
 export const CartEmpty = () => {
   const { t } = useLocalization();

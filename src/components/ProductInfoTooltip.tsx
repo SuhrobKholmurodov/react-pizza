@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tooltip, ClickAwayListener, Grid } from '@mui/material'
 import { Info } from 'lucide-react'
-import { useLocalization } from '../hooks'
+import { useLocalization } from '@/hooks'
 
 
 type ProductInfoTooltipProps = {

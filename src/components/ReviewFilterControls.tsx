@@ -1,8 +1,8 @@
+import { useLocalization } from '@/hooks'
+import { selectCommentFilter } from '@/redux/commentFilter/selectors'
+import { setCommentFilter } from '@/redux/commentFilter/slice'
+import { CommentFilterEnum } from '@/redux/commentFilter/types'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCommentFilter } from '../redux/commentFilter/slice'
-import { selectCommentFilter } from '../redux/commentFilter/selectors'
-import { CommentFilterEnum } from '../redux/commentFilter/types'
-import { useLocalization } from '../hooks'
 
 export const ReviewFilterControls = () => {
   const dispatch = useDispatch()

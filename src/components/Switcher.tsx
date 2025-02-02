@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Sun, MoonStar } from 'lucide-react'
 import { Tooltip } from '@mui/material'
-import { useDarkSide, useLocalization } from '../hooks'
+import { useDarkSide, useLocalization } from '@/hooks'
 import { motion } from 'framer-motion'
 
 export const Switcher = () => {

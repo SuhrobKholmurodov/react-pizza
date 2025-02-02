@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import App from './App'
 import './index.css'
 import './i18n/i18next.js'
-import { store } from './redux/store'
+import { store } from './redux/store.js'
 
 const rootElem = document.getElementById('root')
 

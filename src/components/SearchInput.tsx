@@ -2,8 +2,8 @@ import React, { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import debounce from 'lodash.debounce'
 import { Close, Search } from '@mui/icons-material'
-import { setSearchValue } from '../redux/filter/slice'
-import { useLocalization } from '../hooks'
+import { useLocalization } from '@/hooks'
+import { setSearchValue } from '@/redux/filter/slice'
 
 export const SearchInput = () => {
   const dispatch = useDispatch()
