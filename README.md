@@ -39,3 +39,23 @@
   - `react-content-loader`
 - 🎠 **Swiper** - Modern slider and carousel.
   - `swiper`
+
+## Getting Started 🚀
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SuhrobKholmurodov/react-pizza.git
+   ```
+2. Install dependencies: 
+   ```bash 
+   pnpm install
+   ```
+3. Start the development server: 
+   ```bash
+   pnpm run dev
+   ```
+4. Start the development server with network access
+   ```bash
+   pnpm run dev --host 
+   ```
+   
