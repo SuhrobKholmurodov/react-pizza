@@ -15,7 +15,6 @@ import {
   CustomPagination,
   EmptyContent,
   PizzaBlock,
-  PriceFilter,
   Sort,
   SwiperPizza
 } from '@/components'
@@ -90,7 +89,6 @@ export const Home = () => {
       <div className='flex mt-[20px] items-center sm:gap-[20px] sm:flex-col justify-between'>
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <div className='flex items-center gap-[20px] sm:flex-col-reverse sm:items-start'>
-          <PriceFilter />
           <Sort value={sort} />
         </div>
       </div>
