@@ -88,10 +88,6 @@
     "description": "Тавсиф",
     "addToCart": "Ба сабад илова кардан"
   },
-  "priceFilter": {
-    "from": "Аз",
-    "to": "То"
-  },
   "productInfoTooltip": {
     "spiceLevel": "Сатҳи тезӣ",
     "prepTime": "Вақти тайёрӣ",
