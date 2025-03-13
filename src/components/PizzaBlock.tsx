@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { ShoppingBasket, MessageCircle, Check, MinusIcon } from 'lucide-react'
+import {
+  ShoppingBasket,
+  MessageCircle,
+  Check,
+  MinusIcon,
+  Plus
+} from 'lucide-react'
 import { Star, RemoveRedEyeOutlined } from '@mui/icons-material'
 import { PizzaDrawer } from './PizzaDrawer'
 import { ShowToast } from './ShowToast'
@@ -214,9 +220,17 @@ export const PizzaBlock = ({
               }`}
             >
               {favoriteItem ? (
-                <img src={redHeart} className='w-[24px] sm:w-[30px] sm:h-[30px] h-[24px]' alt='' />
+                <img
+                  src={redHeart}
+                  className='w-[24px] sm:w-[30px] sm:h-[30px] h-[24px]'
+                  alt=''
+                />
               ) : (
-                <img src={greyHeart} className='w-[24px] sm:w-[30px] sm:h-[30px] h-[24px]' alt='' />
+                <img
+                  src={greyHeart}
+                  className='w-[24px] sm:w-[30px] sm:h-[30px] h-[24px]'
+                  alt=''
+                />
               )}
             </div>
           </div>
@@ -340,12 +354,26 @@ export const PizzaBlock = ({
 
       <div className='flex gap-[10px]'>
         {addedCount > 0 && (
-          <button
-            onClick={onClickMinus}
-            className='flex items-center justify-center px-[8px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
-          >
-            <MinusIcon className='text-[12px]' />
-          </button>
+          <div className='flex gap-[10px]'>
+            <button
+              onClick={onClickMinus}
+              className='flex items-center justify-center px-[8px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
+            >
+              <MinusIcon className='text-[12px]' />
+            </button>
+            <button className='flex items-center justify-center px-[16px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'>
+              <AnimatedNumber
+                value={addedCount}
+                className='text-mainTextColor'
+              />
+            </button>
+            <button
+              onClick={onClickAdd}
+              className='flex items-center justify-center px-[8px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
+            >
+              <Plus className='text-[12px]' />
+            </button>
+          </div>
         )}
         <button
           onClick={onClickAdd}
@@ -356,11 +384,6 @@ export const PizzaBlock = ({
             {deliveryTime} {t('pizzaBlock.minutes')}
           </span>
         </button>
-        {addedCount > 0 && (
-          <button className='flex items-center justify-center px-[16px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'>
-            <AnimatedNumber value={addedCount} className='text-mainTextColor' />
-          </button>
-        )}
       </div>
       <PizzaDrawer
         open={drawerOpen}
