@@ -359,7 +359,7 @@ export const PizzaBlock = ({
               onClick={onClickMinus}
               className='flex items-center justify-center px-[8px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
             >
-              <MinusIcon className='text-[12px]' />
+              <MinusIcon className='text-[10px]' />
             </button>
             <button className='flex items-center justify-center px-[16px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'>
               <AnimatedNumber
@@ -371,7 +371,7 @@ export const PizzaBlock = ({
               onClick={onClickAdd}
               className='flex items-center justify-center px-[8px] py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600'
             >
-              <Plus className='text-[12px]' />
+              <Plus className='text-[10px]' />
             </button>
           </div>
         )}

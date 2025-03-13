@@ -28,7 +28,7 @@ export const Cart = () => {
   }
 
   return (
-    <div className='min-h-screen'>
+    <div className='fixed sm:relative sm:px-0 overflow-y-scroll inset-0 px-11 pt-3'>
       <CartHeader />
       <motion.div
         initial={{ opacity: 0, x: -100 }}
